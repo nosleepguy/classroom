@@ -1,0 +1,172 @@
+
+
+/* ------------------------------------------------------------- */
+
+/* nav  */
+
+.nav {
+    padding: 10px 25px 11px 25px;
+}
+
+.nav .action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+.nav .action .class-name .detail {
+    margin: 0 20px !important;
+}
+.nav .action .class-name {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+.nav .action .class-name .detail {
+    margin: 20px;
+}
+.detail .class {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.join-avatar {
+    display: flex;
+    align-items: center;
+}
+.join-avatar .join {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 100px;
+    position: relative;
+}
+
+.join-avatar .join .ul-join {
+    position: absolute;
+    text-align: left;
+    left: -300%;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(224, 224, 224, 0.664);
+    cursor: pointer;
+    /* border: 1px solid #000; */
+}
+.join-avatar .join .li-join {
+    list-style: none;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px 20px;
+
+    display: none;
+}
+.join-avatar .join:hover .li-join {
+    display: block;
+}
+
+.nav .avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+    background-image: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.option {
+    display: flex;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.option .option-item .content {
+    font-size: 14px;
+    padding: 20px;
+}
+.option .option-item .border {
+    height: 5px;
+    background-color: #000;
+    border-radius: 5px 5px 0 0;
+}
+/* ------------------- */
+
+
+/* ------------------------------------------------------------- */
+
+
+
+/* // phần tab khi click vào dấu 3 gạch */
+
+.tab {
+    width: 300px;
+    min-height: calc(100vh - 65px);
+    box-shadow: 2px 5px 5px rgba(224, 224, 224, 0.664);
+    /* transform: translate(-0%, -0px); */
+    padding-top: 10px;
+    background: #fff;
+    transition:  transform .3s ease-in-out;
+    cursor: pointer;
+}
+.border-bottom {
+    border-bottom: 1px solid #e0e0e0;
+}
+.tab .contain .item {
+
+    padding: 16px;
+    margin: 10px 10px 10px 0;
+    /* border: 1px solid; */
+    border-radius: 0 30px 30px 0;
+}
+.tab .contain .item .icon {
+    width: 20%;
+    padding: 5px;
+    font-size: 22px;
+    color: var(--color-icon);
+}
+.tab .contain .item .text {
+    font-size: 15px;
+    font-weight: bold;
+}
+.class-active {
+    display: flex;
+    align-items: center;
+}
+.class-active .represent {
+    padding: 0 !important;
+
+    /* border: 1px solid #000; */
+}
+.represent div {
+    width: 35px;
+    height: 35px;
+    background-color: rgb(4, 114, 148);
+    border-radius: 100px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+}
+
+/* ---------------------------- */
+.hide{
+    display: none;
+}
+/* ------------------------------------------------------------- */
+
+@media (max-width: 1040px) {
+    .option {
+        top: 64px;
+    }
+}
+@media (max-width: 480px) {
+    .avatar {
+        display: none;
+    }
+}

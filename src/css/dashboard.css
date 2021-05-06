@@ -1,0 +1,104 @@
+:root {
+    --color-border: #e0e0e0;
+    --color-text: rgb(60, 64, 67);
+    --size-icon: 20px;
+    --color-icon: #5f6368;
+}
+.dashboard {
+    padding-top: 30px;
+}
+.class-room:hover{
+    box-shadow: 0 0 10px rgb(218, 218, 218);
+}
+
+/* allclass để handle nhiều lớp thì nó xếp và xuống dòng */
+.dashboard .allclass {
+    display: flex;
+    width: 100vw;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+/* topfix để gắn cái lịch và việc cần làm ở dashboard */
+.top-fix {
+    display: flex;
+    padding-left: 13px;
+}
+.top-fix .item {
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.top-fix .item .icon {
+    padding: 0 10px;
+    font-size: var(--size-icon);
+    color: var(--color-icon);
+}
+.top-fix .item .text {
+    color: #1a73e8;
+    font-weight: 600;
+}
+/* classroom */
+
+.dashboard .class-room {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    margin: 30px 20px;
+    height: fit-content;
+    border: 1px solid #e0e0e0;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.class-room .top {
+    padding: 20px;
+    background: url("https://www.gstatic.com/classroom/themes/img_read.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.top .class-name {
+    font-size: 30px;
+}
+.top .class,
+.teacher {
+    font-size: 14px;
+}
+.avatar-teacher {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    overflow: hidden;
+    transform: translate(180px, -40px);
+}
+.avatar-teacher img {
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+}
+.class-room .bottom {
+    border-top: 1px solid #e0e0e0;
+    color: rgb(51, 51, 51);
+    display: flex;
+    justify-content: flex-end;
+}
+.bottom .item {
+    height: 50px;
+    width: 50px;
+    margin: 10px 10px 10px 0;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom .item i {
+    font-size: var(--size-icon);
+    padding: 20px;
+    color: var(--color-icon);
+}
