@@ -18,26 +18,7 @@
     padding: 0 20px;
     flex-wrap: wrap;
 }
-/* topfix để gắn cái lịch và việc cần làm ở dashboard */
-.top-fix {
-    display: flex;
-    padding-left: 13px;
-}
-.top-fix .item {
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-}
-.top-fix .item .icon {
-    padding: 0 10px;
-    font-size: var(--size-icon);
-    color: var(--color-icon);
-}
-.top-fix .item .text {
-    color: #1a73e8;
-    font-weight: 600;
-}
+
 /* classroom */
 
 .dashboard .class-room {
@@ -101,4 +82,9 @@
     font-size: var(--size-icon);
     padding: 20px;
     color: var(--color-icon);
+}
+@media (max-width: 480px) {
+    .allclass{
+        justify-content:center;
+    }
 }

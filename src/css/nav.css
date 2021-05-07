@@ -1,5 +1,5 @@
 /* class dùng khi active */
-.active:hover {
+.active {
     color: rgb(51, 51, 51);
     background-color: rgb(227, 238, 252);
 }
@@ -11,7 +11,7 @@
 /* nav  */
 
 .nav {
-    padding: 10px 25px 11px 25px;
+    padding: 0 25px 1px 25px;
 }
 
 .nav .action {
@@ -22,12 +22,16 @@
 }
 .nav .action .class-name .detail {
     margin: 0 20px !important;
+    min-width: 200px;
 }
 .nav .action .class-name {
     display: flex;
     align-items: center;
     font-size: 18px;
     font-weight: 700;
+}
+.nav .action .class-name span {
+    padding: 20px;
 }
 .nav .action .class-name .detail {
     margin: 20px;
@@ -61,6 +65,7 @@
     box-shadow: 0 0 5px rgba(224, 224, 224, 0.664);
     cursor: pointer;
     /* border: 1px solid #000; */
+    display:none;
 }
 .join-avatar .join .li-join {
     list-style: none;
@@ -68,14 +73,13 @@
     font-weight: 600;
     font-size: 14px;
     padding: 0px 20px;
-
-    display: none;
+    /* display: block; */
 }
-.join-avatar .join:hover .li-join {
+/* .join-avatar .join:hover .li-join {
     display: block;
-}
+} */
 
-.nav .avatar {
+.avatar {
     height: 40px;
     width: 40px;
     border-radius: 100px;
@@ -115,16 +119,22 @@
     width: 300px;
     min-height: calc(100vh - 65px);
     box-shadow: 2px 5px 5px rgba(224, 224, 224, 0.664);
-    /* transform: translate(-0%, -0px); */
+    transform: translate(-0%, -0px);
     padding-top: 10px;
+    padding-right: 10px;
     background: #fff;
     transition:  transform .3s ease-in-out;
     cursor: pointer;
 }
+.activetab{
+    transform: translate(-100%,0);
+}
 .border-bottom {
     border-bottom: 1px solid #e0e0e0;
 }
-.tab .contain .item {
+.contain .item {
+    display: flex;
+    align-items: center;
     width: 100%;
     padding: 16px;
     margin: 10px 10px 10px 0;
@@ -138,8 +148,23 @@
     color: var(--color-icon);
 }
 .tab .contain .item .text {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
+}
+.tab .user{
+    display: none;
+}
+.infor-user{
+    padding: 0 20px;
+}
+.username{
+    font-weight: 800;
+}
+.tab .contain .user .text {
+    padding-left: 12px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 .class-active {
     display: flex;
@@ -172,7 +197,10 @@
     }
 }
 @media (max-width: 480px) {
-    .avatar {
+    .join-avatar .avatar {
         display: none;
+    }
+    .tab .user{
+        display: flex;
     }
 }

@@ -33,7 +33,29 @@ hr {
 }
 /* ------------- */
 
+/* 404 not found */
 
+.notfound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.notfound a {
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 10px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.notfound a:hover {
+    color: #694d27;
+    background: #dace42;
+}
+
+/* --------------- */
 
 /* ------------------------------------------------------------- */
 
@@ -137,10 +159,7 @@ hr {
 }
 /* ------------------- */
 
-
 /* ------------------------------------------------------------- */
-
-
 
 /* // phần tab khi click vào dấu 3 gạch */
 
@@ -150,7 +169,7 @@ hr {
     box-shadow: 2px 5px 5px rgba(224, 224, 224, 0.664);
     transform: translate(-0%, 0px);
     padding-top: 10px;
-    background: #fff
+    background: #fff;
 }
 .border-bottom {
     border-bottom: 1px solid var(--color-border);
@@ -193,9 +212,6 @@ hr {
 /* ---------------------------- */
 
 /* ------------------------------------------------------------- */
-
-
-
 
 /* <!-- dashboard --> */
 .dashboard {
@@ -292,9 +308,6 @@ hr {
 
 /* ------------------------------------------------------------- */
 
-
-
-
 /* inside class */
 .insideclass {
     width: calc(100vw - 40px);
@@ -327,36 +340,8 @@ hr {
     display: flex;
 }
 
-.deadline {
-    padding: 20px;
-    border: 1px solid var(--color-border);
-    width: 200px;
-    height: fit-content;
-    border-radius: 10px;
-    margin-right: 20px;
-    font-family: "Nunito", sans-serif;
-}
-.deadline p:nth-child(1) {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding-bottom: 20px;
-}
-.deadline p:nth-child(2) {
-    font-size: 13px;
-    font-weight: 300;
-    line-height: 20px;
-    padding-bottom: 20px;
-    color: rgb(109, 109, 109);
-}
-
-.deadline p:nth-child(3) {
-    font-size: 14px;
-    transform: translate(90px, 5px);
-}
 .newfeed {
-    /* border: 1px solid; */
-    width: calc(100% - 200px);
+    width: 100%;
 }
 .newfeed .create-noti {
     display: flex;
@@ -408,6 +393,64 @@ hr {
     font-weight: 700;
 }
 /* ------------- */
+.write-noti {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgb(201, 201, 201);
+    padding: 20px 25px;
+}
+.write-noti p {
+    font-size: 12px;
+    background-color: #f1f3f4;
+    padding: 20px;
+    border-radius:10px 10px 0 0 ;
+
+}
+.write-noti form {
+    display: flex;
+    flex-direction: column;
+}
+.write-noti form textarea {
+    background-color: #f1f3f4;
+    outline: none;
+    border: none;
+    width: 100%;
+    resize: none;
+    overflow: auto;
+    padding: 0 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius:0 0 10px 10px;
+}
+.btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.write-noti form button{
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0 20px;
+    padding: 10px;
+    transition: all .3s
+}
+.write-noti form button:nth-child(1) {
+    background-color: transparent;
+}
+.write-noti form button:nth-child(1):hover {
+    background-color: #e0e0e0;
+}
+.write-noti form button:nth-child(2) {
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
 
 @media (max-width: 1040px) {
     .header {
@@ -419,7 +462,7 @@ hr {
     .newfeed {
         width: 100%;
     }
-    .deadline{
+    .deadline {
         display: none;
     }
 }

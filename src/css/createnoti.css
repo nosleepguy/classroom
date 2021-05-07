@@ -1,0 +1,58 @@
+.write-noti {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgb(201, 201, 201);
+    padding: 20px 25px;
+}
+.write-noti p {
+    font-size: 12px;
+    background-color: #f1f3f4;
+    padding: 20px;
+    border-radius:10px 10px 0 0 ;
+
+}
+.write-noti form {
+    display: flex;
+    flex-direction: column;
+}
+.write-noti form textarea {
+    background-color: #f1f3f4;
+    outline: none;
+    border: none;
+    width: 100%;
+    resize: none;
+    overflow: auto;
+    padding: 0 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius:0 0 10px 10px;
+}
+.btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.write-noti form button{
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0 20px;
+    padding: 10px;
+    transition: all .3s
+}
+.write-noti form button:nth-child(1) {
+    background-color: transparent;
+}
+.write-noti form button:nth-child(1):hover {
+    background-color: #e0e0e0;
+}
+.write-noti form button:nth-child(2) {
+    padding: 10px 20px;
+    margin: 0 10px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}

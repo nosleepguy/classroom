@@ -1,0 +1,83 @@
+.insideclass {
+    width: calc(100vw - 40px);
+    margin: 20px;
+    /* border: 1px solid; */
+}
+.insideclass .main {
+    width: 65%;
+    margin: 0 auto;
+}
+.classname {
+    width: 100%;
+    margin: 0 auto;
+    background: url("https://www.gstatic.com/classroom/themes/img_read.jpg");
+    height: 250px;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    margin: 25px 0;
+}
+.classname p:nth-child(1) {
+    font-size: 40px;
+}
+.classname p:nth-child(2) {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.insideclass .detail {
+    /* border: 1px solid; */
+    display: flex;
+}
+
+.newfeed {
+    width: 100%
+}
+.newfeed .create-noti {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid; */
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgb(201, 201, 201);
+    padding: 20px 25px;
+}
+.newfeed .create-noti .avatar-user {
+    height: 40px;
+    width: 40px;
+    background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    /* margin: 10px; */
+}
+.newfeed .create-noti p {
+    font-size: 13px;
+    color: rgb(109, 109, 109);
+    margin: 0 20px;
+}
+
+.newfeed .new-noti {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin: 20px 0;
+    border: 1px solid var(--color-border);
+}
+.newfeed .new-noti .icon-noti {
+    height: 40px;
+    width: 40px;
+    background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+}
+.newfeed .new-noti p {
+    font-size: 13px;
+    margin: 0 20px;
+}
+.newfeed .new-noti p:nth-child(1) {
+    font-size: 14px;
+    font-weight: 700;
+}
