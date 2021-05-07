@@ -8,13 +8,13 @@ function CreateNoti(props) {
     };
     return (
         <div
-            class="write-noti"
+            className="write-noti"
             style={showCreateNoti ? { display: "block" } : { display: "none" }}
         >
             <p>Tạo thông báo mới cho lớp học của bạn</p>
             <form onSubmit={onHandleForm}>
                 <textarea cols="30" rows="10"></textarea>
-                <div class="btn">
+                <div className="btn">
                     <button type="button" onClick={onShowCreateNotiEvent}>Hủy</button>
                     <button type="submit">Đăng</button>
                 </div>

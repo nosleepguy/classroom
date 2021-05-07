@@ -81,3 +81,9 @@
     font-size: 14px;
     font-weight: 700;
 }
+
+@media (max-width: 480px) {
+    .insideclass .main{
+        width: 90%;
+    }
+}
