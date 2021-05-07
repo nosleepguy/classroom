@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./../css/nav.css";
 
 function Nav(props) {
-    const {showOptions} = props;
+    const { showOptions } = props;
     const [showTab, setShowTab] = useState(false);
     const [border, setBorder] = useState([true, false, false]);
     const onFocus = (value) => {
         let aw = [...border];
-        aw.map((item,index) => aw[index] = false);
+        aw.map((item, index) => (aw[index] = false));
         aw[value] = true;
         setBorder(aw);
-    }
-    
+    };
+
     const onShowTab = () => {
         setShowTab(!showTab);
     };
@@ -41,16 +42,16 @@ function Nav(props) {
                     </div>
                 </div>
             </nav>
-            <div className={showOptions ? "option" : "hide" }>
-                <div className="option-item hover" onClick={()=> onFocus(0)}>
+            <div className={showOptions ? "option" : "hide"}>
+                <div className="option-item hover" onClick={() => onFocus(0)}>
                     <p className="content">Bảng tin</p>
                     <p className={border[0] ? "border" : ""}></p>
                 </div>
-                <div className="option-item hover" onClick={()=> onFocus(1)}>
+                <div className="option-item hover" onClick={() => onFocus(1)}>
                     <p className="content">Bài tập về nhà</p>
                     <p className={border[1] ? "border" : ""}></p>
                 </div>
-                <div className="option-item hover" onClick={()=> onFocus(2)}>
+                <div className="option-item hover" onClick={() => onFocus(2)}>
                     <p className="content">Mọi người</p>
                     <p className={border[2] ? "border" : ""}></p>
                 </div>
@@ -69,14 +70,18 @@ function Nav(props) {
             >
                 <div className="contain border-bottom">
                     {/* <!-- nếu được chọn thì thêm className active --> */}
-                    <div className="item hover">
-                        <span className="icon fas fa-home"></span>
-                        <span className="text">Lớp học</span>
-                    </div>
-                    <div className="item hover">
-                        <span className="icon far fa-calendar"></span>
-                        <span className="text">Lịch</span>
-                    </div>
+                    <NavLink to="/class">
+                        <div className="item hover ">
+                            <span className="icon fas fa-home"></span>
+                            <span className="text">Lớp học</span>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/calendar">
+                        <div className="item hover">
+                            <span className="icon far fa-calendar"></span>
+                            <span className="text">Lịch</span>
+                        </div>
+                    </NavLink>
                 </div>
 
                 {/* <!-- //đây là phần đã đăng ký --> */}
@@ -87,7 +92,7 @@ function Nav(props) {
                             fontSize: "14px",
                             fontWeight: "600",
                             color: "rgb(97, 97, 97)",
-                            cursor: "default"
+                            cursor: "default",
                         }}
                     >
                         Đã đăng ký
@@ -102,9 +107,7 @@ function Nav(props) {
                             <div>Đ</div>
                         </div>
                         <div className=" text detail">
-                            <p className="name">
-                                Đồ họa máy tính
-                            </p>
+                            <p className="name">Đồ họa máy tính</p>
                             <p className="class">(60TH4)</p>
                         </div>
                     </div>

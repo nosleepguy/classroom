@@ -1,3 +1,9 @@
+:root {
+  --color-border: #e0e0e0;
+  --color-text: rgb(60, 64, 67);
+  --size-icon: 20px;
+  --color-icon: #5f6368;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +14,10 @@
   text-align: left;
   user-select: none;
 }
-
+a{
+  text-decoration: none;
+  color: var(--color-text);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

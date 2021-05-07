@@ -1,3 +1,9 @@
+/* class dùng khi active */
+.active:hover {
+    color: rgb(51, 51, 51);
+    background-color: rgb(227, 238, 252);
+}
+/* ------------- */
 
 
 /* ------------------------------------------------------------- */
@@ -119,7 +125,7 @@
     border-bottom: 1px solid #e0e0e0;
 }
 .tab .contain .item {
-
+    width: 100%;
     padding: 16px;
     margin: 10px 10px 10px 0;
     /* border: 1px solid; */
