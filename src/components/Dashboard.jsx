@@ -4,6 +4,7 @@ import "./../css/dashboard.css";
 
 function Dashboard(props) {
     return (
+        <>
         <section className="dashboard">
             <div className="allclass">
                 <NavLink to="/class/malop">
@@ -55,6 +56,7 @@ function Dashboard(props) {
                 
             </div>
         </section>
+        </>
     );
 }
 

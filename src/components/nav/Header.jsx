@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./../../css/header.css";
 import Nav from "./Nav";
 function Header(props) {
+    // console.log(props);
+    
     // khi = true thì 2 option ở nav sẽ hiện ra
     const [showOptions, setShowOptions] = useState(false);
 

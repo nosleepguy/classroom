@@ -5,7 +5,8 @@ import "./../../css/nav.css";
 function Nav(props) {
     const { showOptions, showTabprops } = props;
     const [showTab, setShowTab] = useState(true);
-    const [showCreateClass, setShowCreateClass] = useState(false);
+    const [showPlusOption, setShowPlusOption] = useState(false);
+    const [showJoinClass, setShowJoinClass] = useState(false);
     const [border, setBorder] = useState([true, false, false]);
     const onFocus = (value) => {
         let aw = [...border];
@@ -15,18 +16,19 @@ function Nav(props) {
     };
 
     useEffect(() => {
-        // console.log(showTabprops);
-        setShowTab(showTabprops);
+        setShowTab(showTabprops);        
     });
 
     const onShowTab = () => {
         setShowTab(!showTab);
     };
 
-    const onShowJoinClass = () => {
-        setShowCreateClass(!showCreateClass);
+    const onShowPlusHandle = () => {
+        setShowPlusOption(!showPlusOption);
     };
-
+    const onJoinClassHandle = () => {
+        setShowJoinClass(true);
+    };
     return (
         <>
             <nav className="nav">
@@ -41,24 +43,31 @@ function Nav(props) {
                     <div className="join-avatar">
                         <div
                             className={
-                                showCreateClass
+                                showPlusOption
                                     ? "join fas fa-plus hover active"
                                     : "join fas fa-plus hover"
                             }
-                            onClick={onShowJoinClass}
+                            onClick={onShowPlusHandle}
                         >
                             <ul
                                 className="ul-join"
                                 style={
-                                    showCreateClass ? { display: "block" } : {}
+                                    showPlusOption ? { display: "block" } : {}
                                 }
                             >
-                                <li className="li-join hover">
-                                    Tham gia lớp học
-                                </li>
-                                <li className="li-join hover" data="aaa">
-                                    Tạo lớp học
-                                </li>
+                                <NavLink to="/class/joinclass">
+                                    <li
+                                        className="li-join hover"
+                                        onClick={onJoinClassHandle}
+                                    >
+                                        Tham gia lớp học
+                                    </li>
+                                </NavLink>
+                                <NavLink to="/class/createclass">
+                                    <li className="li-join hover" data="aaa">
+                                        Tạo lớp học
+                                    </li>
+                                </NavLink>
                             </ul>
                         </div>
                         <div className="avatar"></div>
