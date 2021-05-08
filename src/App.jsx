@@ -4,6 +4,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import Header from "./components/nav/Header";
 import RouterURL from "./router/RouterURL";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 function App() {
 
@@ -20,7 +23,7 @@ function App() {
     };
 
     return (
-        <Router>
+        <Router history={history}>
             <div className="App" onClick={onShowtab}>
                 <Header showTab={showtab}/>
                 <RouterURL />

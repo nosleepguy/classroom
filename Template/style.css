@@ -403,8 +403,7 @@ hr {
     font-size: 12px;
     background-color: #f1f3f4;
     padding: 20px;
-    border-radius:10px 10px 0 0 ;
-
+    border-radius: 10px 10px 0 0;
 }
 .write-noti form {
     display: flex;
@@ -420,21 +419,21 @@ hr {
     padding: 0 20px;
     font-size: 16px;
     margin-bottom: 20px;
-    border-radius:0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 .btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.write-noti form button{
+.write-noti form button {
     outline: none;
     border: none;
     font-size: 16px;
     border-radius: 5px;
     margin: 0 20px;
     padding: 10px;
-    transition: all .3s
+    transition: all 0.3s;
 }
 .write-noti form button:nth-child(1) {
     background-color: transparent;
@@ -452,6 +451,132 @@ hr {
     background-color: #e0e0e0;
 }
 
+/* join class */
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+.navigate {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigate div span:nth-child(1) {
+    font-size: 25px;
+    padding-right: 20px;
+    color: var(--color-icon);
+}
+.navigate div span:nth-child(2) {
+    font-size: 20px;
+    color: var(--color-text);
+}
+.navigate button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 15px;
+    color: var(--color-text);
+}
+.joincode {
+    border: 1px solid var(--color-border);
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 10px;
+    margin: 50px;
+}
+.joincode p:nth-child(1) {
+    font-size: 20px;
+    padding: 10px 0;
+}
+.joincode p:nth-child(2) {
+    font-size: 14px;
+}
+.joincode input {
+    max-width: 400px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
+    font-size: 25px;
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
+    outline: none;
+}
+.joincode input:focus {
+    outline: none;
+    border: 2px solid #1a73e8;
+}
+.tutorial {
+    padding: 30px;
+    padding-top: 0;
+    max-width: 600px;
+    width: 90%;
+}
+.tutorial h4 {
+    padding: 10px 0;
+}
+.tutorial ul li {
+    font-size: 14px;
+    padding: 10px 0;
+}
+/* -------------------------- */
+
+/* create class */
+.createclass {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    background: rgba(90, 90, 90, 0.349);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    padding: 20px 30px;
+    border-radius: 10px;
+    min-width: 300px;
+    width: 35%;
+    background: white;
+}
+.form p {
+    padding-top: 10px;
+}
+.form input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 25px;
+    margin: 20px 0;
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
+    outline: none;
+}
+.form input:focus {
+    border: 2px solid #1a73e8;
+}
+.form button {
+    border: none;
+    outline: none;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: transparent;
+    font-weight: 600;
+    border-radius:5px;
+}
+.form button:nth-child(1):hover {
+   background: rgba(151, 151, 151, 0.322)
+}
+.form button:nth-child(2) {
+   background: rgba(151, 151, 151, 0.322)
+}
+
+/* -------------------- */
 @media (max-width: 1040px) {
     .header {
         height: 129px;
