@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import "./../../css/nav.css";
+import "./../css/nav.css";
 
 function Nav(props) {
-    const { showOptions, showTabprops } = props;
-    const [showTab, setShowTab] = useState(true);
+    const {showTabp } = props;
+    
+    // khi = true thì 2 option ở nav sẽ hiện ra
+    const [showOptions, setShowOptions] = useState(true);
+
+    //show tab bên trái
+    const [showTab, setShowTab] = useState(false);
+
+    //hiện joinclass hoặc create class
     const [showPlusOption, setShowPlusOption] = useState(false);
-    const [showJoinClass, setShowJoinClass] = useState(false);
+
+    //hiện border ở dưới các option thanh nav
     const [border, setBorder] = useState([true, false, false]);
     const onFocus = (value) => {
         let aw = [...border];
@@ -16,7 +24,7 @@ function Nav(props) {
     };
 
     useEffect(() => {
-        setShowTab(showTabprops);        
+        setShowTab(showTabp);
     });
 
     const onShowTab = () => {
@@ -26,15 +34,16 @@ function Nav(props) {
     const onShowPlusHandle = () => {
         setShowPlusOption(!showPlusOption);
     };
-    const onJoinClassHandle = () => {
-        setShowJoinClass(true);
-    };
+
     return (
-        <>
+        <section
+            className="header"
+            style={showOptions ? { padding: "0" } : { height: "65px" }}
+        >
             <nav className="nav">
                 <div className="action">
                     <div className="class-name">
-                        <span className="fas fa-bars" onClick={onShowTab} />
+                        <span className={!showTab ? "fas fa-chevron-left":"fas fa-bars"} onClick={onShowTab} />
                         <div className="detail">
                             <p className="name">Đồ họa máy tính</p>
                             <p className="class">(60TH4)</p>
@@ -58,7 +67,6 @@ function Nav(props) {
                                 <NavLink to="/class/joinclass">
                                     <li
                                         className="li-join hover"
-                                        onClick={onJoinClassHandle}
                                     >
                                         Tham gia lớp học
                                     </li>
@@ -148,7 +156,7 @@ function Nav(props) {
                     </div>
                 </div>
             </section>
-        </>
+        </section>
     );
 }
 

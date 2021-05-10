@@ -41,9 +41,11 @@
     box-shadow: 0 1px 5px rgb(201, 201, 201);
     padding: 20px 25px;
 }
-.newfeed .create-noti .avatar-user {
-    height: 40px;
-    width: 40px;
+
+/* tái sử dụng */
+.avatar-user {
+    min-height: 40px;
+    min-width: 40px;
     background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
     background-size: cover;
     background-position: center;
@@ -65,14 +67,14 @@
     margin: 20px 0;
     border: 1px solid var(--color-border);
 }
-.newfeed .new-noti .icon-noti {
-    height: 40px;
-    width: 40px;
+/* .newfeed .new-noti .icon-noti {
+    min-height: 40px;
+    min-width: 40px;
     background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 40px;
-}
+} */
 .newfeed .new-noti p {
     font-size: 13px;
     margin: 0 20px;

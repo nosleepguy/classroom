@@ -5,11 +5,14 @@
 }
 /* ------------- */
 
-
 /* ------------------------------------------------------------- */
 
 /* nav  */
-
+.header {
+    height: 65px;
+    color: rgb(60, 64, 67);
+    border-bottom: 1px solid #e0e0e0;
+}
 .nav {
     padding: 0 25px 1px 25px;
 }
@@ -65,7 +68,7 @@
     box-shadow: 0 0 5px rgba(224, 224, 224, 0.664);
     cursor: pointer;
     /* border: 1px solid #000; */
-    display:none;
+    display: none;
 }
 .join-avatar .join .li-join {
     list-style: none;
@@ -108,10 +111,7 @@
 }
 /* ------------------- */
 
-
 /* ------------------------------------------------------------- */
-
-
 
 /* // phần tab khi click vào dấu 3 gạch */
 
@@ -123,11 +123,11 @@
     padding-top: 10px;
     padding-right: 10px;
     background: #fff;
-    transition:  transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     cursor: pointer;
 }
-.activetab{
-    transform: translate(-100%,0);
+.activetab {
+    transform: translate(-100%, 0);
 }
 .border-bottom {
     border-bottom: 1px solid #e0e0e0;
@@ -151,13 +151,13 @@
     font-size: 14px;
     font-weight: bold;
 }
-.tab .user{
+.tab .user {
     display: none;
 }
-.infor-user{
+.infor-user {
     padding: 0 20px;
 }
-.username{
+.username {
     font-weight: 800;
 }
 .tab .contain .user .text {
@@ -186,7 +186,7 @@
 }
 
 /* ---------------------------- */
-.hide{
+.hide {
     display: none;
 }
 /* ------------------------------------------------------------- */
@@ -195,12 +195,15 @@
     .option {
         top: 64px;
     }
+    .header {
+        height: 129px;
+    }
 }
 @media (max-width: 480px) {
     .join-avatar .avatar {
         display: none;
     }
-    .tab .user{
+    .tab .user {
         display: flex;
     }
 }

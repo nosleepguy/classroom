@@ -7,8 +7,9 @@
 .dashboard {
     padding-top: 30px;
 }
-.class-room:hover{
+a:hover > .class-room {
     box-shadow: 0 0 10px rgb(218, 218, 218);
+    transition: all .3s
 }
 
 /* allclass để handle nhiều lớp thì nó xếp và xuống dòng */
@@ -84,7 +85,7 @@
     color: var(--color-icon);
 }
 @media (max-width: 480px) {
-    .allclass{
-        justify-content:center;
+    .allclass {
+        justify-content: center;
     }
 }

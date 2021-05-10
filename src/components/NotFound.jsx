@@ -11,7 +11,7 @@ function NotFound(props) {
                 speed="1"
                 autoplay
             ></lottie-player>
-            <Link to="/class">Quay lại trang chủ</Link>
+            <Link to="/">Quay lại trang chủ</Link>
         </div>
     );
 }

@@ -3,6 +3,8 @@ import "./../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 
 function DetailClass(props) {
+    console.log(props.match.params.malop);
+    
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const onShowCreateNoti = () => {
         setShowCreateNoti(!showCreateNoti);
@@ -34,7 +36,7 @@ function DetailClass(props) {
                             <p>Tạo thông báo mới cho lớp học của bạn</p>
                         </div>
                         <div className="new-noti">
-                            <div className="icon-noti"></div>
+                            <div className="avatar-user"></div>
                             <div>
                                 <p>
                                     Ngô Trường Giang đã đăng 1 tài liệu mới:
