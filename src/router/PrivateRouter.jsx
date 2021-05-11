@@ -10,10 +10,10 @@ function RouterURL(props) {
     return (
         <Switch>
             <Route exact path="/" component={Dashboard} />
-            <Route exact path="/class" component={Dashboard} />
-            <Route exact path="/class/:malop" component={DetailClass} />
-            <Route exact path="/class/joinclass" component={JoinClass} />
-            <Route exact path="/class/createclass" component={CreateClass} />
+            {/* <Route exact path="/class" component={Dashboard} /> */}
+            <Route  path="/class/:malop" component={DetailClass} />
+            <Route  path="/joinclass" component={JoinClass} />
+            <Route  path="/createclass" component={CreateClass} />
             <Route component={NotFound} />
         </Switch>
     );

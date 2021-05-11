@@ -1,1 +1,3 @@
-export const  SHOW_TAB = "SHOW_TAB"
+export const REGISTER_ACCOUNT = "REGISTER_ACCOUNT"
+export const LOGIN = "LOGIN"
+export const CREATE_CLASS = "CREATE_CLASS"

@@ -9,7 +9,7 @@ function JoinClass(props) {
     // console.log(props.history);
     const onGoBack = (e) => {
         e.preventDefault();
-        props.history.push("/class");
+        props.history.push("/");
     };
     return (
         <div className="wrapper">

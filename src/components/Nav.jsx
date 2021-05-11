@@ -64,14 +64,14 @@ function Nav(props) {
                                     showPlusOption ? { display: "block" } : {}
                                 }
                             >
-                                <NavLink to="/class/joinclass">
+                                <NavLink to="/joinclass">
                                     <li
                                         className="li-join hover"
                                     >
                                         Tham gia lớp học
                                     </li>
                                 </NavLink>
-                                <NavLink to="/class/createclass">
+                                <NavLink to="/createclass">
                                     <li className="li-join hover" data="aaa">
                                         Tạo lớp học
                                     </li>
@@ -109,7 +109,7 @@ function Nav(props) {
                 </div>
                 <div className="contain border-bottom">
                     {/* <!-- nếu được chọn thì thêm className active --> */}
-                    <NavLink to="/class">
+                    <NavLink to="/">
                         <div className="item hover ">
                             <span className="icon fas fa-home"></span>
                             <span className="text">Lớp học</span>

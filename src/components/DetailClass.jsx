@@ -3,7 +3,7 @@ import "./../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 
 function DetailClass(props) {
-    console.log(props.match.params.malop);
+    console.log(props.match);
     
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const onShowCreateNoti = () => {
