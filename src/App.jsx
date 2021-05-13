@@ -10,6 +10,8 @@ import PrivateRouter from "./router/PrivateRouter";
 const history = createBrowserHistory();
 import * as actions from "./action/Action";
 
+
+import axios from "axios"
 function App(props) {
     const { dataResponse, getAllClass } = props;
     

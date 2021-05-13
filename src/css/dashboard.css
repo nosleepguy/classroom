@@ -7,9 +7,10 @@
 .dashboard {
     padding-top: 30px;
 }
-a:hover > .class-room {
+
+.class-room:hover {
     box-shadow: 0 0 10px rgb(218, 218, 218);
-    transition: all .3s
+    transition: all 0.3s;
 }
 
 /* allclass để handle nhiều lớp thì nó xếp và xuống dòng */
@@ -22,7 +23,7 @@ a:hover > .class-room {
 
 /* classroom */
 
-.dashboard .class-room {
+.dashboard .allclass .class-room {
     display: flex;
     flex-direction: column;
     min-width: 300px;
@@ -32,8 +33,6 @@ a:hover > .class-room {
     color: #fff;
     border-radius: 5px;
     overflow: hidden;
-    position: relative;
-    z-index: -1;
 }
 
 .class-room .top {
@@ -42,6 +41,54 @@ a:hover > .class-room {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.top .hover {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 30px;
+    background: transparent;
+    transition: all 0.2s;
+    position: relative;
+}
+.top a {
+    color: #fff;
+}
+.top a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.top .hover:hover {
+    background: rgba(201, 201, 201, 0.479);
+    color: #fff;
+
+}
+
+.hover .action {
+    background: white;
+    color: var(--color-text);
+    padding: 0;
+    border-radius: 5px;
+    min-width: 100px;
+    position: absolute;
+    right: -5px;
+    z-index: 20;
+    font-size: 14px;
+    overflow: hidden;
+}
+.hover .action p {
+    padding: 5px 10px;
+    letter-spacing: 0.5px;
+}
+.hover .action p:hover {
+    background: rgb(231, 231, 231);
+}
+.hover .hidden {
+    visibility: hidden;
 }
 .top .class-name {
     font-size: 30px;
