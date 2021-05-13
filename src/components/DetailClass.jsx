@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import "./../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 
 function DetailClass(props) {
-    console.log(props.match);
-    
+    console.log(props);
+
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const onShowCreateNoti = () => {
         setShowCreateNoti(!showCreateNoti);
@@ -52,4 +54,9 @@ function DetailClass(props) {
     );
 }
 
+DetailClass.propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+};
 export default DetailClass;

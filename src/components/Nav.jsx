@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./../css/nav.css";
 
 function Nav(props) {
-    const {showTabp } = props;
+    const {showTabp,classList } = props;
+
     
     // khi = true thì 2 option ở nav sẽ hiện ra
     const [showOptions, setShowOptions] = useState(true);
@@ -35,6 +37,24 @@ function Nav(props) {
         setShowPlusOption(!showPlusOption);
     };
 
+    let classListRender;
+    if (classList) {
+        classListRender = classList.map((item) => {
+            return (
+                <NavLink to={"/class/" + item.id} key={item.id}>
+                        <div className="item hover class-active">
+                            <div className="icon represent">
+                                <div>{"T"}</div>
+                            </div>
+                            <div className=" text detail">
+                                <p className="name">{item.className}</p>
+                                <p className="class">(60TH4)</p>
+                            </div>
+                        </div>
+                    </NavLink>
+            );
+        });
+    }
     return (
         <section
             className="header"
@@ -132,17 +152,7 @@ function Nav(props) {
                     </p>
 
                     {/* <!-- //thẻ này là các lớp đã đăng kí --> */}
-                    <NavLink to="/class/malop">
-                        <div className="item hover class-active">
-                            <div className="icon represent">
-                                <div>Đ</div>
-                            </div>
-                            <div className=" text detail">
-                                <p className="name">Đồ họa máy tính</p>
-                                <p className="class">(60TH4)</p>
-                            </div>
-                        </div>
-                    </NavLink>
+                    {classListRender}
                 </div>
 
                 <div className="contain">
@@ -160,4 +170,11 @@ function Nav(props) {
     );
 }
 
-export default Nav;
+
+const mapStateToProps = (state) => {
+    return {
+        classList: state.classHandle,
+    };
+};
+
+export default connect(mapStateToProps, null)(Nav);

@@ -9,7 +9,6 @@ import rootReducer from "./reducer/myReducer";
 import "./index.css";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
 ReactDOM.render(

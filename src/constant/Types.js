@@ -1,3 +1,4 @@
 export const REGISTER_ACCOUNT = "REGISTER_ACCOUNT"
 export const LOGIN = "LOGIN"
 export const CREATE_CLASS = "CREATE_CLASS"
+export const GET_ALL_CLASS = "GET_ALL_CLASS"

@@ -11,9 +11,9 @@ function RouterURL(props) {
         <Switch>
             <Route exact path="/" component={Dashboard} />
             {/* <Route exact path="/class" component={Dashboard} /> */}
-            <Route  path="/class/:malop" component={DetailClass} />
-            <Route  path="/joinclass" component={JoinClass} />
-            <Route  path="/createclass" component={CreateClass} />
+            <Route exact path="/class/:id" component={DetailClass} />
+            <Route exact path="/joinclass" component={JoinClass} />
+            <Route exact path="/createclass" component={CreateClass} />
             <Route component={NotFound} />
         </Switch>
     );

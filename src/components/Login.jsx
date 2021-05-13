@@ -53,24 +53,25 @@ function Login(props) {
         }
     };
 
-    const onHandleRegister = async () => {
+    const onHandleRegister = () => {
         let dataregister = Object.create(null);
         dataregister = {
             // name: nameRegister,
             email: emailRegister,
             password: passwordRegister,
         };
-        await onRegister(dataregister);
+        onRegister(dataregister);
     };
 
-    const onHandleLogin = async () => {
+    const onHandleLogin = () => {
         let datalogin = Object.create(null);
         datalogin = {
             email: emailLogin,
             password: passwordLogin
         }
-        await onLogin(datalogin)
+        onLogin(datalogin)
     }
+
     return (
         <form action="">
             <div className="wrapper-login">

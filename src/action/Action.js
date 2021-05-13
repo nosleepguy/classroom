@@ -1,7 +1,6 @@
 import * as Types from "./../constant/Types";
 import callAPI from "./../utils/callAPI";
 
-
 export const actRegisterRequest = (dataregister) => {
     return (dispatch) => {
         return callAPI("POST", "user/register", dataregister).then((response) => {
@@ -15,7 +14,7 @@ export const actLoginRequest = (datalogin) => {
     return (dispatch) => {
         return callAPI("POST", "user/login", datalogin).then((response) => {
             console.log(response.data);
-            dispatch(register(response.data.data));
+            dispatch(login(response.data.data));
         }
         )
     }
@@ -39,6 +38,18 @@ export const actJoinClassRequest = (classname) => {
         )
     }
 }
+
+export const actGetAllClassRequest = () => {
+    return (dispatch) => {
+        return callAPI("GET", "user/class/own",).then((response) => {
+            console.log(response);
+            dispatch(getAllClass(response));
+        })
+    }
+}
+
+
+
 export const register = (dataregister) => {
     return {
         type: Types.REGISTER_ACCOUNT,
@@ -62,5 +73,11 @@ export const joinClass = (classname) => {
     return {
         type: Types.CREATE_CLASS,
         classname
+    }
+}
+export const getAllClass = (responseData) => {
+    return {
+        type: Types.GET_ALL_CLASS,
+        responseData
     }
 }

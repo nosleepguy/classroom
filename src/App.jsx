@@ -8,10 +8,11 @@ import Nav from "./components/Nav";
 import PublicRouter from "./router/PublicRouter";
 import PrivateRouter from "./router/PrivateRouter";
 const history = createBrowserHistory();
+import * as actions from "./action/Action";
 
 function App(props) {
+    const { dataResponse, getAllClass } = props;
     
-    const { dataResponse } = props;
     //show tab phục vụ cho click ra ngoài tab thì đóng tab
     const [showtab, setShowTab] = useState(true);
     const onShowtab = (e) => {
@@ -23,14 +24,27 @@ function App(props) {
         }
     };
 
-    //fake auth co token
+    //auth
     const [token, setToken] = useState("");
 
     useEffect(() => {
         console.log(dataResponse.token);
-        let tk = JSON.parse(localStorage.getItem("token"));
-        setToken(tk);
+        setToken(dataResponse.token);
     }, [dataResponse]);
+
+    useEffect(() => {
+        if(token){
+            getAllClass();
+        }
+    }, [token]);
+
+    useEffect(() => {
+        let tk = localStorage.getItem("tk");
+        if(tk){
+            setToken(tk);
+        }
+    }, []);
+
 
     return (
         <Router history={history}>
@@ -52,4 +66,12 @@ const mapStateToProps = (state) => {
         dataResponse: state.authenapp,
     };
 };
-export default connect(mapStateToProps, null)(App);
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        getAllClass: () => {
+            dispatch(actions.actGetAllClassRequest());
+        },
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
