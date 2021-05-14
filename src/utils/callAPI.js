@@ -1,7 +1,9 @@
-import axios from "axios";
+
 import * as config from './../constant/Config';
 
-export default function callAPI(method = "GET", endpoint, dataregister) {
+import axios from "./customAxios";
+
+export default function callAPI(method = "GET", endpoint, data) {
     let AUTH_TOKEN = localStorage.getItem("tk")
     axios.defaults.headers.common['Authorization'] = AUTH_TOKEN
     
@@ -9,7 +11,7 @@ export default function callAPI(method = "GET", endpoint, dataregister) {
         axios({
             method: `${method}`,
             url: `${config.API_URL}${endpoint}`,
-            data: dataregister,
+            data
         })
             .catch((error) => {
                 console.log(error);

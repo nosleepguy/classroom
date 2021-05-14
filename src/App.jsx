@@ -10,11 +10,8 @@ import PrivateRouter from "./router/PrivateRouter";
 const history = createBrowserHistory();
 import * as actions from "./action/Action";
 
-
-import axios from "axios"
 function App(props) {
     const { dataResponse, getAllClass } = props;
-    
     //show tab phục vụ cho click ra ngoài tab thì đóng tab
     const [showtab, setShowTab] = useState(true);
     const onShowtab = (e) => {
@@ -30,23 +27,20 @@ function App(props) {
     const [token, setToken] = useState("");
 
     useEffect(() => {
-        console.log(dataResponse.token);
         setToken(dataResponse.token);
     }, [dataResponse]);
 
     useEffect(() => {
-        if(token){
+
+        if (token) {
             getAllClass();
         }
     }, [token]);
 
     useEffect(() => {
         let tk = localStorage.getItem("tk");
-        if(tk){
-            setToken(tk);
-        }
-    }, []);
-
+        setToken(tk);
+    },[]);
 
     return (
         <Router history={history}>
@@ -76,4 +70,5 @@ const mapDispatchToProps = (dispatch, props) => {
         },
     };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);

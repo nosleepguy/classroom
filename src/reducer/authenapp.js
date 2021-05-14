@@ -14,7 +14,6 @@ const myReducer = (state = initialState, action) => {
             console.log(action.datalogin);
             localStorage.setItem("tk", action.datalogin.token);
             localStorage.setItem("rtk", action.datalogin.refreshToken);
-
             state = action.datalogin;
             return state
         }

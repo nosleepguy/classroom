@@ -137,6 +137,24 @@ function Nav(props) {
                     </NavLink>
                 </div>
 
+                {/* <!-- //đây là phần lớp giảng dạy --> */}
+                <div className="contain border-bottom">
+                    <p
+                        style={{
+                            padding: "10px 20px",
+                            fontSize: "14px",
+                            fontWeight: "600",
+                            color: "rgb(97, 97, 97)",
+                            cursor: "default",
+                        }}
+                    >
+                        Giảng dạy
+                    </p>
+
+                    {/* <!-- //thẻ này là các lớp giảng dạy --> */}
+                    {classListRender}
+                </div>
+
                 {/* <!-- //đây là phần đã đăng ký --> */}
                 <div className="contain border-bottom">
                     <p
@@ -152,7 +170,7 @@ function Nav(props) {
                     </p>
 
                     {/* <!-- //thẻ này là các lớp đã đăng kí --> */}
-                    {classListRender}
+                    {/* {classListRender} */}
                 </div>
 
                 <div className="contain">
