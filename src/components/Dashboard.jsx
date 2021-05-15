@@ -18,7 +18,6 @@ function Dashboard(props) {
             return <ClassJoined key={item.id} item={item} />;
         });
     }
-
     return (
         <section className="dashboard">
             <div className="allclass">

@@ -3,10 +3,11 @@ import axios from "./../utils/customAxios";
 
 export const actRegisterRequest = (dataregister) => {
     return (dispatch) => {
+        console.log(dataregister);
         return (
             axios.post("user/register",dataregister).then(response =>{
                 console.log(response);
-                dispatch(login(response.data.data));
+                dispatch(register(response));
             })
         )
     }
@@ -17,7 +18,7 @@ export const actLoginRequest = (datalogin) => {
         return (
             axios.post("user/login",datalogin).then(response =>{
                 console.log(response);
-                dispatch(login(response.data.data));
+                dispatch(login(response.data));
             })
         )
     }
@@ -85,7 +86,6 @@ export const actLeaveClassRequest = (idclass) => {
         )
     }
 }
-
 
 export const register = (dataregister) => {
     return {

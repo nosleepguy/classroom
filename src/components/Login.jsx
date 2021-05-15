@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { connect } from "react-redux";
-import { Redirect } from "react-router";
 import * as action from "./../action/Action";
 // import PropTypes from "prop-types";
 import "./../css/login.css";
-function Login(props) {
 
-    const { onRegister, onLogin } = props;
+function Login(props) {
+    const { onRegister, onLogin, dataResponse } = props;
+    //show modal fail login
+    const [showModal, setShowModal] = useState(false);
 
     const [emailLogin, setEmailLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
@@ -54,8 +56,7 @@ function Login(props) {
     };
 
     const onHandleRegister = () => {
-        let dataregister = Object.create(null);
-        dataregister = {
+        const dataregister = {
             email: emailRegister,
             password: passwordRegister,
         };
@@ -63,102 +64,124 @@ function Login(props) {
     };
 
     const onHandleLogin = () => {
-        let datalogin = Object.create(null);
-        datalogin = {
+       const datalogin = {
             email: emailLogin,
-            password: passwordLogin
-        }
-        onLogin(datalogin)
-    }
+            password: passwordLogin,
+        };
+        onLogin(datalogin);
+    };
 
+    // == false để tránh lỗi khi null
+    useEffect(() => {
+        console.log(dataResponse);
+        
+        if(dataResponse.success == false) {
+            setShowModal(true)
+        }
+    }, [dataResponse]);
     return (
-        <form action="">
-            <div className="wrapper-login">
-                <div className="form-structor">
-                    <div
-                        className={
-                            toggle == false ? "signup" : "signup slide-up"
-                        }
-                    >
-                        <h2
-                            className="form-title"
-                            id="signup"
-                            onClick={onToggleRegister}
+        <>
+            <form>
+                <div className="wrapper-login">
+                    <div className="form-structor">
+                        <div
+                            className={
+                                toggle == false ? "signup" : "signup slide-up"
+                            }
                         >
-                            <span>or</span>Sign up
-                        </h2>
-                        <div className="form-holder">
-                            <input
-                                type="text"
-                                className="input"
-                                placeholder="Name"
-                                required
-                                id="nameRegister"
-                                value={nameRegister}
-                                onChange={onHandleInput}
-                            />
-                            <input
-                                type="email"
-                                className="input"
-                                placeholder="Email"
-                                id="emailRegister"
-                                required
-                                value={emailRegister}
-                                onChange={onHandleInput}
-                            />
-                            <input
-                                type="password"
-                                className="input"
-                                placeholder="Password"
-                                id="passwordRegister"
-                                required
-                                value={passwordRegister}
-                                onChange={onHandleInput}
-                            />
-                        </div>
-                        <button
-                            className="submit-btn"
-                            type="submit"
-                            onClick={onHandleRegister}
-                        >
-                            Sign up
-                        </button>
-                    </div>
-                    <div className={toggle ? "login" : "login slide-up"}>
-                        <div className="center">
                             <h2
                                 className="form-title"
-                                id="login"
-                                onClick={onToggleLogin}
+                                id="signup"
+                                onClick={onToggleRegister}
                             >
-                                <span>or</span>Log in
+                                <span>or</span>Sign up
                             </h2>
                             <div className="form-holder">
+                                <input
+                                    type="text"
+                                    className="input"
+                                    placeholder="Name"
+                                    required
+                                    id="nameRegister"
+                                    value={nameRegister}
+                                    onChange={onHandleInput}
+                                />
                                 <input
                                     type="email"
                                     className="input"
                                     placeholder="Email"
-                                    id="emailLogin"
+                                    id="emailRegister"
                                     required
-                                    value={emailLogin}
+                                    value={emailRegister}
                                     onChange={onHandleInput}
                                 />
                                 <input
                                     type="password"
                                     className="input"
                                     placeholder="Password"
-                                    id="passwordLogin"
+                                    id="passwordRegister"
                                     required
-                                    value={passwordLogin}
+                                    value={passwordRegister}
                                     onChange={onHandleInput}
                                 />
                             </div>
-                            <button className="submit-btn" onClick={onHandleLogin}>Log in</button>
+                            <button
+                                className="submit-btn"
+                                type="button"
+                                onClick={onHandleRegister}
+                            >
+                                Sign up
+                            </button>
+                        </div>
+                        <div className={toggle ? "login" : "login slide-up"}>
+                            <div className="center">
+                                <h2
+                                    className="form-title"
+                                    id="login"
+                                    onClick={onToggleLogin}
+                                >
+                                    <span>or</span>Log in
+                                </h2>
+                                <div className="form-holder">
+                                    <input
+                                        type="email"
+                                        className="input"
+                                        placeholder="Email"
+                                        id="emailLogin"
+                                        required
+                                        value={emailLogin}
+                                        onChange={onHandleInput}
+                                    />
+                                    <input
+                                        type="password"
+                                        className="input"
+                                        placeholder="Password"
+                                        id="passwordLogin"
+                                        required
+                                        value={passwordLogin}
+                                        onChange={onHandleInput}
+                                    />
+                                </div>
+                                <button
+                                    className="submit-btn"
+                                    onClick={onHandleLogin}
+                                >
+                                    Log in
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </form>
+            <div className={showModal ? "wrapper-modal" : "wrapper-modal modal-hide"}>
+                <div className="box">
+                    <div className="content">{dataResponse.message}</div>
+                    <button type="button" onClick={() => setShowModal(false)}>
+                        Đóng
+                    </button>
+                </div>
             </div>
-        </form>
+        </>
     );
 }
 
@@ -176,9 +199,9 @@ const mapDispatchToProps = (dispatch, props) => {
         onRegister: (dataregister) => {
             dispatch(action.actRegisterRequest(dataregister));
         },
-        onLogin : (datalogin) => {
-            dispatch(action.actLoginRequest(datalogin))
-        }
+        onLogin: (datalogin) => {
+            dispatch(action.actLoginRequest(datalogin));
+        },
     };
 };
 

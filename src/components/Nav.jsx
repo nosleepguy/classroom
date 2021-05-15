@@ -208,13 +208,13 @@ function Nav(props) {
                         <span className="icon fas fa-cog"></span>
                         <span className="text">Cài đặt</span>
                     </div>
-                    <div className="item hover">
+                    <div className="item hover" onClick={Logout}>
                         <img
                             src={logoutIcon}
                             alt=""
                             className="icon iconlogout"
                         />
-                        <span className="text logout" onClick={Logout}>
+                        <span className="text logout" >
                             Đăng xuất
                         </span>
                     </div>

@@ -238,3 +238,44 @@
     visibility: visible;
     -webkit-transition: all 0.3s ease;
 }
+/* login fail */
+.wrapper-modal{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.527);
+    z-index: 100;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.wrapper-modal .box{
+    max-width: 500px;
+    background: #fff;
+    padding: 40px;
+    margin: 20px;
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.box .content{
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.box button{
+    outline: none;
+    border: none;
+    padding: 20px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.box button:active{
+    background: rgb(179, 179, 179);
+}
+.modal-hide{
+    visibility: hidden;
+}

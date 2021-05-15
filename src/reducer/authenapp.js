@@ -5,21 +5,25 @@ const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.REGISTER_ACCOUNT: {
             console.log(action.dataregister);
-            localStorage.setItem("tk", action.dataregister.token);
-            localStorage.setItem("rtk", action.dataregister.refreshToken);
-            state = action.dataregister;
+            if (action.dataregister.data.success) {
+                localStorage.setItem("tk", action.dataregister.data.data.token);
+                localStorage.setItem("rtk", action.dataregister.data.data.refreshToken);
+            }
+            state = action.dataregister.data;
             return state
         };
         case Types.LOGIN: {
             console.log(action.datalogin);
-            localStorage.setItem("tk", action.datalogin.token);
-            localStorage.setItem("rtk", action.datalogin.refreshToken);
+            if (action.datalogin.success) {
+                localStorage.setItem("tk", action.datalogin.data.token);
+                localStorage.setItem("rtk", action.datalogin.data.refreshToken);
+            }
             state = action.datalogin;
             return state
         }
         case Types.LOGOUT: {
             localStorage.clear();
-            state = {token: ""}
+            state = { data: { token: "" } }
             return state
         }
         default: return state

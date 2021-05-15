@@ -1,7 +1,7 @@
 import * as Types from "../constant/Types";
 var initialState = [];
 
-const findIndex = function (arr, id){
+const findIndex = function (arr, id) {
     return arr.findIndex(elem => elem.id == id)
 }
 
@@ -10,13 +10,13 @@ const myReducer = (state = initialState, action) => {
         case Types.CREATE_CLASS: {
             console.log(action);
             let newState = JSON.parse(JSON.stringify(state));
-            const newclass = {...action.response};
+            const newclass = { ...action.response };
             console.log(newclass);
             newState.push(newclass);
             state = newState;
             return state
         }
-        case Types.GET_OWN_CLASS:{
+        case Types.GET_OWN_CLASS: {
             // console.log(action.response.data.data);
             let classOwn = action.response.data.data;
             console.log(classOwn);
@@ -24,15 +24,19 @@ const myReducer = (state = initialState, action) => {
             state = newState
             return state
         }
-        case Types.DELETE_CLASS:{
+        case Types.DELETE_CLASS: {
             console.log(action);
             const id = action.idclass.idclass;
-            if(action.idclass.response.data.success){
+            if (action.idclass.response.data.success) {
                 const index = findIndex(state, id);
                 let newState = JSON.parse(JSON.stringify(state));
                 newState.splice(index, 1);
                 state = newState
             }
+            return state
+        }
+        case Types.LOGOUT: {
+            state = []
             return state
         }
         default: return state

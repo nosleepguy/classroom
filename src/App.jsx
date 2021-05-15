@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
-
-import "./App.css";
 import { createBrowserHistory } from "history";
-import Nav from "./components/Nav";
+
+import * as actions from "./action/Action";
 import PublicRouter from "./router/PublicRouter";
 import PrivateRouter from "./router/PrivateRouter";
-const history = createBrowserHistory();
-import * as actions from "./action/Action";
+import Nav from "./components/Nav";
 
 import refreshToken from "./utils/checkToken";
+import "./App.css";
+
+const history = createBrowserHistory();
 
 function App(props) {
     const { dataResponse, getOwnClass, getListClass } = props;
@@ -45,8 +46,10 @@ function App(props) {
     //auth
     const [token, setToken] = useState("");
 
+    //lấy token để khi có token thì mới gọi api lấy data về
     useEffect(() => {
-        setToken(dataResponse.token);
+        let token = localStorage.getItem("tk");
+        setToken(token);
     }, [dataResponse]);
 
     useEffect(() => {

@@ -34,6 +34,10 @@ const myReducer = (state = initialState, action) => {
             }
             return state
         }
+        case Types.LOGOUT: {
+            state = []
+            return state
+        }
         default: return state
     }
 }
