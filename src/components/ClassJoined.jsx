@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./../css/dashboard.css";
 import { actLeaveClassRequest } from "../action/Action";
-
+import refreshToken from './../utils/checkToken';
 function ClassJoined(props) {
     const { item, onLeaveClass } = props;
 
@@ -25,7 +25,7 @@ function ClassJoined(props) {
                     <span className="fas fa-ellipsis-v "></span>
                     <div className={showAction ? "action" : "action hidden"}>
                         {/* <p>Hủy lớp</p> */}
-                        <p onClick={() => onLeaveClass(item.id)}>Dời lớp</p>
+                        <p onClick={() => refreshToken([onLeaveClass(item.id)])}>Dời lớp</p>
                     </div>
                 </div>
             </div>

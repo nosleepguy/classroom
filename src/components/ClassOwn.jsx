@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./../css/dashboard.css";
 import { actDeleteClassRequest } from "./../action/Action";
+import refreshToken from './../utils/checkToken';
 
 function ClassOwn(props) {
     const { item, onDeleteClass } = props;
@@ -15,7 +16,8 @@ function ClassOwn(props) {
     };
 
     const actDeleteClass = () => {
-        onDeleteClass(item.id)
+        refreshToken([onDeleteClass(item.id)])
+        
     }
     return (
         <div className="class-room" key={item.id}>

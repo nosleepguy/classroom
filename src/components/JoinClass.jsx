@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Prompt } from "react-router-dom";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 // import PropTypes from 'prop-types'
 import "./../css/joinclass.css";
-import { actJoinClassRequest } from './../action/Action';
+import { actJoinClassRequest } from "./../action/Action";
+import refreshToken from "./../utils/checkToken";
+
 function JoinClass(props) {
     const [classCode, setClassCode] = useState("");
 
@@ -13,9 +15,9 @@ function JoinClass(props) {
         props.history.push("/");
     };
 
-    const joinClassAction = () =>{
-        props.actJoinclass(classCode);
-    }
+    const joinClassAction = () => {
+        refreshToken([props.actJoinclass(classCode)]);
+    };
     return (
         <div className="wrapper">
             <Prompt
@@ -70,12 +72,12 @@ function JoinClass(props) {
 // JoinClass.propTypes = {
 
 // }
-const mapDispatchToProps = (dispatch, props) =>{
+const mapDispatchToProps = (dispatch, props) => {
     return {
-        actJoinclass: (classid) =>{
-            dispatch(actJoinClassRequest(classid))
-        }
-    }
-}
+        actJoinclass: (classid) => {
+            dispatch(actJoinClassRequest(classid));
+        },
+    };
+};
 
 export default connect(null, mapDispatchToProps)(JoinClass);

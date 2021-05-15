@@ -1,5 +1,6 @@
 export const REGISTER_ACCOUNT = "REGISTER_ACCOUNT"
 export const LOGIN = "LOGIN"
+export const LOGOUT = "LOGOUT"
 
 export const CREATE_CLASS = "CREATE_CLASS"
 export const JOIN_CLASS = "JOIN_CLASS"

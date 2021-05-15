@@ -17,6 +17,11 @@ const myReducer = (state = initialState, action) => {
             state = action.datalogin;
             return state
         }
+        case Types.LOGOUT: {
+            localStorage.clear();
+            state = {token: ""}
+            return state
+        }
         default: return state
     }
 }

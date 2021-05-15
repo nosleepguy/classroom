@@ -28,11 +28,11 @@ const refreshToken = (cb) => {
                 console.log(response);
                 localStorage.setItem("tk", response.data.data.token);
                 localStorage.setItem("rtk", response.data.data.refreshToken);
-                cb.map(item => item());
+                cb.map(item  => item && item());
             })
             .catch((error) => console.log(error.response));
     } else {
-        cb.map(item => item());
+        cb.map(item => item && item());
     }
 }
 export default refreshToken;

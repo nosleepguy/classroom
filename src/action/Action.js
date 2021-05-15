@@ -100,6 +100,12 @@ export const login = (datalogin) => {
     }
 }
 
+export const logout = () => {
+    return {
+        type: Types.LOGOUT,
+    }
+}
+
 export const createClass = (response) => {
     return {
         type: Types.CREATE_CLASS,

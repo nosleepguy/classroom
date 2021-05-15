@@ -4,18 +4,19 @@ import * as action from "./../action/Action";
 
 // import PropTypes from 'prop-types'
 import "./../css/createclass.css";
+import refreshToken from './../utils/checkToken';
 
 function CreateClass(props) {
     const [className, setClassName] = useState("");
 
     const onHandleForm = (e) => {
         e.preventDefault();
-        let createclass = {
+        const createclass = {
             className: className,
             cover: "",
             status: 1,
         };
-        props.onCreateClass(createclass);
+        refreshToken([props.onCreateClass(createclass)]);
         props.history.push("/");
     };
 
@@ -46,7 +47,6 @@ function CreateClass(props) {
                                     ? { background: "#2C7EEA", color: "white" }
                                     : {}
                             }
-                            // onClick={onCreateClassHandle}
                         >
                             Tạo
                         </button>

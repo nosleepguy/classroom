@@ -55,10 +55,6 @@ function App(props) {
         }
     }, [token]);
 
-    useEffect(() => {
-        let token = localStorage.getItem("tk");
-        setToken(token);
-    }, []);
 
     return (
         <Router history={history}>

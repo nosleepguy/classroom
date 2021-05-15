@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import "./../css/nav.css";
-
+import logoutIcon from "./../assets/icons/logout.svg";
+import { logout } from "../action/Action";
 function Nav(props) {
-    const { showTabp, classOwn, classList, showOptions } = props;
+    
+    const { showTabp, classOwn, classList, showOptions, logout } = props;
 
     //class name ở nav
     const [classNamee, setClassNamee] = useState("" || "CITA Classroom");
@@ -34,6 +36,11 @@ function Nav(props) {
 
     const onShowPlusHandle = () => {
         setShowPlusOption(!showPlusOption);
+    };
+
+    const Logout = () => {
+        
+        logout()
     };
 
     let classOwnRender, classListRender;
@@ -201,6 +208,16 @@ function Nav(props) {
                         <span className="icon fas fa-cog"></span>
                         <span className="text">Cài đặt</span>
                     </div>
+                    <div className="item hover">
+                        <img
+                            src={logoutIcon}
+                            alt=""
+                            className="icon iconlogout"
+                        />
+                        <span className="text logout" onClick={Logout}>
+                            Đăng xuất
+                        </span>
+                    </div>
                 </div>
             </section>
         </section>
@@ -213,5 +230,11 @@ const mapStateToProps = (state) => {
         classList: state.classList,
     };
 };
-
-export default connect(mapStateToProps, null)(Nav);
+const mapDispatchToProps = (dispatch, props) =>{
+    return {
+        logout: () =>{
+            dispatch(logout())
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
