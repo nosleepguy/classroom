@@ -56,7 +56,6 @@ function Login(props) {
     const onHandleRegister = () => {
         let dataregister = Object.create(null);
         dataregister = {
-            // name: nameRegister,
             email: emailRegister,
             password: passwordRegister,
         };

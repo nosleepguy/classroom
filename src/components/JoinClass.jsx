@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Prompt } from "react-router-dom";
-
+import {connect} from "react-redux";
 // import PropTypes from 'prop-types'
 import "./../css/joinclass.css";
+import { actJoinClassRequest } from './../action/Action';
 function JoinClass(props) {
     const [classCode, setClassCode] = useState("");
 
@@ -11,6 +12,10 @@ function JoinClass(props) {
         e.preventDefault();
         props.history.push("/");
     };
+
+    const joinClassAction = () =>{
+        props.actJoinclass(classCode);
+    }
     return (
         <div className="wrapper">
             <Prompt
@@ -30,6 +35,7 @@ function JoinClass(props) {
                             ? { background: "#2C7EEA", color: "white" }
                             : {}
                     }
+                    onClick={joinClassAction}
                 >
                     Tham gia
                 </button>
@@ -64,5 +70,12 @@ function JoinClass(props) {
 // JoinClass.propTypes = {
 
 // }
+const mapDispatchToProps = (dispatch, props) =>{
+    return {
+        actJoinclass: (classid) =>{
+            dispatch(actJoinClassRequest(classid))
+        }
+    }
+}
 
-export default JoinClass;
+export default connect(null, mapDispatchToProps)(JoinClass);

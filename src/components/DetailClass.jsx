@@ -7,11 +7,9 @@ import CreateNoti from "./CreateNoti";
 
 function DetailClass(props) {
     const idclass = props.match.params.id; 
-    const {classList} = props;
+    const {classOwn} = props;
     
-    const indexx = classList.findIndex((item) => {
-        item.id === +idclass
-    });
+    const index = classOwn.findIndex(item => item.id === +idclass);
 
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const onShowCreateNoti = () => {
@@ -23,8 +21,8 @@ function DetailClass(props) {
             <div className="main">
                 <div className="classname">
                     <p>Đồ họa máy tính</p>
-                    <p>(60th4)</p>
-                    <p>Mã lớp: {indexx}</p>
+                    {/* <p>(60th4)</p> */}
+                    <p>Mã lớp: {classOwn[index].referralCode}</p>
                 </div>
                 <div className="detail">
                     <div className="newfeed">
@@ -69,7 +67,7 @@ function DetailClass(props) {
 
 const mapStateToProps = (state) => {
     return {
-        classList: state.classHandle,
+        classOwn: state.classOwn
     };
 };
 export default connect(mapStateToProps, null)(DetailClass);

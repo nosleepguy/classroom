@@ -10,16 +10,35 @@ import PrivateRouter from "./router/PrivateRouter";
 const history = createBrowserHistory();
 import * as actions from "./action/Action";
 
+import refreshToken from "./utils/checkToken";
+
 function App(props) {
-    const { dataResponse, getAllClass } = props;
+    const { dataResponse, getOwnClass, getListClass } = props;
+
     //show tab phục vụ cho click ra ngoài tab thì đóng tab
     const [showtab, setShowTab] = useState(true);
-    const onShowtab = (e) => {
+
+    // khi = true thì 2 option ở nav sẽ hiện ra
+    const [showOptions, setShowOptions] = useState(false);
+
+    const onHandleTabAndOption = (e) => {
+        // let token = localStorage.getItem("tk");
+        // setToken(token);
+
         if (e.target.className != "tab") {
             setShowTab(true);
         }
         if (e.target.className == "fas fa-bars") {
             setShowTab(!showtab);
+        }
+
+        //show option dựa vào pathname
+        // => có bug khi click vào quay lại ở trình duyệt chứ k action ở app
+        if (window.location.pathname == "/") {
+            setShowOptions(false);
+        }
+        if (window.location.pathname !== "/") {
+            setShowOptions(true);
         }
     };
 
@@ -31,26 +50,25 @@ function App(props) {
     }, [dataResponse]);
 
     useEffect(() => {
-
         if (token) {
-            getAllClass();
+            refreshToken([getOwnClass, getListClass]);
         }
     }, [token]);
 
     useEffect(() => {
-        let tk = localStorage.getItem("tk");
-        setToken(tk);
-    },[]);
+        let token = localStorage.getItem("tk");
+        setToken(token);
+    }, []);
 
     return (
         <Router history={history}>
             {token ? (
-                <div className="App" onClick={onShowtab}>
-                    <Nav showTabp={showtab} />
+                <div className="App" onClick={onHandleTabAndOption}>
+                    <Nav showTabp={showtab} showOptions={showOptions} />
                     <PrivateRouter />
                 </div>
             ) : (
-                <div className="App" onClick={onShowtab}>
+                <div className="App" onClick={onHandleTabAndOption}>
                     <PublicRouter />
                 </div>
             )}
@@ -65,8 +83,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        getAllClass: () => {
-            dispatch(actions.actGetAllClassRequest());
+        getOwnClass: () => {
+            dispatch(actions.actgetOwnClassRequest());
+        },
+        getListClass: () => {
+            dispatch(actions.actgetListClassRequest());
         },
     };
 };

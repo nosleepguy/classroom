@@ -16,6 +16,7 @@ function CreateClass(props) {
             status: 1,
         };
         props.onCreateClass(createclass);
+        props.history.push("/");
     };
 
     // quay lai
@@ -23,15 +24,6 @@ function CreateClass(props) {
         props.history.push("/");
     };
 
-    //taoj class
-    const onCreateClassHandle = () => {
-        let createclass = {
-            className: className,
-            cover: "",
-            status: 1,
-        };
-        props.onCreateClass(createclass);
-    };
     return (
         <div className="createclass">
             <div className="form">

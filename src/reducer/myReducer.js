@@ -1,7 +1,9 @@
 import {combineReducers} from "redux";
 import authenapp from "./authenapp";
-import classHandle from "./classHandle";
+import classOwn from './classOwn';
+import classList from './classList';
 export default combineReducers ({
     authenapp,
-    classHandle
+    classOwn,
+    classList
 })

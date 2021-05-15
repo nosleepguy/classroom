@@ -1,82 +1,90 @@
 import * as Types from "./../constant/Types";
-// import callAPI from "./../utils/callAPI";
 import axios from "./../utils/customAxios";
 
-
-// export const actRegisterRequest = (dataregister) => {
-//     return (dispatch) => {
-//         return callAPI("POST", "user/register", dataregister).then((response) => {
-//             // console.log(response);
-//             dispatch(register(response.data.data));
-//         }
-//         )
-//     }
-// }
-
-// axios.post('/postData', {
-//     name: 'Sample',
-//     contact: '0123456789'
-// }).then(response => console.log(response))
-// .catch(error => console.log(error));
-
-//test axios interceptors
-export const actLoginRequest = (datalogin) => {
+export const actRegisterRequest = (dataregister) => {
     return (dispatch) => {
         return (
-            axios.post("user/login",datalogin).then(response =>{
+            axios.post("user/register",dataregister).then(response =>{
+                console.log(response);
                 dispatch(login(response.data.data));
             })
         )
     }
 }
-// export const actLoginRequest = (datalogin) => {
-//     return (dispatch) => {
-//         return callAPI("POST", "user/login", datalogin).then((response) => {
-//             console.log(response.data);
-//             dispatch(login(response.data.data));
-//         }
-//         )
-//     }
-// }
 
-// export const actCreateClassRequest = (classname) => {
-//     return (dispatch) => {
-//         return callAPI("POST", "user/class", classname).then((response) => {
-//             console.log(response);
-//             dispatch(createClass(response));
-//         }
-//         )
-//     }
-// }
-// export const actJoinClassRequest = (classname) => {
-//     return (dispatch) => {
-//         return callAPI("POST", "user/class", classname).then((response) => {
-//             console.log(response);
-//             dispatch(createClass(response));
-//         }
-//         )
-//     }
-// }
-
-export const actGetAllClassRequest = () => {
+export const actLoginRequest = (datalogin) => {
     return (dispatch) => {
         return (
-            axios.get("user/class/own").then((response) => {
+            axios.post("user/login",datalogin).then(response =>{
                 console.log(response);
-                dispatch(getAllClass(response));
+                dispatch(login(response.data.data));
             })
         )
     }
 }
-// export const actGetAllClassRequest = () => {
-//     return (dispatch) => {
-//         return callAPI("GET", "user/class/own",).then((response) => {
-//             console.log(response);
-//             dispatch(getAllClass(response));
-//         })
-//     }
-// }
 
+export const actCreateClassRequest = (data) => {
+    return (dispatch) => {
+        return (
+            axios.post("user/class",data).then(response =>{
+                console.log(response);
+                dispatch(createClass(response.data.data));
+            })
+        )
+    }
+}
+
+export const actgetOwnClassRequest = () => {
+    return (dispatch) => {
+        return (
+            axios.get("user/class/own").then((response) => {
+                console.log(response);
+                dispatch(getOwnClass(response));
+            })
+        )
+    }
+}
+export const actgetListClassRequest = () => {
+    return (dispatch) => {
+        return (
+            axios.get("user/class").then((response) => {
+                console.log(response);
+                dispatch(getListClass(response));
+            })
+        )
+    }
+}
+
+export const actDeleteClassRequest = (idclass) => {
+    return (dispatch) => {
+        return (
+            axios.delete(`user/class/${idclass}`,).then(response =>{
+                console.log(response);
+                dispatch(deleteClass({response, idclass}));
+            })
+        )
+    }
+}
+export const actJoinClassRequest = (idclass) => {
+    return (dispatch) => {
+        return (
+            axios.post(`user/class/join`, {referralCode: idclass}).then(response =>{
+                console.log(response);
+                dispatch(joinClass(response));
+            })
+        )
+    }
+}
+export const actLeaveClassRequest = (idclass) => {
+    return (dispatch) => {
+        return (
+            axios.delete(`user/class/${idclass}/leave`,).then(response =>{
+                console.log(response);
+                dispatch(leaveClass({response, idclass}));
+            })
+        )
+    }
+}
 
 
 export const register = (dataregister) => {
@@ -92,28 +100,41 @@ export const login = (datalogin) => {
     }
 }
 
-export const createClass = (classname) => {
+export const createClass = (response) => {
     return {
         type: Types.CREATE_CLASS,
-        classname
+        response
     }
 }
 
-export const joinClass = (classname) => {
+export const joinClass = (response) => {
     return {
-        type: Types.CREATE_CLASS,
-        classname
+        type: Types.JOIN_CLASS,
+        response
     }
 }
-export const getAllClass = (responseData) => {
+export const leaveClass = (response) => {
     return {
-        type: Types.GET_ALL_CLASS,
-        responseData
+        type: Types.LEAVE_CLASS,
+        response
     }
 }
-export const changeToken = (newToken) => {
+export const deleteClass = (idclass) => {
     return {
-        type: Types.CHANGE_TOKEN,
-        newToken
+        type: Types.DELETE_CLASS,
+        idclass
+    }
+}
+
+export const getOwnClass = (response) => {
+    return {
+        type: Types.GET_OWN_CLASS,
+        response
+    }
+}
+export const getListClass = (response) => {
+    return {
+        type: Types.GET_LIST_CLASS,
+        response
     }
 }

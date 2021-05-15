@@ -4,11 +4,10 @@ import { NavLink } from "react-router-dom";
 import "./../css/nav.css";
 
 function Nav(props) {
-    const {showTabp,classList } = props;
+    const { showTabp, classOwn, classList, showOptions } = props;
 
-    
-    // khi = true thì 2 option ở nav sẽ hiện ra
-    const [showOptions, setShowOptions] = useState(true);
+    //class name ở nav
+    const [classNamee, setClassNamee] = useState("" || "CITA Classroom");
 
     //show tab bên trái
     const [showTab, setShowTab] = useState(false);
@@ -37,21 +36,38 @@ function Nav(props) {
         setShowPlusOption(!showPlusOption);
     };
 
-    let classListRender;
+    let classOwnRender, classListRender;
+    if (classOwn) {
+        classOwnRender = classOwn.map((item) => {
+            return (
+                <NavLink to={"/class/" + item.id} key={item.id}>
+                    <div className="item hover class-active">
+                        <div className="icon represent">
+                            <div>{"T"}</div>
+                        </div>
+                        <div className=" text detail">
+                            <p className="name">{item.className}</p>
+                            <p className="class">(60TH4)</p>
+                        </div>
+                    </div>
+                </NavLink>
+            );
+        });
+    }
     if (classList) {
         classListRender = classList.map((item) => {
             return (
                 <NavLink to={"/class/" + item.id} key={item.id}>
-                        <div className="item hover class-active">
-                            <div className="icon represent">
-                                <div>{"T"}</div>
-                            </div>
-                            <div className=" text detail">
-                                <p className="name">{item.className}</p>
-                                <p className="class">(60TH4)</p>
-                            </div>
+                    <div className="item hover class-active">
+                        <div className="icon represent">
+                            <div>{"T"}</div>
                         </div>
-                    </NavLink>
+                        <div className=" text detail">
+                            <p className="name">{item.className}</p>
+                            <p className="class">(60TH4)</p>
+                        </div>
+                    </div>
+                </NavLink>
             );
         });
     }
@@ -63,10 +79,15 @@ function Nav(props) {
             <nav className="nav">
                 <div className="action">
                     <div className="class-name">
-                        <span className={!showTab ? "fas fa-chevron-left":"fas fa-bars"} onClick={onShowTab} />
+                        <span
+                            className={
+                                !showTab ? "fas fa-chevron-left" : "fas fa-bars"
+                            }
+                            onClick={onShowTab}
+                        />
                         <div className="detail">
-                            <p className="name">Đồ họa máy tính</p>
-                            <p className="class">(60TH4)</p>
+                            <p className="name">{classNamee}</p>
+                            {/* <p className="class">(60TH4)</p> */}
                         </div>
                     </div>
                     <div className="join-avatar">
@@ -85,9 +106,7 @@ function Nav(props) {
                                 }
                             >
                                 <NavLink to="/joinclass">
-                                    <li
-                                        className="li-join hover"
-                                    >
+                                    <li className="li-join hover">
                                         Tham gia lớp học
                                     </li>
                                 </NavLink>
@@ -152,7 +171,7 @@ function Nav(props) {
                     </p>
 
                     {/* <!-- //thẻ này là các lớp giảng dạy --> */}
-                    {classListRender}
+                    {classOwnRender}
                 </div>
 
                 {/* <!-- //đây là phần đã đăng ký --> */}
@@ -170,7 +189,7 @@ function Nav(props) {
                     </p>
 
                     {/* <!-- //thẻ này là các lớp đã đăng kí --> */}
-                    {/* {classListRender} */}
+                    {classListRender}
                 </div>
 
                 <div className="contain">
@@ -188,10 +207,10 @@ function Nav(props) {
     );
 }
 
-
 const mapStateToProps = (state) => {
     return {
-        classList: state.classHandle,
+        classOwn: state.classOwn,
+        classList: state.classList,
     };
 };
 
