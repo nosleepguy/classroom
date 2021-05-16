@@ -19,7 +19,7 @@ function DetailClass(props) {
 
     useEffect(() => {
         getPost(idclass);
-    }, []);
+    }, [idclass]);
 
     useEffect(() => {
         setPostListState(postList);

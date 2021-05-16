@@ -126,7 +126,7 @@
     background: #fff;
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
-    position: relative;
+    position: fixed;
     z-index: 99;
     overflow-y: scroll;
 }
