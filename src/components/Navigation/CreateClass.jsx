@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import * as action from "./../action/Action";
+import * as action from "../../action/Action";
 
 // import PropTypes from 'prop-types'
-import "./../css/createclass.css";
-import refreshToken from './../utils/checkToken';
+import "./../../css/createclass.css";
+import refreshToken from '../../utils/checkToken';
 
 function CreateClass(props) {
     const [className, setClassName] = useState("");

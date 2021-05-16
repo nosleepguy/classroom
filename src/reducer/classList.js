@@ -9,7 +9,7 @@ const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_LIST_CLASS:{
             // console.log(action.response.data.data);
-            console.log(action.response.data.data);
+            // console.log(action.response.data.data);
             let data = action.response.data.data
             return data
         }

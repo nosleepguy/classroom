@@ -8,10 +8,10 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.CREATE_CLASS: {
-            console.log(action);
+            // console.log(action);
             let newState = JSON.parse(JSON.stringify(state));
             const newclass = { ...action.response };
-            console.log(newclass);
+            // console.log(newclass);
             newState.push(newclass);
             state = newState;
             return state
@@ -19,13 +19,13 @@ const myReducer = (state = initialState, action) => {
         case Types.GET_OWN_CLASS: {
             // console.log(action.response.data.data);
             let classOwn = action.response.data.data;
-            console.log(classOwn);
+            // console.log(classOwn);
             let newState = [...state, ...classOwn];
             state = newState
             return state
         }
         case Types.DELETE_CLASS: {
-            console.log(action);
+            // console.log(action);
             const id = action.idclass.idclass;
             if (action.idclass.response.data.success) {
                 const index = findIndex(state, id);

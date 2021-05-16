@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./../css/dashboard.css";
+import "./../../css/dashboard.css";
 import ClassOwn from "./ClassOwn";
 import ClassJoined from "./ClassJoined";
 
 function Dashboard(props) {
     const { classOwn, classList } = props;
     let classOwnRender, classListRender;
-
+    
     if (classOwn) {
         classOwnRender = classOwn.map((item) => {
-            return <ClassOwn key={item.id} item={item} />;
+            return <ClassOwn key={item.id} item={item}/>;
         });
     }
     if (classList) {

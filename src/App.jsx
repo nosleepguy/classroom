@@ -6,7 +6,7 @@ import { createBrowserHistory } from "history";
 import * as actions from "./action/Action";
 import PublicRouter from "./router/PublicRouter";
 import PrivateRouter from "./router/PrivateRouter";
-import Nav from "./components/Nav";
+import Nav from "./components/Navigation/Nav";
 
 import refreshToken from "./utils/checkToken";
 import "./App.css";

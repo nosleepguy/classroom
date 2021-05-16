@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { NavLink} from "react-router-dom";
-import "./../css/nav.css";
-import logoutIcon from "./../assets/icons/logout.svg";
-import { logout } from "../action/Action";
+import { NavLink } from "react-router-dom";
+import "./../../css/nav.css";
+import logoutIcon from "./../../assets/icons/logout.svg";
+import { logout } from "../../action/Action";
 function Nav(props) {
-    
     const { showTabp, classOwn, classList, showOptions, logout } = props;
 
     //class name ở nav
@@ -39,8 +38,7 @@ function Nav(props) {
     };
 
     const Logout = () => {
-        
-        logout()
+        logout();
     };
 
     let classOwnRender, classListRender;
@@ -78,6 +76,7 @@ function Nav(props) {
             );
         });
     }
+
     return (
         <section
             className="header"
@@ -135,8 +134,10 @@ function Nav(props) {
                 </div>
 
                 <div className="option-item hover" onClick={() => onFocus(1)}>
+                    {/* <Link to={`/class/`+29+`/memberlist`}> */}
                     <p className="content">Mọi người</p>
                     <p className={border[1] ? "border" : ""}></p>
+                    {/* </Link> */}
                 </div>
             </div>
 
@@ -214,9 +215,7 @@ function Nav(props) {
                             alt=""
                             className="icon iconlogout"
                         />
-                        <span className="text logout" >
-                            Đăng xuất
-                        </span>
+                        <span className="text logout">Đăng xuất</span>
                     </div>
                 </div>
             </section>
@@ -230,11 +229,11 @@ const mapStateToProps = (state) => {
         classList: state.classList,
     };
 };
-const mapDispatchToProps = (dispatch, props) =>{
+const mapDispatchToProps = (dispatch, props) => {
     return {
-        logout: () =>{
-            dispatch(logout())
-        }
-    }
-}
+        logout: () => {
+            dispatch(logout());
+        },
+    };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

@@ -22,7 +22,10 @@
 }
 .classname p:nth-child(2) {
     font-size: 20px;
-    text-transform: uppercase;
+}
+.classname p:nth-child(2) span {
+    letter-spacing: 4px;
+    padding-left: 10px;
 }
 .insideclass .detail {
     /* border: 1px solid; */
@@ -40,49 +43,18 @@
     border-radius: 10px;
     box-shadow: 0 1px 5px rgb(201, 201, 201);
     padding: 20px 25px;
+    width: 100%;
 }
 
 /* tái sử dụng */
-.avatar-user {
-    min-height: 40px;
-    min-width: 40px;
-    background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
-    background-size: cover;
-    background-position: center;
-    border-radius: 40px;
-    /* margin: 10px; */
-}
+
+/* --------- */
 .newfeed .create-noti p {
     font-size: 13px;
     color: rgb(109, 109, 109);
     margin: 0 20px;
 }
 
-.newfeed .new-noti {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 10px;
-    padding: 20px 25px;
-    margin: 20px 0;
-    border: 1px solid var(--color-border);
-}
-/* .newfeed .new-noti .icon-noti {
-    min-height: 40px;
-    min-width: 40px;
-    background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
-    background-size: cover;
-    background-position: center;
-    border-radius: 40px;
-} */
-.newfeed .new-noti p {
-    font-size: 13px;
-    margin: 0 20px;
-}
-.newfeed .new-noti p:nth-child(1) {
-    font-size: 14px;
-    font-weight: 700;
-}
 
 @media (max-width: 480px) {
     .insideclass .main{

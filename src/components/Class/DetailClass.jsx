@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { actGetPostRequest } from "../../action/Action";
 // import PropTypes from "prop-types";
 
-import "./../css/detailclass.css";
+import "./../../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
+import PostDetail from "./PostDetail";
 
 function DetailClass(props) {
-    const idclass = props.match.params.id; 
-    const {classOwn} = props;
-    
-    const index = classOwn.findIndex(item => item.id === +idclass);
+    const idclass = props.match.params.id;
+    const { detailClass, postList, getPost } = props;
 
     const [showCreateNoti, setShowCreateNoti] = useState(false);
+    const [postListState, setPostListState] = useState([]);
     const onShowCreateNoti = () => {
         setShowCreateNoti(!showCreateNoti);
     };
+
+    useEffect(() => {
+        getPost(idclass);
+    }, []);
+
+    useEffect(() => {
+        setPostListState(postList);
+    }, [postList]);
 
     return (
         <section className="insideclass">
@@ -22,7 +31,9 @@ function DetailClass(props) {
                 <div className="classname">
                     <p>Đồ họa máy tính</p>
                     {/* <p>(60th4)</p> */}
-                    <p>Mã lớp: {classOwn[index].referralCode}</p>
+                    <p>
+                        Mã lớp: <span>{detailClass.referralCode}</span>
+                    </p>
                 </div>
                 <div className="detail">
                     <div className="newfeed">
@@ -42,7 +53,7 @@ function DetailClass(props) {
                             <div className="avatar-user"></div>
                             <p>Tạo thông báo mới cho lớp học của bạn</p>
                         </div>
-                        <div className="new-noti">
+                        {/* <div className="new-noti">
                             <div className="avatar-user"></div>
                             <div>
                                 <p>
@@ -51,7 +62,10 @@ function DetailClass(props) {
                                 </p>
                                 <p> 27 thg 4</p>
                             </div>
-                        </div>
+                        </div> */}
+                        {postListState.map((post) => (
+                            <PostDetail key={post.id} datapost={post} />
+                        ))}
                     </div>
                 </div>
             </div>
@@ -67,7 +81,16 @@ function DetailClass(props) {
 
 const mapStateToProps = (state) => {
     return {
-        classOwn: state.classOwn
+        detailClass: state.detailClass,
+        postList: state.postList,
     };
 };
-export default connect(mapStateToProps, null)(DetailClass);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getPost: (idclass) => {
+            dispatch(actGetPostRequest(idclass));
+        },
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(DetailClass);

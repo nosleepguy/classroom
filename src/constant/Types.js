@@ -10,4 +10,5 @@ export const DELETE_CLASS = "DELETE_CLASS"
 export const GET_OWN_CLASS = "GET_OWN_CLASS"
 export const GET_LIST_CLASS = "GET_LIST_CLASS"
 
-export const CHANGE_TOKEN = "CHANGE_TOKEN"
+export const DETAIL_CLASS = "DETAIL_CLASS"
+export const GET_POST = "GET_POST"

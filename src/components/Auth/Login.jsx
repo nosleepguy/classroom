@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
-import * as action from "./../action/Action";
+import * as action from "../../action/Action";
 // import PropTypes from "prop-types";
-import "./../css/login.css";
+import "./../../css/login.css";
 
 function Login(props) {
     const { onRegister, onLogin, dataResponse } = props;

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Prompt } from "react-router-dom";
 import { connect } from "react-redux";
 // import PropTypes from 'prop-types'
-import "./../css/joinclass.css";
-import { actJoinClassRequest } from "./../action/Action";
-import refreshToken from "./../utils/checkToken";
+import "./../../css/joinclass.css";
+import { actJoinClassRequest } from "../../action/Action";
+import refreshToken from "../../utils/checkToken";
 
 function JoinClass(props) {
     const [classCode, setClassCode] = useState("");
@@ -60,7 +60,7 @@ function JoinClass(props) {
                 <ul>
                     <li>Sử dụng tài khoản đã đăng ký class room</li>
                     <li>
-                        Sử dụng mã lớp học gồm 5-7 chữ cái hoặc số, không có dấu
+                        Sử dụng mã lớp học gồm 5 chữ cái hoặc số, không có dấu
                         cách hoặc ký hiệu
                     </li>
                 </ul>

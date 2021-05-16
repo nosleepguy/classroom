@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "./../css/dashboard.css";
-import { actDeleteClassRequest } from "./../action/Action";
-import refreshToken from './../utils/checkToken';
+import "./../../css/dashboard.css";
+import { actDeleteClassRequest, detailClass } from "./../../action/Action";
+import refreshToken from "./../../utils/checkToken";
 
 function ClassOwn(props) {
-    const { item, onDeleteClass } = props;
+    const { item, onDeleteClass, sendDetailClass } = props;
 
     const [showAction, setShowAction] = useState(false);
 
@@ -16,13 +16,16 @@ function ClassOwn(props) {
     };
 
     const actDeleteClass = () => {
-        refreshToken([onDeleteClass(item.id)])
-        
-    }
+        refreshToken([onDeleteClass(item.id)]);
+    };
+
     return (
         <div className="class-room" key={item.id}>
-            <div className="top">
-                <Link to={"/class/" + item.id}>
+            <div className="top" onClick={() => sendDetailClass(item)}>
+                <Link
+                    to={"/class/" + item.id}
+                    
+                >
                     <div className="class-name">{item.name || "Tên Lớp"}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
                     <div className="teacher">Ngô Trường Giang</div>
@@ -61,6 +64,9 @@ const mapDispatchToProps = (dispatch, props) => {
     return {
         onDeleteClass: (idclass) => {
             dispatch(actDeleteClassRequest(idclass));
+        },
+        sendDetailClass: (item) => {
+            dispatch(detailClass(item));
         },
     };
 };

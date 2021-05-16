@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "./../css/dashboard.css";
-import { actLeaveClassRequest } from "../action/Action";
-import refreshToken from './../utils/checkToken';
+import "./../../css/dashboard.css";
+import { actLeaveClassRequest, detailClass} from "./../../action/Action";
+import refreshToken from './../../utils/checkToken';
 function ClassJoined(props) {
-    const { item, onLeaveClass } = props;
+    const { item, onLeaveClass, sendDetailClass } = props;
 
     const [showAction, setShowAction] = useState(false);
 
@@ -15,7 +15,7 @@ function ClassJoined(props) {
     };
     return (
         <div className="class-room" key={item.id}>
-            <div className="top">
+            <div className="top" onClick={() => sendDetailClass(item)}>
                 <Link to={"/class/" + item.id}>
                     <div className="class-name">{item.name || "Tên Lớp"}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
@@ -54,7 +54,10 @@ const mapDispatchToProps = (dispatch, props) => {
     return{
         onLeaveClass: (idclass) =>{
             dispatch(actLeaveClassRequest(idclass))
-        }
+        },
+        sendDetailClass: (item) => {
+            dispatch(detailClass(item));
+        },
     }
 }
 export default connect(null, mapDispatchToProps)(ClassJoined);

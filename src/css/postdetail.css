@@ -1,0 +1,146 @@
+.newfeed .new-noti {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    min-width: 280px;
+    margin: 20px 0;
+    border: 1px solid var(--color-border);
+}
+.new-noti .owner-noti {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.owner-noti .owner-info {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.owner-info .owner {
+    padding: 0 20px;
+}
+.owner-info .owner p:nth-child(1) {
+    font-weight: bold;
+}
+.owner-info .owner p:nth-child(2) {
+    font-size: 12px;
+    padding: 5px 0;
+}
+.owner-info .action {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--color-text);
+}
+.owner-info .action span {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 40px;
+}
+
+.action .delete-edit {
+    position: absolute;
+    right: 10px;
+    border: 1px solid var(--color-border);
+    /* padding: 10px 20px; */
+    min-width: 120px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(233, 233, 233, 0.534);
+}
+.action .delete-edit p{
+    padding: 10px 20px;
+}
+.action .delete-edit p:hover{
+    background-color: rgb(230, 230, 230);
+}
+.owner-noti .content {
+    padding: 10px;
+    font-size: 15px;
+    color: var(--color-text);
+    letter-spacing: 0.4px;
+}
+.comment{
+    padding: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+.count-comment{
+    padding-bottom: 20px;
+    font-weight: 600
+}
+.comment .user-comment{
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+}
+.detail-comment{
+    padding: 0 20px;
+    position: relative;
+}
+.detail-user-comment .name-user{
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.detail-user-comment .date{
+    font-size: 12px;
+    color: var(--color-text)
+}
+.comment-content{
+    padding: 10px 0;
+}
+.user-comment .action {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: var(--color-text);
+}
+.user-comment .action span {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 40px;
+}
+.write-comment{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.type-comment{
+    position: relative;  
+    max-width: 80%;
+    min-width: 250px;
+    width: 90%
+}
+.input-comment{
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-size: 16px;
+}
+.send-comment{
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    font-size: 25px;
+    transform: rotate(40deg);
+    font-weight: normal;
+    transition: all 0.2s;
+}
+.send-comment:hover{
+    color: rgb(22, 162, 255);
+    transition: all 0.2s;
+}
+

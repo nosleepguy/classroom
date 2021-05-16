@@ -1,5 +1,5 @@
 import React from "react";
-import "./../css/createnoti.css";
+import "./../../css/createnoti.css";
 
 function CreateNoti(props) {
     const { showCreateNoti,onShowCreateNotiEvent } = props;
