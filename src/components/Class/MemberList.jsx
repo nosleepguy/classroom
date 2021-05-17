@@ -7,16 +7,17 @@ function MemberList(props) {
     const idclass = props.match.params.id;
     const [memberList, setMemberList] = useState([]);
 
-    useEffect(() => {
-        axios
-            .get(`user/class/members?classId=${idclass}`)
-            .then((response) => {
-                console.log(response.data.data);
-            })
-            .catch((error) => {
-                console.log(err);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get(`user/class/members?classId=${idclass}`)
+    //         .then((response) => {
+    //             console.log(response.data.data);
+    //         })
+    //         .catch((error) => {
+    //             console.log(err);
+    //         });
+    // }, []);
+
     return (
         <div className="memberlist">
             <div className="teacher">

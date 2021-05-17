@@ -4,6 +4,12 @@
   --size-icon: 20px;
   --color-icon: #5f6368;
 }
+/* html {
+  filter: invert(1) hue-rotate(180deg);
+}
+html img{
+  filter: invert(1) hue-rotate(180deg);
+} */
 * {
   box-sizing: border-box;
   margin: 0;

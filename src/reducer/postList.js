@@ -18,7 +18,7 @@ const myReducer = (state = initialState, action) => {
             console.log(action.response.data.data);
             const post = action.response.data.data;
             const newState = JSON.parse(JSON.stringify(state));
-            if(newState.length >= 1){
+            if(newState && newState.length >= 1){
                 newState.unshift(post);
             }
             else{

@@ -8,30 +8,28 @@ import CreateNoti from "./CreateNoti";
 import PostDetail from "./PostDetail";
 
 import refreshToken from "./../../utils/checkToken";
+
 function DetailClass(props) {
+
     const idclass = props.match.params.id;
     const { detailClass, postList, getPost } = props;
 
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const [postListState, setPostListState] = useState([]);
 
-    //truyền cho create noti để edit được post;
-
     const onShowCreateNoti = () => {
         setShowCreateNoti(!showCreateNoti);
     };
 
+    //get post khi idclass thay doi
     useEffect(() => {
         refreshToken([getPost(idclass)]);
     }, [idclass]);
 
+    //luu danh sach posts vao state
     useEffect(() => {
         setPostListState(postList);
     }, [postList]);
-
-    const onEditPost = (content) => {
-
-    }
 
 
     return (
@@ -39,7 +37,6 @@ function DetailClass(props) {
             <div className="main">
                 <div className="classname">
                     <p>Đồ họa máy tính</p>
-                    {/* <p>(60th4)</p> */}
                     <p>
                         Mã lớp: <span>{detailClass.referralCode}</span>
                     </p>
