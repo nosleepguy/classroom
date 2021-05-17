@@ -8,9 +8,9 @@ import CreateNoti from "./CreateNoti";
 import PostDetail from "./PostDetail";
 
 import refreshToken from "./../../utils/checkToken";
+import None from "./../None/None";
 
 function DetailClass(props) {
-
     const idclass = props.match.params.id;
     const { detailClass, postList, getPost } = props;
 
@@ -30,7 +30,6 @@ function DetailClass(props) {
     useEffect(() => {
         setPostListState(postList);
     }, [postList]);
-
 
     return (
         <section className="insideclass">
@@ -71,11 +70,13 @@ function DetailClass(props) {
                             </div>
                         </div> */}
                         {postListState?.map((post) => (
-                            <PostDetail key={post.id} datapost={post}/>
+                            <PostDetail key={post.id} datapost={post} />
                         ))}
                     </div>
                 </div>
             </div>
+            {postListState ? "" : <None />}
+            
         </section>
     );
 }

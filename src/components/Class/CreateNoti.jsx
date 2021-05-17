@@ -28,6 +28,7 @@ function CreateNoti(props) {
         };
         refreshToken([actUpPost(postdata)]);
         onShowCreateNotiEvent();
+        setPost("");
     };
     return (
         <div
