@@ -13,7 +13,7 @@ function CreateNoti(props) {
         getPost,
     } = props;
 
-    console.log(idclass);
+    // console.log(idclass);
 
     const [post, setPost] = useState("");
     const onHandleForm = (e) => {

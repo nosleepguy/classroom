@@ -17,7 +17,7 @@ const myReducer = (state = initialState, action) => {
         case Types.UP_POST: {
             console.log(action.response.data.data);
             const post = action.response.data.data;
-            const newState = JSON.parse(JSON.stringify(state));
+            const newState = JSON.parse(JSON.stringify(state)) || [];
             if(newState && newState.length >= 1){
                 newState.unshift(post);
             }
