@@ -1,0 +1,38 @@
+.memberlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+}
+.memberlist .teacher{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+ /* dùng chung */
+ .role{
+    display: flex;
+    border-bottom: 1px solid #000;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role p:nth-child(1){
+    font-size: 30px;
+    padding: 10px 0;
+}
+.line{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+}
+/* --------- */
+
+.line .name{
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}

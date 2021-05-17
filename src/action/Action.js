@@ -19,7 +19,7 @@ export const register = (dataregister) => {
         dataregister
     }
 }
-// -----------------------------------------------------------------
+// --------------------Login---------------------------------------------
 
 export const actLoginRequest = (datalogin) => {
     return (dispatch) => {
@@ -37,7 +37,7 @@ export const login = (datalogin) => {
         datalogin
     }
 }
-// -----------------------------------------------------------------
+// --------------------CreateClass---------------------------------------------
 
 export const actCreateClassRequest = (data) => {
     return (dispatch) => {
@@ -54,7 +54,7 @@ export const createClass = (response) => {
         response
     }
 }
-// -----------------------------------------------------------------
+// --------------------JoinClass---------------------------------------------
 
 export const actJoinClassRequest = (idclass) => {
     return (dispatch) => {
@@ -73,7 +73,7 @@ export const joinClass = (response) => {
     }
 }
 
-// -----------------------------------------------------------------
+// -----------------------DeleteClass------------------------------------------
 
 export const actDeleteClassRequest = (idclass) => {
     return (dispatch) => {
@@ -90,7 +90,7 @@ export const deleteClass = (idclass) => {
         idclass
     }
 }
-// -----------------------------------------------------------------
+// --------------------LeaveClass---------------------------------------------
 
 export const actLeaveClassRequest = (idclass) => {
     return (dispatch) => {
@@ -108,7 +108,7 @@ export const leaveClass = (response) => {
         response
     }
 }
-// -----------------------------------------------------------------
+// --------------------getOwnClass---------------------------------------------
 
 
 export const actgetOwnClassRequest = () => {
@@ -126,7 +126,7 @@ export const getOwnClass = (response) => {
         response
     }
 }
-// -----------------------------------------------------------------
+// ---------------------getListClass--------------------------------------------
 
 export const actgetListClassRequest = () => {
     return (dispatch) => {
@@ -143,7 +143,7 @@ export const getListClass = (response) => {
         response
     }
 }
-// -----------------------------------------------------------------
+// ------------------------GetPost-----------------------------------------
 
 export const actGetPostRequest = (idclass) => {
     return (dispatch) => {
@@ -155,6 +155,7 @@ export const actGetPostRequest = (idclass) => {
         )
     }
 }
+
 export const getPost = (response) => {
     return {
         type: Types.GET_POST,
@@ -163,7 +164,66 @@ export const getPost = (response) => {
 }
 
 
+// -----------------------UpPost------------------------------------------
+
+export const actUpPostRequest = (content) => {
+    return (dispatch) => {
+        return (
+            axios.post(`user/post`, content).then((response) => {
+                console.log(response);
+                dispatch(upPost(response))
+            })
+        )
+    }
+}
+export const upPost = (response) => {
+    return {
+        type: Types.UP_POST,
+        response
+    }
+}
+// -----------------------DeletePost------------------------------------------
+
+export const actDeletePostRequest = (idpost) => {
+    return (dispatch) => {
+        return (
+            axios.delete(`user/post/${idpost}`).then((response) => {
+                console.log(response);
+                dispatch(deletePost({response, idpost}))
+            })
+        )
+    }
+}
+export const deletePost = (response) => {
+    return {
+        type: Types.DELETE_POST,
+        response
+    }
+}
+
+// -----------------------EditPost------------------------------------------
+
+export const actEditPostRequest = (datapost) => {
+    return (dispatch) => {
+        return (
+            axios.put(`user/post/${datapost.id}`, datapost.content).then((response) => {
+                console.log(response);
+                dispatch(editPost(response))
+            })
+        )
+    }
+}
+export const editPost = (response) => {
+    return {
+        type: Types.EDIT_POST,
+        response
+    }
+}
+
+
 // -----------------------------------------------------------------
+
+
 
 // --------- dont use thunk ------------
 
@@ -173,7 +233,7 @@ export const logout = () => {
     }
 }
 
-
+// khi click vào lớp ở dashboard thì gửi thông tin class lên để trả về cho detail class
 export const detailClass = (detail) => {
     return {
         type: Types.DETAIL_CLASS,

@@ -7,23 +7,32 @@ import "./../../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 import PostDetail from "./PostDetail";
 
+import refreshToken from "./../../utils/checkToken";
 function DetailClass(props) {
     const idclass = props.match.params.id;
     const { detailClass, postList, getPost } = props;
 
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const [postListState, setPostListState] = useState([]);
+
+    //truyền cho create noti để edit được post;
+
     const onShowCreateNoti = () => {
         setShowCreateNoti(!showCreateNoti);
     };
 
     useEffect(() => {
-        getPost(idclass);
+        refreshToken([getPost(idclass)]);
     }, [idclass]);
 
     useEffect(() => {
         setPostListState(postList);
     }, [postList]);
+
+    const onEditPost = (content) => {
+
+    }
+
 
     return (
         <section className="insideclass">
@@ -40,6 +49,7 @@ function DetailClass(props) {
                         <CreateNoti
                             showCreateNoti={showCreateNoti}
                             onShowCreateNotiEvent={onShowCreateNoti}
+                            idclass={idclass}
                         />
                         <div
                             className="create-noti"
@@ -63,8 +73,8 @@ function DetailClass(props) {
                                 <p> 27 thg 4</p>
                             </div>
                         </div> */}
-                        {postListState.map((post) => (
-                            <PostDetail key={post.id} datapost={post} />
+                        {postListState?.map((post) => (
+                            <PostDetail key={post.id} datapost={post}/>
                         ))}
                     </div>
                 </div>

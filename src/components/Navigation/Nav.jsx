@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./../../css/nav.css";
 import logoutIcon from "./../../assets/icons/logout.svg";
-import { logout } from "../../action/Action";
+import { logout, detailClass } from "../../action/Action";
+
 function Nav(props) {
-    const { showTabp, classOwn, classList, showOptions, logout } = props;
+    // console.log(props);
+
+    const {
+        showTabp,
+        classOwn,
+        classList,
+        showOptions,
+        logout,
+        sendDetailClass,
+        detailClass,
+    } = props;
 
     //class name ở nav
     const [classNamee, setClassNamee] = useState("" || "CITA Classroom");
@@ -17,7 +28,7 @@ function Nav(props) {
     const [showPlusOption, setShowPlusOption] = useState(false);
 
     //hiện border ở dưới các option thanh nav
-    const [border, setBorder] = useState([true, false, false]);
+    const [border, setBorder] = useState([true, false]);
     const onFocus = (value) => {
         let aw = [...border];
         aw.map((item, index) => (aw[index] = false));
@@ -45,7 +56,11 @@ function Nav(props) {
     if (classOwn) {
         classOwnRender = classOwn.map((item) => {
             return (
-                <NavLink to={"/class/" + item.id} key={item.id}>
+                <NavLink
+                    to={"/class/" + item.id}
+                    key={item.id}
+                    onClick={() => {sendDetailClass(item), setBorder([true, false])}}
+                >
                     <div className="item hover class-active">
                         <div className="icon represent">
                             <div>{"T"}</div>
@@ -62,7 +77,11 @@ function Nav(props) {
     if (classList) {
         classListRender = classList.map((item) => {
             return (
-                <NavLink to={"/class/" + item.id} key={item.id}>
+                <NavLink
+                    to={"/class/" + item.id}
+                    key={item.id}
+                    onClick={() => {sendDetailClass(item), setBorder([true, false])}}
+                >
                     <div className="item hover class-active">
                         <div className="icon represent">
                             <div>{"T"}</div>
@@ -129,15 +148,17 @@ function Nav(props) {
             </nav>
             <div className={showOptions ? "option" : "hide"}>
                 <div className="option-item hover" onClick={() => onFocus(0)}>
-                    <p className="content">Bảng tin</p>
-                    <p className={border[0] ? "border" : ""}></p>
+                    <Link to={`/class/${detailClass.id}`}>
+                        <p className="content">Bảng tin</p>
+                        <p className={border[0] ? "border" : ""}></p>
+                    </Link>
                 </div>
-
+                {/* <NavLink to={"/class/" + item.id+ "memberlist"} */}
                 <div className="option-item hover" onClick={() => onFocus(1)}>
-                    {/* <Link to={`/class/`+29+`/memberlist`}> */}
-                    <p className="content">Mọi người</p>
-                    <p className={border[1] ? "border" : ""}></p>
-                    {/* </Link> */}
+                    <Link to={`/class/${detailClass.id}/memberlist`}>
+                        <p className="content">Mọi người</p>
+                        <p className={border[1] ? "border" : ""}></p>
+                    </Link>
                 </div>
             </div>
 
@@ -227,12 +248,16 @@ const mapStateToProps = (state) => {
     return {
         classOwn: state.classOwn,
         classList: state.classList,
+        detailClass: state.detailClass,
     };
 };
 const mapDispatchToProps = (dispatch, props) => {
     return {
         logout: () => {
             dispatch(logout());
+        },
+        sendDetailClass: (item) => {
+            dispatch(detailClass(item));
         },
     };
 };
