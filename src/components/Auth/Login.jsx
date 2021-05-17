@@ -148,7 +148,7 @@ function Login(props) {
                                         className="input"
                                         placeholder="Email"
                                         id="emailLogin"
-                                        required
+                                        // required
                                         value={emailLogin}
                                         onChange={onHandleInput}
                                     />
@@ -157,7 +157,7 @@ function Login(props) {
                                         className="input"
                                         placeholder="Password"
                                         id="passwordLogin"
-                                        required
+                                        // required
                                         value={passwordLogin}
                                         onChange={onHandleInput}
                                     />
