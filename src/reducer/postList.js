@@ -88,7 +88,7 @@ const myReducer = (state = initialState, action) => {
             const idpost = action.response.idcomment;
 
             newState.map((post,indexpost) => {
-                post.comments.map((comment,indexcomment) => {
+                post.comments?.map((comment,indexcomment) => {
                     if(comment.id === idpost){
                         newState[indexpost].comments.splice(indexcomment, 1)
                     }
