@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 
 function None(props) {
     return (
@@ -15,7 +14,5 @@ function None(props) {
         </div>
     );
 }
-
-// None.propTypes = {};
 
 export default None;

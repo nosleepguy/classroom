@@ -4,6 +4,7 @@ var initialState = {};
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.REGISTER_ACCOUNT: {
+            console.log(action);
             console.log(action.dataregister);
             if (action.dataregister.data.success) {
                 localStorage.setItem("tk", action.dataregister.data.data.token);

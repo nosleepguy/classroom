@@ -35,7 +35,7 @@ function DetailClass(props) {
         <section className="insideclass">
             <div className="main">
                 <div className="classname">
-                    <p>Đồ họa máy tính</p>
+                    <p>{detailClass.className}</p>
                     <p>
                         Mã lớp: <span>{detailClass.referralCode}</span>
                     </p>
@@ -76,7 +76,6 @@ function DetailClass(props) {
                 </div>
             </div>
             {postListState ? "" : <None />}
-            
         </section>
     );
 }

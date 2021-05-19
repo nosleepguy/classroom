@@ -57,6 +57,7 @@ function Login(props) {
 
     const onHandleRegister = () => {
         const dataregister = {
+            username: nameRegister,
             email: emailRegister,
             password: passwordRegister,
         };
@@ -148,7 +149,7 @@ function Login(props) {
                                         className="input"
                                         placeholder="Email"
                                         id="emailLogin"
-                                        // required
+                                        required
                                         value={emailLogin}
                                         onChange={onHandleInput}
                                     />

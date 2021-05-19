@@ -82,15 +82,6 @@
     display: block;
 } */
 
-.avatar {
-    height: 40px;
-    width: 40px;
-    border-radius: 100px;
-    background-image: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
 .option {
     display: flex;
     font-weight: 600;

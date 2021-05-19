@@ -1,12 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { actDeletePostRequest, actEditPostRequest } from "../../action/Action";
+import {
+    actDeletePostRequest,
+    actEditPostRequest,
+    actCommentPostRequest,
+    actDeleteCommentRequest,
+} from "../../action/Action";
 // import PropTypes from "prop-types";
 import "./../../css/postdetail.css";
 import refreshToken from "./../../utils/checkToken";
+import Comment from "./Comment";
 function PostDetail(props) {
-    const { datapost, onDeletePost, onEditPost } = props;
+    const {
+        datapost,
+        onDeletePost,
+        onEditPost,
+        onCommentPost,
+        userProfile,
+    } = props;
+
     const [showAction, setShowAction] = useState(false);
+
+    const [comment, setComment] = useState("");
 
     //show form edit
     const [showFormEdit, setShowFormEdit] = useState(false);
@@ -34,14 +49,23 @@ function PostDetail(props) {
         setShowFormEdit(!showFormEdit);
     };
 
+    const onHandlePostComment = () => {
+        const dataComment = {
+            topicId: datapost.id,
+            content: comment,
+            typeComment: 1,
+        };
+        refreshToken([onCommentPost(dataComment)]);
+        setComment("");
+    };
     return (
         <div className="new-noti">
             <div className="owner-noti">
                 <div className="owner-info">
                     <div className="avatar"></div>
                     <div className="owner">
-                        <p>Ngô Trường Giang</p>
-                        <p> 27 thg 4</p>
+                        <p>{userProfile.username}</p>
+                        <p>{datapost.createdAt}</p>
                     </div>
                     <div className="action">
                         <span
@@ -107,36 +131,28 @@ function PostDetail(props) {
 
             <div className="comment">
                 <div className="count-comment">
-                    <span className="fas fa-user-friends"></span>&ensp; 4 nhận
-                    xét về lớp học
+                    <span className="fas fa-user-friends"></span>&ensp;{" "}
+                    {datapost?.comments?.length} nhận xét về bài viết
                 </div>
-                <div className="user-comment">
-                    <div className="avatar-user"></div>
-                    <div className="detail-comment">
-                        <div className="detail-user-comment">
-                            <span className="name-user">NGuyễn Mạnh Hùng</span>
-                            <span className="date">4 thg 5</span>
-                        </div>
-                        <div className="comment-content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Earum fugiat necessitatibus enim, molestias
-                            culpa voluptate itaque deleniti officia. Omnis,
-                            cupiditate.
-                        </div>
-                        <div className="action">
-                            <span className="fas fa-ellipsis-v hover"></span>
-                            <div className="delete hide">
-                                <p>Xóa</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {datapost.comments?.map((comment) => {
+                    return (
+                        <Comment key={comment.id} comment={comment}/>
+                    );
+                })}
             </div>
             <div className="write-comment">
                 <div className="avatar"></div>
                 <div className="type-comment">
-                    <input type="text" className="input-comment" />
-                    <i className="far fa-paper-plane send-comment"></i>
+                    <input
+                        type="text"
+                        className="input-comment"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                    />
+                    <i
+                        className="far fa-paper-plane send-comment"
+                        onClick={onHandlePostComment}
+                    ></i>
                 </div>
             </div>
         </div>
@@ -144,7 +160,11 @@ function PostDetail(props) {
 }
 
 // postDetail.propTypes = {};
-
+const mapStateToProps = (state) => {
+    return {
+        userProfile: state.userProfile,
+    };
+};
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onDeletePost: (idpost) => {
@@ -153,6 +173,12 @@ const mapDispatchToProps = (dispatch, props) => {
         onEditPost: (dataEdit) => {
             dispatch(actEditPostRequest(dataEdit));
         },
+        onCommentPost: (dataComment) => {
+            dispatch(actCommentPostRequest(dataComment));
+        },
+        onDeleteComment: (idcomment) => {
+            dispatch(actDeleteCommentRequest(idcomment));
+        },
     };
 };
-export default connect(null, mapDispatchToProps)(PostDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);

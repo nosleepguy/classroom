@@ -7,6 +7,7 @@ import refreshToken from './../../utils/checkToken';
 function ClassJoined(props) {
     const { item, onLeaveClass, sendDetailClass } = props;
 
+    //dời lớp
     const [showAction, setShowAction] = useState(false);
 
     const onShowAction = () => {

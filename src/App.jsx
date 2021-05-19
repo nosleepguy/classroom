@@ -14,8 +14,8 @@ import "./App.css";
 const history = createBrowserHistory();
 
 function App(props) {
-    const { dataResponse, getOwnClass, getListClass } = props;
-
+    const { dataResponse, getOwnClass, getListClass, getUserProfile } = props;
+    
     //show tab phục vụ cho click ra ngoài tab thì đóng tab
     const [showtab, setShowTab] = useState(true);
 
@@ -35,10 +35,10 @@ function App(props) {
 
         //show option dựa vào pathname
         // => có bug khi click vào quay lại ở trình duyệt chứ k action ở app
-        if (window.location.pathname == "/") {
+        if (window.location.pathname == "/" || window.location.pathname == "/setting") {
             setShowOptions(false);
         }
-        if (window.location.pathname !== "/") {
+        else {
             setShowOptions(true);
         }
     };
@@ -54,7 +54,7 @@ function App(props) {
 
     useEffect(() => {
         if (token) {
-            refreshToken([getOwnClass, getListClass]);
+            refreshToken([getOwnClass, getListClass, getUserProfile]);
         }
     }, [token]);
 
@@ -88,6 +88,9 @@ const mapDispatchToProps = (dispatch, props) => {
         getListClass: () => {
             dispatch(actions.actgetListClassRequest());
         },
+        getUserProfile: () => {
+            dispatch(actions.actGetProfileRequest());
+        }
     };
 };
 

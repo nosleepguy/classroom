@@ -65,8 +65,7 @@ button {
   background-color: rgb(227, 238, 252);
 }
 
-
-.avatar-user {
+.avatar{
   min-height: 40px;
   min-width: 40px;
   max-height: 40px;
@@ -75,7 +74,16 @@ button {
   background-size: cover;
   background-position: center;
   border-radius: 40px;
-  /* margin: 10px; */
+}
+.avatar-user{
+  min-height: 40px;
+  min-width: 40px;
+  max-height: 40px;
+  max-width: 40px;
+  background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
 }
 /* ------------- */
 

@@ -6,6 +6,7 @@ import DetailClass from "./../components/Class/DetailClass";
 import JoinClass from "./../components/Navigation/JoinClass";
 import MemberList from "./../components/Class/MemberList";
 import NotFound from "./../components/NotFound/NotFound";
+import Setting from "../components/Setting";
 
 function RouterURL(props) {
     return (
@@ -16,6 +17,7 @@ function RouterURL(props) {
             <Route exact path="/class/:id/memberlist" component={MemberList} />
             <Route exact path="/joinclass" component={JoinClass} />
             <Route exact path="/createclass" component={CreateClass} />
+            <Route exact path="/setting" component={Setting} />
             <Route component={NotFound} />
         </Switch>
     );

@@ -6,11 +6,11 @@ import ClassJoined from "./ClassJoined";
 
 function Dashboard(props) {
     const { classOwn, classList } = props;
-    let classOwnRender, classListRender;
-    
+    let classOwnRender = [], classListRender = [];
+
     if (classOwn) {
         classOwnRender = classOwn.map((item) => {
-            return <ClassOwn key={item.id} item={item}/>;
+            return <ClassOwn key={item.id} item={item} />;
         });
     }
     if (classList) {

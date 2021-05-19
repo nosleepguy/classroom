@@ -56,10 +56,10 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(233, 233, 233, 0.534);
 }
-.action .delete-edit p{
+.action .delete-edit p {
     padding: 10px 20px;
 }
-.action .delete-edit p:hover{
+.action .delete-edit p:hover {
     background-color: rgb(230, 230, 230);
 }
 .owner-noti .content {
@@ -68,33 +68,36 @@
     color: var(--color-text);
     letter-spacing: 0.4px;
 }
-.comment{
+.comment {
+    width: 100%;
     padding: 20px;
     border-bottom: 1px solid var(--color-border);
 }
-.count-comment{
+.count-comment {
     padding-bottom: 20px;
-    font-weight: 600
+    font-weight: 600;
 }
-.comment .user-comment{
+.new-noti .comment .user-comment {
     display: flex;
-    align-items: flex-start;
-    padding: 0;
+    /* justify-content: space-between; */
+    padding-bottom: 20px;
 }
-.detail-comment{
+.detail-comment {
+    width: 100%;
     padding: 0 20px;
     position: relative;
 }
-.detail-user-comment .name-user{
+.detail-user-comment .name-user {
     font-size: 14px;
     font-weight: bold;
     padding-right: 10px;
 }
-.detail-user-comment .date{
+.detail-user-comment .date {
     font-size: 12px;
-    color: var(--color-text)
+    color: var(--color-text);
 }
-.comment-content{
+
+.comment-content {
     padding: 10px 0;
 }
 .user-comment .action {
@@ -110,19 +113,32 @@
     text-align: center;
     border-radius: 40px;
 }
-.write-comment{
+.action .delete p {
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 10px 15px;
+    position: absolute;
+    background: #fff;
+    right: 10px;
+    transition: all 0.2s;
+}
+.action .delete p:hover {
+    background: rgb(238, 238, 238);
+    transition: all 0.1s;
+}
+.write-comment {
     width: 100%;
     padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
 }
-.type-comment{
-    position: relative;  
+.type-comment {
+    position: relative;
     max-width: 80%;
     min-width: 250px;
-    width: 90%
+    width: 90%;
 }
-.input-comment{
+.input-comment {
     width: 100%;
     padding: 10px 70px 10px 20px;
     outline: none;
@@ -130,7 +146,7 @@
     border-radius: 30px;
     font-size: 16px;
 }
-.send-comment{
+.send-comment {
     position: absolute;
     top: 8px;
     right: 20px;
@@ -139,14 +155,13 @@
     font-weight: normal;
     transition: all 0.2s;
 }
-.send-comment:hover{
+.send-comment:hover {
     color: rgb(22, 162, 255);
     transition: all 0.2s;
 }
 
-
 /* ------------------------------- */
-.form-edit{
+.form-edit {
     background: rgba(0, 0, 0, 0.3);
     width: calc(100vw - 6px);
     height: 100vh;
@@ -165,14 +180,12 @@
     /* box-shadow: 0 1px 5px rgb(201, 201, 201); */
     padding: 20px 25px;
     background: #fff;
-    
 }
 .form-edit .write-noti p {
     font-size: 12px;
     background-color: #f1f3f4;
     padding: 20px;
-    border-radius:10px 10px 0 0 ;
-
+    border-radius: 10px 10px 0 0;
 }
 .form-edit .write-noti form {
     display: flex;
@@ -189,21 +202,21 @@
     padding: 0 20px;
     font-size: 16px;
     margin-bottom: 20px;
-    border-radius:0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 .form-edit .btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.form-edit .write-noti form button{
+.form-edit .write-noti form button {
     outline: none;
     border: none;
     font-size: 16px;
     border-radius: 5px;
     margin: 0 20px;
     padding: 10px;
-    transition: all .3s
+    transition: all 0.3s;
 }
 .form-edit .write-noti form button:nth-child(1) {
     background-color: transparent;

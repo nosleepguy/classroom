@@ -16,6 +16,7 @@ function Nav(props) {
         logout,
         sendDetailClass,
         detailClass,
+        userProfile
     } = props;
 
     //class name ở nav
@@ -59,15 +60,17 @@ function Nav(props) {
                 <NavLink
                     to={"/class/" + item.id}
                     key={item.id}
-                    onClick={() => {sendDetailClass(item), setBorder([true, false])}}
+                    onClick={() => {
+                        sendDetailClass(item), setBorder([true, false]);
+                    }}
                 >
                     <div className="item hover class-active">
                         <div className="icon represent">
-                            <div>{"T"}</div>
+                            <div>{item.className[0]}</div>
                         </div>
                         <div className=" text detail">
                             <p className="name">{item.className}</p>
-                            <p className="class">(60TH4)</p>
+                            <p className="class">Mã lớp: {item.referralCode}</p>
                         </div>
                     </div>
                 </NavLink>
@@ -80,7 +83,9 @@ function Nav(props) {
                 <NavLink
                     to={"/class/" + item.id}
                     key={item.id}
-                    onClick={() => {sendDetailClass(item), setBorder([true, false])}}
+                    onClick={() => {
+                        sendDetailClass(item);
+                    }}
                 >
                     <div className="item hover class-active">
                         <div className="icon represent">
@@ -88,7 +93,7 @@ function Nav(props) {
                         </div>
                         <div className=" text detail">
                             <p className="name">{item.className}</p>
-                            <p className="class">(60TH4)</p>
+                            <p className="class">Mã lớp: {item.referralCode}</p>
                         </div>
                     </div>
                 </NavLink>
@@ -170,8 +175,8 @@ function Nav(props) {
                     <div className="item hover">
                         <span className="avatar"></span>
                         <div className="infor-user">
-                            <div className="username">Rayy</div>
-                            <span className="text">UserEmail@gmail.com</span>
+                            <div className="username">{userProfile.username}</div>
+                            <span className="text">{userProfile.email}</span>
                         </div>
                     </div>
                 </div>
@@ -226,10 +231,12 @@ function Nav(props) {
                         <span className="icon fas fa-cloud-download-alt"></span>
                         <span className="text">Lớp học đã lưu trữ</span>
                     </div>
-                    <div className="item hover">
-                        <span className="icon fas fa-cog"></span>
-                        <span className="text">Cài đặt</span>
-                    </div>
+                    <Link to={"/setting"}>
+                        <div className="item hover">
+                            <span className="icon fas fa-cog"></span>
+                            <span className="text">Cài đặt</span>
+                        </div>
+                    </Link>
                     <div className="item hover" onClick={Logout}>
                         <img
                             src={logoutIcon}
@@ -249,6 +256,7 @@ const mapStateToProps = (state) => {
         classOwn: state.classOwn,
         classList: state.classList,
         detailClass: state.detailClass,
+        userProfile: state.userProfile,
     };
 };
 const mapDispatchToProps = (dispatch, props) => {

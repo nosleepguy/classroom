@@ -6,8 +6,10 @@ import { actDeleteClassRequest, detailClass } from "./../../action/Action";
 import refreshToken from "./../../utils/checkToken";
 
 function ClassOwn(props) {
-    const { item, onDeleteClass, sendDetailClass } = props;
-
+    const { item, onDeleteClass, sendDetailClass, userProfile } = props;
+    console.log(item);
+    
+    //hủy lớp
     const [showAction, setShowAction] = useState(false);
 
     const onShowAction = () => {
@@ -26,9 +28,9 @@ function ClassOwn(props) {
                     to={"/class/" + item.id}
                     
                 >
-                    <div className="class-name">{item.name || "Tên Lớp"}</div>
+                    <div className="class-name">{item.className}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
-                    <div className="teacher">Ngô Trường Giang</div>
+                    <div className="teacher">{userProfile?.username}</div>
                 </Link>
                 <div className="hover action-class " onClick={onShowAction}>
                     <span className="fas fa-ellipsis-v "></span>
@@ -59,7 +61,11 @@ function ClassOwn(props) {
 // Class.propTypes = {
 
 // }
-
+const mapStateToProps = (state) => {
+    return {
+        userProfile: state.userProfile,
+    };
+};
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onDeleteClass: (idclass) => {
@@ -68,7 +74,8 @@ const mapDispatchToProps = (dispatch, props) => {
         sendDetailClass: (item) => {
             dispatch(detailClass(item));
         },
+
     };
 };
 
-export default connect(null, mapDispatchToProps)(ClassOwn);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassOwn);

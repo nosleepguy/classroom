@@ -35,23 +35,23 @@ function MemberList(props) {
                     <p>30 sinh viên</p>
                 </div>
                 <div className="line">
-                    <div className="avatar-student"></div>
+                    <div className="avatar"></div>
                     <div className="name">Nguyễn Mạnh Hùng</div>
                 </div>
                 <div className="line">
-                    <div className="avatar-student"></div>
+                    <div className="avatar"></div>
                     <div className="name">Nguyễn Quang Huy</div>
                 </div>
                 <div className="line">
-                    <div className="avatar-student"></div>
+                    <div className="avatar"></div>
                     <div className="name">Nguyễn Thanh Tùng</div>
                 </div>
                 <div className="line">
-                    <div className="avatar-student"></div>
+                    <div className="avatar"></div>
                     <div className="name">Nguyễn Thị Yến Nhi</div>
                 </div>
                 <div className="line">
-                    <div className="avatar-student"></div>
+                    <div className="avatar"></div>
                     <div className="name">Ngô Thị Duyên</div>
                 </div>
             </div>
