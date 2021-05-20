@@ -23,7 +23,7 @@ function Login(props) {
     };
     const onToggleRegister = () => {
         setToggle(false);
-        console.log(toggle);
+        // console.log(toggle);
     };
 
     const onHandleInput = (e) => {
@@ -74,7 +74,7 @@ function Login(props) {
 
     // == false để tránh lỗi khi null
     useEffect(() => {
-        console.log(dataResponse);
+        // console.log(dataResponse);
         
         if(dataResponse.success == false) {
             setShowModal(true)

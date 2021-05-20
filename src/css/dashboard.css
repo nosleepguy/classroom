@@ -65,7 +65,6 @@
 .top .hover:hover {
     background: rgba(201, 201, 201, 0.479);
     color: #fff;
-
 }
 
 .hover .action {
@@ -130,6 +129,12 @@
     font-size: var(--size-icon);
     padding: 20px;
     color: var(--color-icon);
+}
+
+.noclass {
+    margin: 0 auto;
+    font-size: 30px;
+    margin: 50px;
 }
 @media (max-width: 480px) {
     .allclass {

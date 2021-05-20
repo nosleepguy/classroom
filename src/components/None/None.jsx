@@ -1,6 +1,6 @@
 import React from "react";
 
-function None(props) {
+function None() {
     return (
         <div style={{margin : "0 auto", padding : "20px"}}>
             <lottie-player

@@ -57,11 +57,11 @@ const myReducer = (state = initialState, action) => {
             const post = action.response.data.data;
             const ss = action.response.data.success;
             const idpost = action.response.data.data.topicId;
-            console.log(action.response);
+            // console.log(action.response);
             if (ss) {
                 let index = findIndex(newState, idpost);
-                console.log(index);
-                console.log(newState[index].comments);
+                // console.log(index);
+                // console.log(newState[index].comments);
                 if (index != -1) {
                     if (newState[index].comments === undefined) {
                         let comments = [];
@@ -71,11 +71,11 @@ const myReducer = (state = initialState, action) => {
                             ...newState[index],
                             comments
                         }
-                        console.log(comments);
+                        // console.log(comments);
                     } else {
                         newState[index].comments?.push(post);
-                        console.log(newState[index].comments);
-                        console.log(newState);
+                        // console.log(newState[index].comments);
+                        // console.log(newState);
                     }
                 }
             }

@@ -12,7 +12,6 @@ function RouterURL(props) {
     return (
         <Switch>
             <Route exact path="/" component={Dashboard} />
-            {/* <Route exact path="/class" component={Dashboard} /> */}
             <Route exact path="/class/:id" component={DetailClass} />
             <Route exact path="/class/:id/memberlist" component={MemberList} />
             <Route exact path="/joinclass" component={JoinClass} />

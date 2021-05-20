@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import NotFound from "../components/NotFound/NotFound";
 import Login from './../components/Auth/Login';
 
-function RouterURL(props) {
+function RouterURL() {
     return (
         <Switch>
             <Route exact path="/" component={Login} />

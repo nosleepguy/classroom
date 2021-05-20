@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./../../css/notfound.css";
-function NotFound(props) {
+function NotFound() {
     return (
         <div className="notfound">
             <lottie-player

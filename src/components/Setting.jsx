@@ -9,13 +9,15 @@ function Setting(props) {
     
     const { userProfile, onUpdateUserProfile } = props;
 
-    console.log(userProfile);
+    // console.log(userProfile);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [sex, setSex] = useState(1);
     const [age, setAge] = useState(20);
 
     useEffect(() => {
+        // console.log(userProfile);
+        
         if (userProfile) {
             setName(userProfile.username);
             setEmail(userProfile.email);
@@ -57,7 +59,7 @@ function Setting(props) {
             sex: sex,
             age: age,
         };
-        console.log(dataUpdate);
+        // console.log(dataUpdate);
 
         refreshToken([onUpdateUserProfile(dataUpdate)]);
         props.history.push("/");

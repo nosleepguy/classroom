@@ -147,7 +147,7 @@ function Nav(props) {
                             </ul>
                         </div>
                         <div className="avatar tooltip">
-                            <span class="tooltiptext">
+                            <span className="tooltiptext">
 
                                 {userProfile.username} <br/>
                                 {userProfile.email}

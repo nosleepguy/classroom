@@ -18,7 +18,7 @@ const checkToken = () => {
 
 const refreshToken = (cb) => {
     const isExp = checkToken();
-    console.log(isExp);
+    // console.log(isExp);
     if (isExp) {
         let REFRESH_AUTH_TOKEN = localStorage.getItem("rtk");
         axios
@@ -26,7 +26,7 @@ const refreshToken = (cb) => {
                 refreshToken: REFRESH_AUTH_TOKEN,
             })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 localStorage.setItem("tk", response.data.data.token);
                 localStorage.setItem("rtk", response.data.data.refreshToken);
                 cb.map(item  => item && item());

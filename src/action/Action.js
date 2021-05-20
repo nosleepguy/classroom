@@ -5,7 +5,7 @@ import axios from "./../utils/customAxios";
 
 export const actRegisterRequest = (dataregister) => {
     return (dispatch) => {
-        console.log(dataregister);
+        // console.log(dataregister);
         return (
             axios.post("user/register",dataregister).then(response =>{
                 dispatch(register(response));
@@ -149,7 +149,7 @@ export const actGetPostRequest = (idclass) => {
     return (dispatch) => {
         return (
             axios.get(`/user/class/${idclass}/post`).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(getPost(response))
             })
         )
@@ -170,7 +170,7 @@ export const actUpPostRequest = (content) => {
     return (dispatch) => {
         return (
             axios.post(`user/post`, content).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(upPost(response))
             })
         )
@@ -188,7 +188,7 @@ export const actDeletePostRequest = (idpost) => {
     return (dispatch) => {
         return (
             axios.delete(`user/post/${idpost}`).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(deletePost({response, idpost}))
             })
         )
@@ -207,7 +207,7 @@ export const actEditPostRequest = (datapost) => {
     return (dispatch) => {
         return (
             axios.put(`user/post/${datapost.id}`, datapost.content).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(editPost(response))
             })
         )
@@ -227,7 +227,7 @@ export const actGetProfileRequest = () => {
     return (dispatch) => {
         return (
             axios.get(`user`).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(getProfile(response))
             })
         )
@@ -246,7 +246,7 @@ export const actUpdateProfileRequest = (dataUser) => {
     return (dispatch) => {
         return (
             axios.put(`user`,dataUser).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(updateProfile(response))
             })
         )
@@ -265,7 +265,7 @@ export const actCommentPostRequest = (data) => {
     return (dispatch) => {
         return (
             axios.post(`user/comment`,data).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(comment(response))
             })
         )
@@ -284,7 +284,7 @@ export const actDeleteCommentRequest = (idcomment) => {
     return (dispatch) => {
         return (
             axios.delete(`user/comment/${idcomment}`,).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(deleteComment({response, idcomment}))
             })
         )
@@ -303,7 +303,7 @@ export const actGetUserInClassRequest = (classId) => {
     return (dispatch) => {
         return (
             axios.get(`user/class/members?classId=${classId}`,).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(getUserInClass(response))
             })
         )
@@ -323,7 +323,7 @@ export const actDeleteUserInClassRequest = (data) => {
         const memberId = data.memberId;
         return (
             axios.delete(`user/class/${data.classId}/member/${memberId}`,).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(deleteUserInClass({response, memberId}))
             })
         )

@@ -6,7 +6,7 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_MEMBER_IN_CLASS: {
-            console.log(action.response);
+            // console.log(action.response);
             const memberList = action.response.data.data;
             state = memberList
             return state

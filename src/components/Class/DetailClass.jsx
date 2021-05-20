@@ -72,10 +72,29 @@ function DetailClass(props) {
                         {postListState?.map((post) => (
                             <PostDetail key={post.id} datapost={post} />
                         ))}
+                        {postListState.length ? (
+                            ""
+                        ) : (
+                            <>
+                                <p
+                                    style={{
+                                        margin: "0 auto",
+                                        padding: "20px 30px",
+                                        border: "1px solid var(--color-border)",
+                                        borderRadius: "10px",
+                                        marginTop: "20px",
+                                        textAlign: "center"
+                                    }}
+                                    onClick={onShowCreateNoti}
+                                >
+                                    Tạo thông báo cho lớp học của bạn
+                                </p>
+                                <None />
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
-            {postListState ? "" : <None />}
         </section>
     );
 }

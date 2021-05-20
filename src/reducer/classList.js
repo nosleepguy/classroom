@@ -14,17 +14,17 @@ const myReducer = (state = initialState, action) => {
             return data
         }
         case Types.JOIN_CLASS:{
-            console.log(action);
+            // console.log(action);
             if(!action.response.data.success){
                 alert(action.response.data.message);
             }else{
-                console.log(action.response);
+                // console.log(action.response);
                 window.location.replace("/")
             }
             return state
         }
         case Types.LEAVE_CLASS:{
-            console.log(action);
+            // console.log(action);
             const id = action.idclass;
             if(action.idclass.response.data.success){
                 const index = findIndex(state, id);

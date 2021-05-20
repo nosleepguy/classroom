@@ -5,7 +5,7 @@ const initialState = {};
 const myReducer = (state = initialState, action) => {
     switch(action.type){
         case Types.DETAIL_CLASS: {
-            console.log(action);
+            // console.log(action);
             return action.detail
         }
         default: return state

@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import "./../../css/dashboard.css";
 import ClassOwn from "./ClassOwn";
 import ClassJoined from "./ClassJoined";
+import None from "../None/None";
 
 function Dashboard(props) {
     const { classOwn, classList } = props;
-    let classOwnRender = [], classListRender = [];
+    let classOwnRender = [],
+        classListRender = [];
 
     if (classOwn) {
         classOwnRender = classOwn.map((item) => {
@@ -21,8 +23,23 @@ function Dashboard(props) {
     return (
         <section className="dashboard">
             <div className="allclass">
-                {classOwnRender}
-                {classListRender}
+                {classOwnRender} {classListRender}
+                {classOwnRender.length && classOwnRender.length ? (
+                    ""
+                ) : (
+                    <div
+                        style={{
+                            display: "flex",
+                            width: "100%",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            
+                        }}
+                    >
+                        <p className="noclass">Bạn chưa có lớp học nào</p>
+                        <None />
+                    </div>
+                )}
             </div>
         </section>
     );

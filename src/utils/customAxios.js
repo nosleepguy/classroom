@@ -12,7 +12,7 @@ const customAxios = axios.create({
 const requestHandler = request => {
     // Token will be dynamic so we can use any app-specific way to always   
     // fetch the new token before making the call
-    let AUTH_TOKEN = localStorage.getItem("tk");
+    const AUTH_TOKEN = localStorage.getItem("tk");
     request.headers.Authorization = AUTH_TOKEN;
     return request;
 };
