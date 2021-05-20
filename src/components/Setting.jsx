@@ -6,6 +6,7 @@ import { actUpdateProfileRequest } from "./../action/Action";
 import refreshToken from "./../utils/checkToken";
 
 function Setting(props) {
+    
     const { userProfile, onUpdateUserProfile } = props;
 
     console.log(userProfile);
@@ -13,7 +14,7 @@ function Setting(props) {
     const [email, setEmail] = useState("");
     const [sex, setSex] = useState(1);
     const [age, setAge] = useState(20);
-    
+
     useEffect(() => {
         if (userProfile) {
             setName(userProfile.username);
@@ -54,11 +55,12 @@ function Setting(props) {
             username: name,
             avatar: "abc",
             sex: sex,
-            age: age
+            age: age,
         };
         console.log(dataUpdate);
 
         refreshToken([onUpdateUserProfile(dataUpdate)]);
+        props.history.push("/");
     };
     return (
         <div className="wraper-setting">
@@ -113,7 +115,7 @@ function Setting(props) {
                         </option>
                     </select>
                 </div>
-                <div className="wrapper-input">
+                <div className="wrapper-input age">
                     <p>Tuổi:</p>
                     <input
                         type="number"
@@ -123,10 +125,10 @@ function Setting(props) {
                         onChange={onHandleInput}
                     />
                 </div>
-                <button type="button" className="button" onClick={onChangeInfo}>
-                    Xác nhận
-                </button>
             </div>
+            <button type="button" className="button" onClick={onChangeInfo}>
+                Xác nhận
+            </button>
         </div>
     );
 }

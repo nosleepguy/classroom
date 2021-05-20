@@ -87,6 +87,42 @@ button {
 }
 /* ------------- */
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: rgba(117, 117, 117, 0.63);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 120%;
+  left: -100%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 80%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(117, 117, 117, 0.63) transparent;
+
+}
 
 @keyframes App-logo-spin {
   from {

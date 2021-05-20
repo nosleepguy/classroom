@@ -16,7 +16,7 @@ function Nav(props) {
         logout,
         sendDetailClass,
         detailClass,
-        userProfile
+        userProfile,
     } = props;
 
     //class name ở nav
@@ -117,7 +117,6 @@ function Nav(props) {
                         />
                         <div className="detail">
                             <p className="name">{classNamee}</p>
-                            {/* <p className="class">(60TH4)</p> */}
                         </div>
                     </div>
                     <div className="join-avatar">
@@ -147,7 +146,13 @@ function Nav(props) {
                                 </NavLink>
                             </ul>
                         </div>
-                        <div className="avatar"></div>
+                        <div className="avatar tooltip">
+                            <span class="tooltiptext">
+
+                                {userProfile.username} <br/>
+                                {userProfile.email}
+                                </span>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -158,7 +163,6 @@ function Nav(props) {
                         <p className={border[0] ? "border" : ""}></p>
                     </Link>
                 </div>
-                {/* <NavLink to={"/class/" + item.id+ "memberlist"} */}
                 <div className="option-item hover" onClick={() => onFocus(1)}>
                     <Link to={`/class/${detailClass.id}/memberlist`}>
                         <p className="content">Mọi người</p>
@@ -175,7 +179,9 @@ function Nav(props) {
                     <div className="item hover">
                         <span className="avatar"></span>
                         <div className="infor-user">
-                            <div className="username">{userProfile.username}</div>
+                            <div className="username">
+                                {userProfile.username}
+                            </div>
                             <span className="text">{userProfile.email}</span>
                         </div>
                     </div>
