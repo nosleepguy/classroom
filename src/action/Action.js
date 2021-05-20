@@ -298,6 +298,45 @@ export const deleteComment = (response) => {
 }
 
 
+// ------------------------GetUserInClass-----------------------------------------
+export const actGetUserInClassRequest = (classId) => {
+    return (dispatch) => {
+        return (
+            axios.get(`user/class/members?classId=${classId}`,).then((response) => {
+                console.log(response);
+                dispatch(getUserInClass(response))
+            })
+        )
+    }
+}
+export const getUserInClass = (response) => {
+    return {
+        type: Types.GET_MEMBER_IN_CLASS,
+        response
+    }
+}
+
+
+// -----------------------------------------------------------------
+export const actDeleteUserInClassRequest = (data) => {
+    return (dispatch) => {
+        const memberId = data.memberId;
+        return (
+            axios.delete(`user/class/${data.classId}/member/${memberId}`,).then((response) => {
+                console.log(response);
+                dispatch(deleteUserInClass({response, memberId}))
+            })
+        )
+    }
+}
+export const deleteUserInClass = (response) => {
+    return {
+        type: Types.DELETE_MEMBER_IN_CLASS,
+        response
+    }
+}
+
+
 // -----------------------------------------------------------------
 
 

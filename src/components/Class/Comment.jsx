@@ -6,7 +6,7 @@ import { actDeleteCommentRequest } from "../../action/Action";
 function Comment(props) {
     const { userProfile, onDeleteComment, comment } = props;
 
-    console.log(userProfile);
+    // console.log(userProfile);
 
     const [showActDelComment, setShowActDelComment] = useState(false);
 

@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import axios from "./../../utils/customAxios";
-// import PropType/s from 'prop-types'
+// import PropType/s from 'prop-types';
+import { actGetUserInClassRequest } from "./../../action/Action";
 import "./../../css/memberList.css";
+
+import refreshToken from "./../../utils/checkToken";
+import Member from "./Member";
+
 function MemberList(props) {
     const idclass = props.match.params.id;
+
+    const { getMemberList, memberListRes, detailClass } = props;
+
     const [memberList, setMemberList] = useState([]);
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`user/class/members?classId=${idclass}`)
-    //         .then((response) => {
-    //             console.log(response.data.data);
-    //         })
-    //         .catch((error) => {
-    //             console.log(err);
-    //         });
-    // }, []);
+    useEffect(() => {
+        refreshToken([getMemberList(idclass)]);
+    }, []);
+
+    useEffect(() => {
+        if (memberListRes) {
+            setMemberList([...memberListRes]);
+        }
+    }, [memberListRes]);
 
     return (
         <div className="memberlist">
@@ -26,34 +32,19 @@ function MemberList(props) {
                 </div>
                 <div className="line">
                     <div className="avatar"></div>
-                    <div className="name">Ngô Trường Giang</div>
+                    <div className="name">
+                        {detailClass?.ownerName || "OwnerClass"}
+                    </div>
                 </div>
             </div>
             <div className="students">
                 <div className="role">
                     <p>Bạn học</p>
-                    <p>30 sinh viên</p>
+                    <p>{memberList?.length || 0} sinh viên</p>
                 </div>
-                <div className="line">
-                    <div className="avatar"></div>
-                    <div className="name">Nguyễn Mạnh Hùng</div>
-                </div>
-                <div className="line">
-                    <div className="avatar"></div>
-                    <div className="name">Nguyễn Quang Huy</div>
-                </div>
-                <div className="line">
-                    <div className="avatar"></div>
-                    <div className="name">Nguyễn Thanh Tùng</div>
-                </div>
-                <div className="line">
-                    <div className="avatar"></div>
-                    <div className="name">Nguyễn Thị Yến Nhi</div>
-                </div>
-                <div className="line">
-                    <div className="avatar"></div>
-                    <div className="name">Ngô Thị Duyên</div>
-                </div>
+                {memberList?.map((member) => {
+                    return <Member key={member.id} member={member} />;
+                })}
             </div>
         </div>
     );
@@ -63,4 +54,18 @@ function MemberList(props) {
 
 // }
 
-export default MemberList;
+const mapStateToProps = (state) => {
+    return {
+        memberListRes: state.memberList,
+        detailClass: state.detailClass,
+    };
+};
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        getMemberList: (idclass) => {
+            dispatch(actGetUserInClassRequest(idclass));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberList);

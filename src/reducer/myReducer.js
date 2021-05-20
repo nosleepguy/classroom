@@ -1,15 +1,17 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import authenapp from "./authenapp";
 import classOwn from './classOwn';
 import classList from './classList';
 import detailClass from './detailClass';
 import postList from './postList';
 import userProfile from './userProfile';
-export default combineReducers ({
+import memberList from './memberList';
+export default combineReducers({
     authenapp,
     classOwn,
     classList,
     detailClass,
     postList,
-    userProfile
+    userProfile,
+    memberList
 })

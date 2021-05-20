@@ -9,13 +9,13 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_POST: {
-            console.log(action.response.data.data);
+            // console.log(action.response.data.data);
             const dataPost = action.response.data.data;
             state = dataPost;
             return state
         }
         case Types.UP_POST: {
-            console.log(action.response.data.data);
+            // console.log(action.response.data.data);
             const post = action.response.data.data;
             const newState = JSON.parse(JSON.stringify(state)) || [];
             if (newState && newState.length >= 1) {
@@ -66,7 +66,7 @@ const myReducer = (state = initialState, action) => {
                     if (newState[index].comments === undefined) {
                         let comments = [];
                         comments.push(post);
-                        console.log(comments);
+                        // console.log(comments);
                         newState[index] = {
                             ...newState[index],
                             comments

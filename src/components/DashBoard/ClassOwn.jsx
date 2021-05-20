@@ -7,8 +7,8 @@ import refreshToken from "./../../utils/checkToken";
 
 function ClassOwn(props) {
     const { item, onDeleteClass, sendDetailClass, userProfile } = props;
-    console.log(item);
-    
+    // console.log(item);
+
     //hủy lớp
     const [showAction, setShowAction] = useState(false);
 
@@ -23,11 +23,18 @@ function ClassOwn(props) {
 
     return (
         <div className="class-room" key={item.id}>
-            <div className="top" onClick={() => sendDetailClass(item)}>
-                <Link
-                    to={"/class/" + item.id}
-                    
-                >
+            <div
+                className="top"
+                onClick={() =>
+                    sendDetailClass({
+                        ...item,
+                        ownerAvatar: "abc",
+                        ownerId: userProfile.id,
+                        ownerName: userProfile.username,
+                    })
+                }
+            >
+                <Link to={"/class/" + item.id}>
                     <div className="class-name">{item.className}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
                     <div className="teacher">{userProfile?.username}</div>
@@ -74,7 +81,6 @@ const mapDispatchToProps = (dispatch, props) => {
         sendDetailClass: (item) => {
             dispatch(detailClass(item));
         },
-
     };
 };
 
