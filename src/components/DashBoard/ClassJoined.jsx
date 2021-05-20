@@ -6,7 +6,8 @@ import { actLeaveClassRequest, detailClass} from "./../../action/Action";
 import refreshToken from './../../utils/checkToken';
 function ClassJoined(props) {
     const { item, onLeaveClass, sendDetailClass } = props;
-
+    // console.log(item);
+    
     //dời lớp
     const [showAction, setShowAction] = useState(false);
 
@@ -18,7 +19,7 @@ function ClassJoined(props) {
         <div className="class-room" key={item.id}>
             <div className="top" onClick={() => sendDetailClass(item)}>
                 <Link to={"/class/" + item.id}>
-                    <div className="class-name">{item.name || "Tên Lớp"}</div>
+                    <div className="class-name">{item.className}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
                     <div className="teacher">Ngô Trường Giang</div>
                 </Link>

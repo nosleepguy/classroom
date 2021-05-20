@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./../../css/dashboard.css";
-import { actDeleteClassRequest, detailClass } from "./../../action/Action";
+import {
+    actDeleteClassRequest,
+    actUpdateClassNameRequest,
+    detailClass,
+} from "./../../action/Action";
+
 import refreshToken from "./../../utils/checkToken";
 
+import "./../../css/classOwn.css";
 function ClassOwn(props) {
-    const { item, onDeleteClass, sendDetailClass, userProfile } = props;
+    const { item, onDeleteClass, onUpdateClass, sendDetailClass, userProfile } =
+        props;
     // console.log(item);
 
     //hủy lớp
     const [showAction, setShowAction] = useState(false);
+
+    //show form edit
+    const [showFormEdit, setShowFormEdit] = useState(false);
+    const [valueFormEdit, setValueFormEdit] = useState("");
 
     const onShowAction = () => {
         setShowAction(!showAction);
@@ -20,6 +31,22 @@ function ClassOwn(props) {
     const actDeleteClass = () => {
         refreshToken([onDeleteClass(item.id)]);
     };
+
+    const actUpdateClass = () => {
+        setShowFormEdit(false);
+        refreshToken([
+            onUpdateClass({
+                id: item.id,
+                name: {
+                    name: valueFormEdit,
+                },
+            }),
+        ]);
+    };
+
+    useEffect(() => {
+        setValueFormEdit(item.className);
+    }, []);
 
     return (
         <div className="class-room" key={item.id}>
@@ -43,7 +70,7 @@ function ClassOwn(props) {
                     <span className="fas fa-ellipsis-v "></span>
                     <div className={showAction ? "action" : "action hidden"}>
                         <p onClick={actDeleteClass}>Hủy lớp</p>
-                        {/* <p>Dời lớp</p> */}
+                        <p onClick={() => setShowFormEdit(true)}>Đổi tên lớp</p>
                     </div>
                 </div>
             </div>
@@ -59,6 +86,51 @@ function ClassOwn(props) {
                 </div>
                 <div className="item hover">
                     <i className="far fa-file-alt document"></i>
+                </div>
+            </div>
+
+            {/*  chỉnh sửa tên lớp */}
+            <div className="edit-nameclass">
+                <div
+                    className="form-edit"
+                    style={
+                        showFormEdit ? { display: "flex" } : { display: "none" }
+                    }
+                >
+                    <div className="write-noti">
+                        <p>Chỉnh sửa Tên lớp</p>
+                        <form>
+                            <input
+                                type="text"
+                                value={valueFormEdit}
+                                onChange={(e) =>
+                                    setValueFormEdit(e.target.value)
+                                }
+                            />
+                            <div className="btn">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowFormEdit(false)}
+                                >
+                                    Hủy
+                                </button>
+                                <button
+                                    type="button"
+                                    style={
+                                        valueFormEdit
+                                            ? {
+                                                  background: "#2C7EEA",
+                                                  color: "white",
+                                              }
+                                            : {}
+                                    }
+                                    onClick={actUpdateClass}
+                                >
+                                    Cập nhật
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,6 +152,9 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         sendDetailClass: (item) => {
             dispatch(detailClass(item));
+        },
+        onUpdateClass: (data) => {
+            dispatch(actUpdateClassNameRequest(data));
         },
     };
 };
