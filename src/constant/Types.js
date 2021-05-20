@@ -10,11 +10,16 @@ export const DELETE_CLASS = "DELETE_CLASS"
 export const GET_OWN_CLASS = "GET_OWN_CLASS"
 export const GET_LIST_CLASS = "GET_LIST_CLASS"
 export const DETAIL_CLASS = "DETAIL_CLASS"
+export const UPDATE_CLASSNAME = "UPDATE_CLASSNAME"
 
 export const GET_POST = "GET_POST"
 export const UP_POST = "UP_POST"
 export const DELETE_POST = "DELETE_POST"
 export const EDIT_POST = "EDIT_POST"
+
+// export const CREATE_DOCUMENT = "CREATE_DOCUMENT"
+// export const GET_DOCUMENT = "GET_DOCUMENT"
+
 export const COMMENT_POST = "COMMENT_POST"
 export const DELETE_COMMENT = "DELETE_COMMENT"
 

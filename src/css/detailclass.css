@@ -28,6 +28,8 @@
 .classname p:nth-child(2) span {
     letter-spacing: 4px;
     padding-left: 10px;
+    /* user-select: text; */
+    cursor: pointer;
 }
 .insideclass .detail {
     /* border: 1px solid; */
@@ -50,6 +52,15 @@
     width: 100%;
 }
 
+/* custom cho tooltip */
+.copy .tooltiptext {
+    top: 0%;
+    left: 100% !important;
+}
+.copy .tooltiptext::after {
+    left: 20% !important;
+    border-color: transparent transparent #74b9ff transparent!important;
+}
 /* tái sử dụng */
 
 /* --------- */
@@ -59,9 +70,8 @@
     margin: 0 20px;
 }
 
-
 @media (max-width: 480px) {
-    .insideclass .main{
+    .insideclass .main {
         width: 90%;
     }
 }

@@ -317,7 +317,7 @@ export const getUserInClass = (response) => {
 }
 
 
-// -----------------------------------------------------------------
+// --------------------DeleteUserInClass---------------------------------------------
 export const actDeleteUserInClassRequest = (data) => {
     return (dispatch) => {
         const memberId = data.memberId;
@@ -332,6 +332,25 @@ export const actDeleteUserInClassRequest = (data) => {
 export const deleteUserInClass = (response) => {
     return {
         type: Types.DELETE_MEMBER_IN_CLASS,
+        response
+    }
+}
+
+
+// -----------------UpdateClassName------------------------------------------------
+export const actUpdateClassNameRequest = (data) => {
+    return (dispatch) => {
+        return (
+            axios.put(`user/class/${data.id}`,data.name).then((response) => {
+                console.log(response);
+                dispatch(updateClassName(response))
+            })
+        )
+    }
+}
+export const updateClassName = (response) => {
+    return {
+        type: Types.UPDATE_CLASSNAME,
         response
     }
 }

@@ -146,6 +146,8 @@ function Nav(props) {
                                 </NavLink>
                             </ul>
                         </div>
+
+                        {/* //tooltip */}
                         <div className="avatar tooltip">
                             <span className="tooltiptext">
 

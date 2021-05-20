@@ -36,9 +36,33 @@ function DetailClass(props) {
             <div className="main">
                 <div className="classname">
                     <p>{detailClass.className}</p>
-                    <p>
-                        Mã lớp: <span>{detailClass.referralCode}</span>
+                    <p className="tooltip copy">
+                        Mã lớp:{" "}
+                        <span
+                            onClick={() => {
+                                navigator.clipboard.writeText(
+                                    detailClass.referralCode
+                                ),
+                                    alert("Đã copy mã lớp vào Clipboard");
+                            }}
+                        >
+                            {detailClass.referralCode}
+                        </span>
+                        <span
+                            className="tooltiptext"
+                            style={{
+                                fontSize: "12px",
+                                letterSpacing: "0",
+                                background: "#74b9ff",
+                            }}
+                        >
+                            Copy mã lớp
+                        </span>
                     </p>
+
+                    {/* tootip */}
+                    {/* <div className="tooltip"> */}
+                    {/* </div> */}
                 </div>
                 <div className="detail">
                     <div className="newfeed">
@@ -83,7 +107,7 @@ function DetailClass(props) {
                                         border: "1px solid var(--color-border)",
                                         borderRadius: "10px",
                                         marginTop: "20px",
-                                        textAlign: "center"
+                                        textAlign: "center",
                                     }}
                                     onClick={onShowCreateNoti}
                                 >

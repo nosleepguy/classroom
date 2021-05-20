@@ -90,6 +90,7 @@
     top: 0;
     transform: translateX(-50%);
     white-space: nowrap;
+    background: white;
 }
 .option .option-item .content {
     font-size: 14px;
@@ -190,6 +191,9 @@
 
     /* border: 1px solid #000; */
 }
+.text{
+    width: 80%;
+}
 .represent div {
     width: 35px;
     height: 35px;
@@ -198,6 +202,7 @@
     text-align: center;
     line-height: 35px;
     color: #fff;
+    padding: 0;
 }
 
 /* ---------------------------- */
