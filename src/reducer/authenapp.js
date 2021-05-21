@@ -4,15 +4,18 @@ var initialState = {};
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.REGISTER_ACCOUNT: {
-            
+            console.log(action);
+            if(action.response.data.success) {
+                alert("Kiểm tra email của bạn để xác thực tài khoản")
+            }
             return state
         };
         case Types.VERIFY_ACCOUNT: {
             console.log(action);
             // console.log(action.dataregister);
             if (action.response.data.success) {
-                localStorage.setItem("tk", action.response.data.data.token);
-                localStorage.setItem("rtk", action.response.data.data.refreshToken);
+                localStorage.setItem("tk", action.response.data.token);
+                localStorage.setItem("rtk", action.response.data.refreshToken);
             }
             state = action.response.data;
             return state

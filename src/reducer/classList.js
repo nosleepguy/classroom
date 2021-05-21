@@ -8,18 +8,21 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_LIST_CLASS: {
-            // console.log(action.response.data.data);
-            // console.log(action.response.data.data);
-            let data = action.response.data.data
-            return data
+            const data = action.response.data.data;
+            state = data;
+            return state
         }
         case Types.JOIN_CLASS: {
-            // console.log(action);
+            console.log(action);
+            const newState = JSON.parse(JSON.stringify(state));
+            const classId = action.response.data.data.classId;
             if (!action.response.data.success) {
                 alert(action.response.data.message);
             } else {
-                // console.log(action.response);
-                window.location.replace("/")
+                const index = findIndex(newState, classId);
+                // if (index == -1){
+
+                // }
             }
             return state
         }

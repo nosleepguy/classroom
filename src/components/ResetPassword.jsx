@@ -52,7 +52,7 @@ function ResetPassword(props) {
                                         <tr>
                                             <td className="content-cell">
                                                 <h1>
-                                                    Đặt lại password của bạn
+                                                    Khôi phục tài khoản của bạn
                                                 </h1>
                                                 <p>
                                                     Nhập Email đăng nhập của bạn
@@ -117,8 +117,7 @@ function ResetPassword(props) {
                                                                         //     onVarifyEmail
                                                                         // }
                                                                     >
-                                                                        Reset
-                                                                        Password
+                                                                        Khôi phục tài khoản
                                                                     </button>
                                                                 </div>
                                                             </td>
