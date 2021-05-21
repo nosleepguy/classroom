@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as action from "../../action/Action";
 // import PropTypes from "prop-types";
@@ -65,7 +65,7 @@ function Login(props) {
     };
 
     const onHandleLogin = () => {
-       const datalogin = {
+        const datalogin = {
             email: emailLogin,
             password: passwordLogin,
         };
@@ -75,9 +75,9 @@ function Login(props) {
     // == false để tránh lỗi khi null
     useEffect(() => {
         // console.log(dataResponse);
-        
-        if(dataResponse.success == false) {
-            setShowModal(true)
+
+        if (dataResponse.success == false) {
+            setShowModal(true);
         }
     }, [dataResponse]);
     return (
@@ -163,6 +163,17 @@ function Login(props) {
                                         onChange={onHandleInput}
                                     />
                                 </div>
+                                <Link to="/reset-password">
+                                    <a
+                                        style={{
+                                            fontSize: "10px",
+                                            margin: "30px 10px",
+                                            color: "#7493A2",
+                                        }}
+                                    >
+                                        Quên mật khẩu?{" "}
+                                    </a>
+                                </Link>
                                 <button
                                     className="submit-btn"
                                     onClick={onHandleLogin}
@@ -174,7 +185,11 @@ function Login(props) {
                     </div>
                 </div>
             </form>
-            <div className={showModal ? "wrapper-modal" : "wrapper-modal modal-hide"}>
+            <div
+                className={
+                    showModal ? "wrapper-modal" : "wrapper-modal modal-hide"
+                }
+            >
                 <div className="box">
                     <div className="content">{dataResponse.message}</div>
                     <button type="button" onClick={() => setShowModal(false)}>

@@ -1,4 +1,7 @@
 export const REGISTER_ACCOUNT = "REGISTER_ACCOUNT"
+export const VERIFY_ACCOUNT = "VERIFY_ACCOUNT"
+export const RESET_PASSWORD = "RESET_PASSWORD"
+export const VERIFY_PASSWORD = "VERIFY_PASSWORD"
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
 

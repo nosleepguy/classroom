@@ -1,6 +1,0 @@
-ssh ubuntu@3.1.217.38
-cd classroom
-git pull
-Nhập user pass github
-npm install
-npm run build

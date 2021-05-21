@@ -39,6 +39,7 @@
 .top a {
     color: #fff;
     width: 80%;
+
 }
 .top a:hover {
     text-decoration: underline;
@@ -71,12 +72,15 @@
 .hover .hidden {
     visibility: hidden;
 }
-.top {
+.top{
     width: 100%;
 }
 .top .class-name {
     font-size: 30px;
-    /* max-width: 80%; */
+    height: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .top .class,
 .teacher {

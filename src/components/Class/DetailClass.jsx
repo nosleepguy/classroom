@@ -21,6 +21,16 @@ function DetailClass(props) {
         setShowCreateNoti(!showCreateNoti);
     };
 
+    const onCopyToClipboard = async () => {
+        try {
+            // console.log(navigator);
+            
+            await navigator.clipboard.writeText(detailClass.referralCode);
+            alert("Đã copy mã lớp vào Clipboard");
+        } catch (err) {
+            alert("Failed to copy");
+        }
+    };
     //get post khi idclass thay doi
     useEffect(() => {
         refreshToken([getPost(idclass)]);
@@ -38,14 +48,7 @@ function DetailClass(props) {
                     <p>{detailClass.className}</p>
                     <p className="tooltip copy">
                         Mã lớp:{" "}
-                        <span
-                            onClick={() => {
-                                navigator.clipboard.writeText(
-                                    detailClass.referralCode
-                                ),
-                                    alert("Đã copy mã lớp vào Clipboard");
-                            }}
-                        >
+                        <span onClick={onCopyToClipboard}>
                             {detailClass.referralCode}
                         </span>
                         <span

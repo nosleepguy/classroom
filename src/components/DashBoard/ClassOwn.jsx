@@ -23,6 +23,10 @@ function ClassOwn(props) {
     const [showFormEdit, setShowFormEdit] = useState(false);
     const [valueFormEdit, setValueFormEdit] = useState("");
 
+
+    const onSubmit = (e) =>{
+        e.preventDefault();
+    }
     const onShowAction = () => {
         setShowAction(!showAction);
         // console.log(showAction);
@@ -99,7 +103,7 @@ function ClassOwn(props) {
                 >
                     <div className="write-noti">
                         <p>Chỉnh sửa Tên lớp</p>
-                        <form>
+                        <form onSubmit={onSubmit}>
                             <input
                                 type="text"
                                 value={valueFormEdit}

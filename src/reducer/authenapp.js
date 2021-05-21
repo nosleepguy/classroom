@@ -4,13 +4,32 @@ var initialState = {};
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.REGISTER_ACCOUNT: {
-            // console.log(action);
+            
+            return state
+        };
+        case Types.VERIFY_ACCOUNT: {
+            console.log(action);
             // console.log(action.dataregister);
-            if (action.dataregister.data.success) {
-                localStorage.setItem("tk", action.dataregister.data.data.token);
-                localStorage.setItem("rtk", action.dataregister.data.data.refreshToken);
+            if (action.response.data.success) {
+                localStorage.setItem("tk", action.response.data.data.token);
+                localStorage.setItem("rtk", action.response.data.data.refreshToken);
             }
-            state = action.dataregister.data;
+            state = action.response.data;
+            return state
+        };
+        case Types.RESET_PASSWORD: {
+            // console.log(action.response.data.success);
+            if(!action.response.data.success){
+                alert(`${action.response.data.message}`);
+            }
+            return state
+        };
+        case Types.VERIFY_PASSWORD: {
+            // console.log(action.response.data.success);
+            if(action.response.data.success){
+                localStorage.setItem("tk", action.response.data.data.token);
+                localStorage.setItem("rtk", action.response.data.data.refreshToken);
+            }
             return state
         };
         case Types.LOGIN: {

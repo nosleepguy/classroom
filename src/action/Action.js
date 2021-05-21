@@ -19,6 +19,58 @@ export const register = (dataregister) => {
         dataregister
     }
 }
+// -----------------VerifyEmail------------------------------------------------
+export const actVerifyEmailRequest = (data) => {
+    return (dispatch) => {
+        return (
+            axios.post(`user/verify-email`,data).then((response) => {
+                // console.log(response);
+                dispatch(verifyEmail(response))
+            })
+        )
+    }
+}
+export const verifyEmail = (response) => {
+    return {
+        type: Types.VERIFY_ACCOUNT,
+        response
+    }
+}
+// ---------------------ResetPassWord--------------------------------------------
+export const actResetPassWordRequest = (email) => {
+    return (dispatch) => {
+        return (
+            axios.post(`user/reset-password`,email).then((response) => {
+                // console.log(response);
+                dispatch(resetPassWord(response))
+            })
+        )
+    }
+}
+export const resetPassWord = (response) => {
+    return {
+        type: Types.RESET_PASSWORD,
+        response
+    }
+}
+// ---------------------ResetPassWord--------------------------------------------
+export const actVerifyPassWordRequest = (data) => {
+    return (dispatch) => {
+        return (
+            axios.post(`user/verify-reset-password`,data).then((response) => {
+                // console.log(response);
+                dispatch(verifyPassWord(response))
+            })
+        )
+    }
+}
+export const verifyPassWord = (response) => {
+    return {
+        type: Types.VERIFY_PASSWORD,
+        response
+    }
+}
+
 // --------------------Login---------------------------------------------
 
 export const actLoginRequest = (datalogin) => {
@@ -342,7 +394,7 @@ export const actUpdateClassNameRequest = (data) => {
     return (dispatch) => {
         return (
             axios.put(`user/class/${data.id}`,data.name).then((response) => {
-                console.log(response);
+                // console.log(response);
                 dispatch(updateClassName(response))
             })
         )

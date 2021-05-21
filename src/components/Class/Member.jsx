@@ -13,7 +13,7 @@ function Member(props) {
         <div className="line">
             <div className="avatar"></div>
             <div className="name">
-                {member.name == null ? "Name" : member.name}
+                {member.userName == null ? "Name" : member.userName}
             </div>
             <div
                 className={

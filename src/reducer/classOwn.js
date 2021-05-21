@@ -39,7 +39,7 @@ const myReducer = (state = initialState, action) => {
             // console.log(action);
             const id = action.response.data.data.id;
             const classname = action.response.data.data.name;
-            console.log(id, state);
+            // console.log(id, state);
             const newState = JSON.parse(JSON.stringify(state));
             const index = findIndex(newState, id);
             newState[index].className = classname
