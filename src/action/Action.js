@@ -13,10 +13,10 @@ export const actRegisterRequest = (dataregister) => {
         )
     }
 }
-export const register = (dataregister) => {
+export const register = (response) => {
     return {
         type: Types.REGISTER_ACCOUNT,
-        dataregister
+        response
     }
 }
 // -----------------VerifyEmail------------------------------------------------

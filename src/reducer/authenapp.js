@@ -4,9 +4,11 @@ var initialState = {};
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.REGISTER_ACCOUNT: {
-            console.log(action);
+            // console.log(action);
             if(action.response.data.success) {
                 alert("Kiểm tra email của bạn để xác thực tài khoản")
+            }else{
+                alert(action.response.data.message)
             }
             return state
         };
