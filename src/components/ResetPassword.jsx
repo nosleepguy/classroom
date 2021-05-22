@@ -11,7 +11,6 @@ function ResetPassword(props) {
     const handleResetPass = (e) => {
         e.preventDefault();
         props.onResetPassword({ email });
-        
     };
     return (
         // lấy form của verify
@@ -56,8 +55,9 @@ function ResetPassword(props) {
                                                 </h1>
                                                 <p>
                                                     Nhập Email đăng nhập của bạn
-                                                    rồi bấm "Reset" sau đó kiểm
-                                                    tra email của bạn
+                                                    rồi bấm "Khôi phục tài
+                                                    khoản" sau đó kiểm tra email
+                                                    của bạn
                                                 </p>
                                                 {/* <!-- Action --> */}
                                                 <form
@@ -113,11 +113,10 @@ function ResetPassword(props) {
                                                                     <button
                                                                         type="submit"
                                                                         className="button button--blue"
-                                                                        // onClick={
-                                                                        //     onVarifyEmail
-                                                                        // }
                                                                     >
-                                                                        Khôi phục tài khoản
+                                                                        Khôi
+                                                                        phục tài
+                                                                        khoản
                                                                     </button>
                                                                 </div>
                                                             </td>

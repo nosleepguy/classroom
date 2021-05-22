@@ -57,7 +57,6 @@ const myReducer = (state = initialState, action) => {
                         cancel: true
                     },
                 });
-                window.location.replace('/');
             }
             else{
                 swal({
