@@ -1,39 +1,97 @@
 import * as Types from "../constant/Types";
 var initialState = {};
+import swal from 'sweetalert';
 
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
+        
         case Types.REGISTER_ACCOUNT: {
-            // console.log(action);
-            if(action.response.data.success) {
-                alert("Kiểm tra email của bạn để xác thực tài khoản")
-            }else{
-                alert(action.response.data.message)
+
+            if (action.response.data.success) {
+                swal({
+                    title: "Đăng ký thành công!",
+                    text: `Kiểm tra email của bạn để xác thực tài khoản`,
+                    icon: "success",
+                    buttons: {
+                        cancel: true
+                    },
+                });
+            } else {
+                swal({
+                    title: "Oops!",
+                    text: `Đã xảy ra lỗi! Mã lỗi: ${action.response.data.message}`,
+                    icon: "error",
+                    buttons: {
+                        cancel: true
+                    },
+                });
             }
             return state
         };
+
         case Types.VERIFY_ACCOUNT: {
             console.log(action);
-            // console.log(action.dataregister);
             if (action.response.data.success) {
-                localStorage.setItem("tk", action.response.data.token);
-                localStorage.setItem("rtk", action.response.data.refreshToken);
+                swal({
+                    title: "Xác nhận tài khoản thành công!",
+                    text: `VUi lòng quay lại trang đăng nhập`,
+                    icon: "success",
+                    buttons: {
+                        cancel: true
+                    },
+                });
             }
-            state = action.response.data;
+            
             return state
         };
+
         case Types.RESET_PASSWORD: {
             // console.log(action.response.data.success);
-            if(!action.response.data.success){
-                alert(`${action.response.data.message}`);
+
+            if (action.response.data.success) {
+                swal({
+                    title: "Đặt lại mật khẩu!",
+                    text: `Kiểm tra Email của bạn`,
+                    icon: "success",
+                    buttons: {
+                        cancel: true
+                    },
+                });
+                window.location.replace('/');
+            }
+            else{
+                swal({
+                    title: "Oops!",
+                    text: `Đã xảy ra lỗi! Mã lỗi: ${action.response.data.message}`,
+                    icon: "error",
+                    buttons: {
+                        cancel: true
+                    },
+                });
             }
             return state
         };
         case Types.VERIFY_PASSWORD: {
             // console.log(action.response.data.success);
-            if(action.response.data.success){
-                localStorage.setItem("tk", action.response.data.data.token);
-                localStorage.setItem("rtk", action.response.data.data.refreshToken);
+            if (action.response.data.success) {
+                swal({
+                    title: "Yaaa!",
+                    text: `Đặt lại mật khẩu thành công, vui lòng quay lại trang đăng nhập`,
+                    icon: "success",
+                    buttons: {
+                        cancel: true
+                    },
+                });
+                
+            }else{
+                swal({
+                    title: "Oops!",
+                    text: `Đã xảy ra lỗi! Mã lỗi: ${action.response.data.message}`,
+                    icon: "error",
+                    buttons: {
+                        cancel: true
+                    },
+                });
             }
             return state
         };

@@ -2,7 +2,6 @@ import * as Types from "./../constant/Types";
 import axios from "./../utils/customAxios";
 
 
-
 export const actRegisterRequest = (dataregister) => {
     return (dispatch) => {
         // console.log(dataregister);
@@ -24,7 +23,7 @@ export const actVerifyEmailRequest = (data) => {
     return (dispatch) => {
         return (
             axios.post(`user/verify-email`,data).then((response) => {
-                // console.log(response);
+                console.log(response);
                 dispatch(verifyEmail(response))
             })
         )

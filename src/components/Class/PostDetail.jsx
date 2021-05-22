@@ -6,6 +6,8 @@ import {
     actCommentPostRequest,
     actDeleteCommentRequest,
 } from "../../action/Action";
+
+
 // import PropTypes from "prop-types";
 import "./../../css/postdetail.css";
 import refreshToken from "./../../utils/checkToken";

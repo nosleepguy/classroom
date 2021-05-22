@@ -5,6 +5,7 @@ import "./../css/setting.css";
 import { actUpdateProfileRequest } from "./../action/Action";
 import refreshToken from "./../utils/checkToken";
 
+
 function Setting(props) {
     
     const { userProfile, onUpdateUserProfile } = props;
@@ -62,7 +63,6 @@ function Setting(props) {
         // console.log(dataUpdate);
 
         refreshToken([onUpdateUserProfile(dataUpdate)]);
-        props.history.push("/");
     };
     return (
         <div className="wraper-setting">
@@ -128,7 +128,7 @@ function Setting(props) {
                     />
                 </div>
             </div>
-            <button type="button" className="button" onClick={onChangeInfo}>
+            <button type="button" className="button-setting" onClick={onChangeInfo}>
                 Xác nhận
             </button>
         </div>

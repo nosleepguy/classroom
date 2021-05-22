@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { actVerifyPassWordRequest } from "../action/Action";
+import { Link } from "react-router-dom";
 
 // import PropTypes from 'prop-types'
 import "./../css/verifyAccount.css";
@@ -8,7 +9,6 @@ import "./../css/verifyAccount.css";
 function VerifyChangePass(props) {
     // console.log(props.location.search.splice(-7));
     const token = props.location.search.slice(7);
-
 
     const [password, setPassword] = useState("");
 
@@ -53,11 +53,16 @@ function VerifyChangePass(props) {
                                     >
                                         {/* <!-- Body content --> */}
                                         <tr>
-                                            <td className="content-cell" style={{justifyContent: "center"}}>
+                                            <td
+                                                className="content-cell"
+                                                style={{
+                                                    justifyContent: "center",
+                                                }}
+                                            >
                                                 <h1>
                                                     Đặt lại password của bạn
                                                 </h1>
-                                               
+
                                                 {/* <!-- Action --> */}
                                                 <form
                                                     onSubmit={handleVerifyPass}
@@ -116,16 +121,20 @@ function VerifyChangePass(props) {
                                                                         //     onVarifyEmail
                                                                         // }
                                                                     >
-                                                                        Xác nhận password mới
+                                                                        Xác nhận
+                                                                        password
+                                                                        mới
                                                                     </button>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                    
                                                 </form>
                                             </td>
                                         </tr>
+                                        <Link to="/">
+                                            <p>Quay lại trang đăng nhập</p>
+                                        </Link>
                                     </table>
                                 </td>
                             </tr>

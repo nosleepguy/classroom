@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { actGetPostRequest } from "../../action/Action";
 // import PropTypes from "prop-types";
+import swal from "sweetalert";
 
 import "./../../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
@@ -24,11 +25,25 @@ function DetailClass(props) {
     const onCopyToClipboard = async () => {
         try {
             // console.log(navigator);
-            
+
             await navigator.clipboard.writeText(detailClass.referralCode);
-            alert("Đã copy mã lớp vào Clipboard");
+            swal({
+                title: "Copied!",
+                text: "Đã copy mã lớp vào Clipboard!",
+                icon: "success",
+                button: "Close!",
+            });
+            // alert("Đã copy mã lớp vào Clipboard");
         } catch (err) {
-            alert("Failed to copy");
+            swal({
+                title: "Oops!",
+                text: "Failed to copy!",
+                icon: "error",
+                buttons: {
+                    cancel: true,
+                },
+            });
+            // alert("Failed to copy");
         }
     };
     //get post khi idclass thay doi

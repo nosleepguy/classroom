@@ -17,6 +17,7 @@ function JoinClass(props) {
 
     const joinClassAction = () => {
         refreshToken([props.actJoinclass(classCode)]);
+        props.history.push("/");
     };
     return (
         <div className="wrapper">

@@ -131,7 +131,7 @@ p.center {
 }
 
 /* Buttons ------------------------------ */
-.button {
+.wrapper-verify .button {
     display: inline-block;
     width: 200px;
     background-color: #414ef9;

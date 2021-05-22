@@ -11,7 +11,7 @@ function ResetPassword(props) {
     const handleResetPass = (e) => {
         e.preventDefault();
         props.onResetPassword({ email });
-        alert("Kiểm tra Email của bạn!");
+        
     };
     return (
         // lấy form của verify

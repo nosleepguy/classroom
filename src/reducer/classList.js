@@ -1,5 +1,6 @@
 import * as Types from "../constant/Types";
 var initialState = [];
+import swal from 'sweetalert';
 
 const findIndex = function (arr, id) {
     return arr.findIndex(elem => elem.id == id)
@@ -8,21 +9,32 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_LIST_CLASS: {
+            console.log(state);
             const data = action.response.data.data;
             state = data;
             return state
         }
+        //đang fail
         case Types.JOIN_CLASS: {
             console.log(action);
-            const newState = JSON.parse(JSON.stringify(state));
-            const classId = action.response.data.data.classId;
+            
             if (!action.response.data.success) {
-                alert(action.response.data.message);
+                swal({
+                    title: "Oops!",
+                    text: `Đã xảy ra lỗi! ${action.response.data.message}`,
+                    icon: "error",
+                    buttons: {
+                        cancel: true
+                    },
+                });
             } else {
-                const index = findIndex(newState, classId);
-                // if (index == -1){
-
-                // }
+                const newState = JSON.parse(JSON.stringify(state));
+                const data = action.response.data.data.classInDb;
+                // const classId = data.id;
+                const newClass = {...data, className: data.name}
+                newState.push(newClass);
+                state = newState;
+                console.log(state);
             }
             return state
         }
