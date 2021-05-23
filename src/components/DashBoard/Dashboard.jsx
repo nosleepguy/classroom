@@ -24,7 +24,7 @@ function Dashboard(props) {
         <section className="dashboard">
             <div className="allclass">
                 {classOwnRender} {classListRender}
-                {classOwnRender.length && classOwnRender.length ? (
+                {(classOwnRender.length || classListRender.length) ? (
                     ""
                 ) : (
                     <div
