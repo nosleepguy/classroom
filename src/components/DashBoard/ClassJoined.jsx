@@ -21,7 +21,7 @@ function ClassJoined(props) {
                 <Link to={"/class/" + item.id}>
                     <div className="class-name">{item.className}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
-                    <div className="teacher">Ngô Trường Giang</div>
+                    <div className="teacher">{item.ownerName}</div>
                 </Link>
                 <div className="hover action-class " onClick={onShowAction}>
                     <span className="fas fa-ellipsis-v "></span>
