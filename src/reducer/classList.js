@@ -16,7 +16,7 @@ const myReducer = (state = initialState, action) => {
         }
         //đang fail
         case Types.JOIN_CLASS: {
-            console.log(action);
+            // console.log(action);
             
             if (!action.response.data.success) {
                 swal({
