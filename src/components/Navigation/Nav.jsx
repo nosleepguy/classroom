@@ -89,7 +89,7 @@ function Nav(props) {
                 >
                     <div className="item hover class-active">
                         <div className="icon represent">
-                            <div>{"T"}</div>
+                            <div>{item.className[0]}</div>
                         </div>
                         <div className=" text detail">
                             <p className="name">{item.className}</p>
