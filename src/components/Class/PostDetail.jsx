@@ -20,7 +20,10 @@ function PostDetail(props) {
         onCommentPost,
         userProfile,
     } = props;
-
+    // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
+    const month = datapost.createdAt.slice(5,7);
+    const day = datapost.createdAt.slice(8,10);
+    
     const [showAction, setShowAction] = useState(false);
 
     const [comment, setComment] = useState("");
@@ -67,7 +70,7 @@ function PostDetail(props) {
                     <div className="avatar"></div>
                     <div className="owner">
                         <p>{userProfile.username}</p>
-                        <p>{datapost.createdAt}</p>
+                        <p>{day} thg {month}</p>
                     </div>
                     <div className="action">
                         <span

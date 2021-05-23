@@ -10,13 +10,17 @@ function Comment(props) {
 
     const [showActDelComment, setShowActDelComment] = useState(false);
 
+
+    const month = comment.createdAt.slice(5,7);
+    const day = comment.createdAt.slice(8,10);
+
     return (
         <div className="user-comment">
             <div className="avatar-user"></div>
             <div className="detail-comment">
                 <div className="detail-user-comment">
                     <span className="name-user">{userProfile.username}</span>
-                    <span className="date">{comment.createdAt}</span>
+                    <span className="date">{day} thg {month}</span>
                 </div>
                 <div className="comment-content">{comment.content}</div>
                 <div
