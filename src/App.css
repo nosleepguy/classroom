@@ -90,7 +90,7 @@ button {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: fit-content;
-  background-color: rgba(117, 117, 117, 0.63);
+  background-color: #74b9ff;
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -115,7 +115,7 @@ button {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent rgba(117, 117, 117, 0.63) transparent;
+  border-color: transparent transparent #74b9ff transparent;
 }
 
 @keyframes App-logo-spin {
