@@ -9,7 +9,7 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_LIST_CLASS: {
-            console.log(state);
+            // console.log(state);
             const data = action.response.data.data;
             state = data;
             return state
