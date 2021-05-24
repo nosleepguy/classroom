@@ -6,7 +6,7 @@ import { actDeleteCommentRequest } from "../../action/Action";
 function Comment(props) {
     const { userProfile, onDeleteComment, comment } = props;
 
-    // console.log(userProfile);
+    // console.log(comment);
 
     const [showActDelComment, setShowActDelComment] = useState(false);
 
@@ -19,7 +19,7 @@ function Comment(props) {
             <div className="avatar-user"></div>
             <div className="detail-comment">
                 <div className="detail-user-comment">
-                    <span className="name-user">{userProfile.username}</span>
+                    <span className="name-user">{comment.ownerName}</span>
                     <span className="date">{day} thg {month}</span>
                 </div>
                 <div className="comment-content">{comment.content}</div>
