@@ -1,2 +1,0 @@
-cần 1 nơi lưu trữ thông tin của 1 lớp đấy. sau đó lấy thôn tin lớp đấy về hiển thị ở detail class.
-khi vòa rồi thì lấy id class trên link để getpost về và memberclass
