@@ -5,7 +5,7 @@ import {
     actEditPostRequest,
     actCommentPostRequest,
     actDeleteCommentRequest,
-} from "../../action/Action";
+} from "./../../action/Action";
 
 
 // import PropTypes from "prop-types";
@@ -20,6 +20,8 @@ function PostDetail(props) {
         onCommentPost,
         userProfile,
     } = props;
+    // console.log(userProfile, datapost);
+    
     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
     const month = datapost.createdAt.slice(5,7);
     const day = datapost.createdAt.slice(8,10);
@@ -69,10 +71,10 @@ function PostDetail(props) {
                 <div className="owner-info">
                     <div className="avatar"></div>
                     <div className="owner">
-                        <p>{userProfile.username}</p>
+                        <p>{datapost.ownerName ? datapost.ownerName : userProfile.username}</p>
                         <p>{day} thg {month}</p>
                     </div>
-                    <div className="action">
+                    <div className={userProfile.id === datapost.ownerId ? "action" : "action hide"}>
                         <span
                             className="fas fa-ellipsis-v hover"
                             onClick={onshowAction}

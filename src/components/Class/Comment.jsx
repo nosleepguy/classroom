@@ -19,7 +19,7 @@ function Comment(props) {
             <div className="avatar-user"></div>
             <div className="detail-comment">
                 <div className="detail-user-comment">
-                    <span className="name-user">{comment.ownerName}</span>
+                    <span className="name-user">{comment.ownerName ? comment.ownerName : userProfile.username}</span>
                     <span className="date">{day} thg {month}</span>
                 </div>
                 <div className="comment-content">{comment.content}</div>
