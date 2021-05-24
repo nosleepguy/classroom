@@ -1,3 +1,3 @@
-const API_URL = 'localhost:3001/api/';
+const API_URL = 'https://citaclassroom.xyz/api/';
 export default API_URL
 
