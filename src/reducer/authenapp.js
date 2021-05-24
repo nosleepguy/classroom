@@ -34,7 +34,7 @@ const myReducer = (state = initialState, action) => {
             if (action.response.data.success) {
                 swal({
                     title: "Xác nhận tài khoản thành công!",
-                    text: `VUi lòng quay lại trang đăng nhập`,
+                    text: `Vui lòng quay lại trang đăng nhập`,
                     icon: "success",
                     buttons: {
                         cancel: true

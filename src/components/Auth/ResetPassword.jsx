@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-import { actVerifyPassWordRequest } from "../action/Action";
 import { Link } from "react-router-dom";
+// import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { actResetPassWordRequest } from "../../action/Action";
+import "./../../css/verifyAccount.css";
 
-// import PropTypes from 'prop-types'
-import "./../css/verifyAccount.css";
+function ResetPassword(props) {
+    const [email, setEmail] = useState("");
 
-function VerifyChangePass(props) {
-    // console.log(props.location.search.splice(-7));
-    const token = props.location.search.slice(7);
-
-    const [password, setPassword] = useState("");
-
-    const handleVerifyPass = (e) => {
+    const handleResetPass = (e) => {
         e.preventDefault();
-        props.onVerifyPassword({ password, token });
+        props.onResetPassword({ email });
     };
     return (
         // lấy form của verify
@@ -53,19 +49,19 @@ function VerifyChangePass(props) {
                                     >
                                         {/* <!-- Body content --> */}
                                         <tr>
-                                            <td
-                                                className="content-cell"
-                                                style={{
-                                                    justifyContent: "center",
-                                                }}
-                                            >
+                                            <td className="content-cell">
                                                 <h1>
-                                                    Đặt lại password của bạn
+                                                    Khôi phục tài khoản của bạn
                                                 </h1>
-
+                                                <p>
+                                                    Nhập Email đăng nhập của bạn
+                                                    rồi bấm "Khôi phục tài
+                                                    khoản" sau đó kiểm tra email
+                                                    của bạn
+                                                </p>
                                                 {/* <!-- Action --> */}
                                                 <form
-                                                    onSubmit={handleVerifyPass}
+                                                    onSubmit={handleResetPass}
                                                 >
                                                     <table
                                                         className="body-action"
@@ -78,15 +74,15 @@ function VerifyChangePass(props) {
                                                             <td align="center">
                                                                 <div>
                                                                     <input
-                                                                        type="password"
+                                                                        type="email"
                                                                         required
                                                                         value={
-                                                                            password
+                                                                            email
                                                                         }
                                                                         onChange={(
                                                                             e
                                                                         ) =>
-                                                                            setPassword(
+                                                                            setEmail(
                                                                                 e
                                                                                     .target
                                                                                     .value
@@ -105,7 +101,7 @@ function VerifyChangePass(props) {
                                                                             fontSize:
                                                                                 "18px",
                                                                             margin: "40px 0",
-                                                                            width: "100%",
+                                                                            width: "90%",
                                                                         }}
                                                                     />
                                                                 </div>
@@ -117,24 +113,24 @@ function VerifyChangePass(props) {
                                                                     <button
                                                                         type="submit"
                                                                         className="button button--blue"
-                                                                        // onClick={
-                                                                        //     onVarifyEmail
-                                                                        // }
                                                                     >
-                                                                        Xác nhận
-                                                                        password
-                                                                        mới
+                                                                        Khôi
+                                                                        phục tài
+                                                                        khoản
                                                                     </button>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     </table>
+                                                    <Link to="/">
+                                                        <p>
+                                                            Quay lại trang đăng
+                                                            nhập
+                                                        </p>
+                                                    </Link>
                                                 </form>
                                             </td>
                                         </tr>
-                                        <Link to="/">
-                                            <p>Quay lại trang đăng nhập</p>
-                                        </Link>
                                     </table>
                                 </td>
                             </tr>
@@ -168,16 +164,12 @@ function VerifyChangePass(props) {
     );
 }
 
-// VerifyChangePass.propTypes = {
-
-// }
-
+// ResetPassword.propTypes = {};
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        onVerifyPassword: (data) => {
-            dispatch(actVerifyPassWordRequest(data));
+        onResetPassword: (email) => {
+            dispatch(actResetPassWordRequest(email));
         },
     };
 };
-
-export default connect(null, mapDispatchToProps)(VerifyChangePass);
+export default connect(null, mapDispatchToProps)(ResetPassword);
