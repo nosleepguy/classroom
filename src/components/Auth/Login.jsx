@@ -79,8 +79,10 @@ function Login(props) {
     useEffect(() => {
         console.log(dataResponse);
         if (dataResponse) {
-            setShowModal(true);
             setLoading(false);
+        }
+        if(dataResponse.success == false) {
+            setShowModal(true);
         }
     }, [dataResponse]);
     return (
