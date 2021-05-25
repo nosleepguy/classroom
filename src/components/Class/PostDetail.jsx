@@ -1,38 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
     actDeletePostRequest,
     actEditPostRequest,
     actCommentPostRequest,
     actDeleteCommentRequest,
-} from "./../../action/Action";
-
+} from './../../action/Action';
 
 // import PropTypes from "prop-types";
-import "./../../css/postdetail.css";
-import refreshToken from "./../../utils/checkToken";
-import Comment from "./Comment";
+import './../../css/postdetail.css';
+import refreshToken from './../../utils/checkToken';
+import Comment from './Comment';
 function PostDetail(props) {
-    const {
-        datapost,
-        onDeletePost,
-        onEditPost,
-        onCommentPost,
-        userProfile,
-    } = props;
+    const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } = props;
     // console.log(userProfile, datapost);
-    
+
     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
-    const month = datapost.createdAt.slice(5,7);
-    const day = datapost.createdAt.slice(8,10);
-    
+    const month = datapost.createdAt.slice(5, 7);
+    const day = datapost.createdAt.slice(8, 10);
+
     const [showAction, setShowAction] = useState(false);
 
-    const [comment, setComment] = useState("");
+    const [comment, setComment] = useState('');
 
     //show form edit
     const [showFormEdit, setShowFormEdit] = useState(false);
-    const [valueFormEdit, setValueFormEdit] = useState("");
+    const [valueFormEdit, setValueFormEdit] = useState('');
 
     useEffect(() => {
         setValueFormEdit(datapost.content);
@@ -63,7 +56,7 @@ function PostDetail(props) {
             typeComment: 1,
         };
         refreshToken([onCommentPost(dataComment)]);
-        setComment("");
+        setComment('');
     };
     return (
         <div className="new-noti">
@@ -72,25 +65,14 @@ function PostDetail(props) {
                     <div className="avatar"></div>
                     <div className="owner">
                         <p>{datapost.ownerName ? datapost.ownerName : userProfile.username}</p>
-                        <p>{day} thg {month}</p>
+                        <p>
+                            {day} thg {month}
+                        </p>
                     </div>
-                    <div className={userProfile.id === datapost.ownerId ? "action" : "action hide"}>
-                        <span
-                            className="fas fa-ellipsis-v hover"
-                            onClick={onshowAction}
-                        ></span>
-                        <div
-                            className={
-                                showAction ? "delete-edit" : "delete-edit hide"
-                            }
-                        >
-                            <p
-                                onClick={() =>
-                                    refreshToken([onDeletePost(datapost.id)])
-                                }
-                            >
-                                Xóa
-                            </p>
+                    <div className={userProfile.id === datapost.ownerId ? 'action' : 'action hide'}>
+                        <span className="fas fa-ellipsis-v hover" onClick={onshowAction}></span>
+                        <div className={showAction ? 'delete-edit' : 'delete-edit hide'}>
+                            <p onClick={() => refreshToken([onDeletePost(datapost.id)])}>Xóa</p>
                             <p onClick={onShowFormEdit}>Chỉnh sửa</p>
                         </div>
                     </div>
@@ -100,10 +82,7 @@ function PostDetail(props) {
             </div>
 
             {/* form edit bài đăng */}
-            <div
-                className="form-edit"
-                style={showFormEdit ? { display: "flex" } : { display: "none" }}
-            >
+            <div className="form-edit" style={showFormEdit ? { display: 'flex' } : { display: 'none' }}>
                 <div className="write-noti">
                     <p>Chỉnh sửa bài viết của bạn</p>
                     <form>
@@ -123,8 +102,8 @@ function PostDetail(props) {
                                 style={
                                     valueFormEdit
                                         ? {
-                                              background: "#2C7EEA",
-                                              color: "white",
+                                              background: '#2C7EEA',
+                                              color: 'white',
                                           }
                                         : {}
                                 }
@@ -138,13 +117,11 @@ function PostDetail(props) {
 
             <div className="comment">
                 <div className="count-comment">
-                    <span className="fas fa-user-friends"></span>&ensp;{" "}
-                    {datapost?.comments?.length} nhận xét về bài viết
+                    <span className="fas fa-user-friends"></span>&ensp; {datapost?.comments?.length} nhận xét về bài
+                    viết
                 </div>
                 {datapost.comments?.map((comment) => {
-                    return (
-                        <Comment key={comment.id} comment={comment}/>
-                    );
+                    return <Comment key={comment.id} comment={comment} />;
                 })}
             </div>
             <div className="write-comment">
@@ -156,10 +133,7 @@ function PostDetail(props) {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
-                    <i
-                        className="far fa-paper-plane send-comment"
-                        onClick={onHandlePostComment}
-                    ></i>
+                    <i className="far fa-paper-plane send-comment" onClick={onHandlePostComment}></i>
                 </div>
             </div>
         </div>

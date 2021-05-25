@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import * as action from "../../action/Action";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import * as action from '../../action/Action';
 
 // import PropTypes from 'prop-types'
-import "./../../css/createclass.css";
+import './../../css/createclass.css';
 import refreshToken from '../../utils/checkToken';
 
 function CreateClass(props) {
-    const [className, setClassName] = useState("");
+    const [className, setClassName] = useState('');
 
     const onHandleForm = (e) => {
         e.preventDefault();
         const createclass = {
             className: className,
-            cover: "",
+            cover: '',
             status: 1,
         };
         refreshToken([props.onCreateClass(createclass)]);
-        props.history.push("/");
+        props.history.push('/');
     };
 
     // quay lai
     const onGoBack = () => {
-        props.history.push("/");
+        props.history.push('/');
     };
 
     return (
@@ -40,14 +40,7 @@ function CreateClass(props) {
                         <button type="reset" onClick={onGoBack}>
                             Hủy
                         </button>
-                        <button
-                            type="submit"
-                            style={
-                                className != ""
-                                    ? { background: "#2C7EEA", color: "white" }
-                                    : {}
-                            }
-                        >
+                        <button type="submit" style={className != '' ? { background: '#2C7EEA', color: 'white' } : {}}>
                             Tạo
                         </button>
                     </div>

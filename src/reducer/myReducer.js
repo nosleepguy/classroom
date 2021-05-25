@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import authenapp from "./authenapp";
+import { combineReducers } from 'redux';
+import authenapp from './authenapp';
 import classOwn from './classOwn';
 import classList from './classList';
 import detailClass from './detailClass';
@@ -13,5 +13,5 @@ export default combineReducers({
     detailClass,
     postList,
     userProfile,
-    memberList
-})
+    memberList,
+});

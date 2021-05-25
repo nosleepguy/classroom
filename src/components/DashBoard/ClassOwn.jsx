@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import "./../../css/dashboard.css";
-import {
-    actDeleteClassRequest,
-    actUpdateClassNameRequest,
-    detailClass,
-} from "./../../action/Action";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import './../../css/dashboard.css';
+import { actDeleteClassRequest, actUpdateClassNameRequest, detailClass } from './../../action/Action';
 
-import refreshToken from "./../../utils/checkToken";
+import refreshToken from './../../utils/checkToken';
 
-import "./../../css/classOwn.css";
+import './../../css/classOwn.css';
 function ClassOwn(props) {
-    const { item, onDeleteClass, onUpdateClass, sendDetailClass, userProfile } =
-        props;
+    const { item, onDeleteClass, onUpdateClass, sendDetailClass, userProfile } = props;
     // console.log(item);
 
     //hủy lớp
@@ -21,12 +16,11 @@ function ClassOwn(props) {
 
     //show form edit
     const [showFormEdit, setShowFormEdit] = useState(false);
-    const [valueFormEdit, setValueFormEdit] = useState("");
+    const [valueFormEdit, setValueFormEdit] = useState('');
 
-
-    const onSubmit = (e) =>{
+    const onSubmit = (e) => {
         e.preventDefault();
-    }
+    };
     const onShowAction = () => {
         setShowAction(!showAction);
         // console.log(showAction);
@@ -59,20 +53,20 @@ function ClassOwn(props) {
                 onClick={() =>
                     sendDetailClass({
                         ...item,
-                        ownerAvatar: "abc",
+                        ownerAvatar: 'abc',
                         ownerId: userProfile.id,
                         ownerName: userProfile.username,
                     })
                 }
             >
-                <Link to={"/class/" + item.id}>
+                <Link to={'/class/' + item.id}>
                     <div className="class-name">{item.className}</div>
                     <div className="class">Mã lớp: {item.referralCode}</div>
                     <div className="teacher">{userProfile?.username}</div>
                 </Link>
                 <div className="hover action-class " onClick={onShowAction}>
                     <span className="fas fa-ellipsis-v "></span>
-                    <div className={showAction ? "action" : "action hidden"}>
+                    <div className={showAction ? 'action' : 'action hidden'}>
                         <p onClick={actDeleteClass}>Hủy lớp</p>
                         <p onClick={() => setShowFormEdit(true)}>Đổi tên lớp</p>
                     </div>
@@ -95,27 +89,17 @@ function ClassOwn(props) {
 
             {/*  chỉnh sửa tên lớp */}
             <div className="edit-nameclass">
-                <div
-                    className="form-edit"
-                    style={
-                        showFormEdit ? { display: "flex" } : { display: "none" }
-                    }
-                >
+                <div className="form-edit" style={showFormEdit ? { display: 'flex' } : { display: 'none' }}>
                     <div className="write-noti">
                         <p>Chỉnh sửa Tên lớp</p>
                         <form onSubmit={onSubmit}>
                             <input
                                 type="text"
                                 value={valueFormEdit}
-                                onChange={(e) =>
-                                    setValueFormEdit(e.target.value)
-                                }
+                                onChange={(e) => setValueFormEdit(e.target.value)}
                             />
                             <div className="btn">
-                                <button
-                                    type="button"
-                                    onClick={() => setShowFormEdit(false)}
-                                >
+                                <button type="button" onClick={() => setShowFormEdit(false)}>
                                     Hủy
                                 </button>
                                 <button
@@ -123,8 +107,8 @@ function ClassOwn(props) {
                                     style={
                                         valueFormEdit
                                             ? {
-                                                  background: "#2C7EEA",
-                                                  color: "white",
+                                                  background: '#2C7EEA',
+                                                  color: 'white',
                                               }
                                             : {}
                                     }

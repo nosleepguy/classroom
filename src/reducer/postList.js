@@ -1,10 +1,10 @@
-import * as Types from "../constant/Types";
+import * as Types from '../constant/Types';
 
 const initialState = [];
 
 const findIndex = function (arr, id) {
-    return arr.findIndex(elem => elem.id == id)
-}
+    return arr.findIndex((elem) => elem.id == id);
+};
 
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -12,7 +12,7 @@ const myReducer = (state = initialState, action) => {
             // console.log(action.response.data.data);
             const dataPost = action.response.data.data;
             state = dataPost;
-            return state
+            return state;
         }
         case Types.UP_POST: {
             // console.log(action.response.data.data);
@@ -20,12 +20,11 @@ const myReducer = (state = initialState, action) => {
             const newState = JSON.parse(JSON.stringify(state)) || [];
             if (newState && newState.length >= 1) {
                 newState.unshift(post);
-            }
-            else {
-                newState.push(post)
+            } else {
+                newState.push(post);
             }
             state = newState;
-            return state
+            return state;
         }
         case Types.DELETE_POST: {
             const newState = JSON.parse(JSON.stringify(state));
@@ -35,9 +34,9 @@ const myReducer = (state = initialState, action) => {
             if (result) {
                 let index = findIndex(newState, idpost);
                 newState.splice(index, 1);
-                state = newState
+                state = newState;
             }
-            return state
+            return state;
         }
         case Types.EDIT_POST: {
             const newState = JSON.parse(JSON.stringify(state));
@@ -48,9 +47,9 @@ const myReducer = (state = initialState, action) => {
             if (result) {
                 let index = findIndex(newState, idpost);
                 newState[index].content = content;
-                state = newState
+                state = newState;
             }
-            return state
+            return state;
         }
         case Types.COMMENT_POST: {
             const newState = JSON.parse(JSON.stringify(state));
@@ -69,8 +68,8 @@ const myReducer = (state = initialState, action) => {
                         // console.log(comments);
                         newState[index] = {
                             ...newState[index],
-                            comments
-                        }
+                            comments,
+                        };
                         // console.log(comments);
                     } else {
                         newState[index].comments?.push(post);
@@ -79,26 +78,27 @@ const myReducer = (state = initialState, action) => {
                     }
                 }
             }
-            state = newState
-
-            return state
-        }
-        case Types.DELETE_COMMENT: {
-            const newState = JSON.parse(JSON.stringify(state));           
-            const idpost = action.response.idcomment;
-
-            newState.map((post,indexpost) => {
-                post.comments?.map((comment,indexcomment) => {
-                    if(comment.id === idpost){
-                        newState[indexpost].comments.splice(indexcomment, 1)
-                    }
-                })
-            })
             state = newState;
 
-            return state
+            return state;
         }
-        default: return state
+        case Types.DELETE_COMMENT: {
+            const newState = JSON.parse(JSON.stringify(state));
+            const idpost = action.response.idcomment;
+
+            newState.map((post, indexpost) => {
+                post.comments?.map((comment, indexcomment) => {
+                    if (comment.id === idpost) {
+                        newState[indexpost].comments.splice(indexcomment, 1);
+                    }
+                });
+            });
+            state = newState;
+
+            return state;
+        }
+        default:
+            return state;
     }
-}
+};
 export default myReducer;

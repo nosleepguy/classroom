@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./../../css/dashboard.css";
-import ClassOwn from "./ClassOwn";
-import ClassJoined from "./ClassJoined";
-import None from "../None/None";
+import React from 'react';
+import { connect } from 'react-redux';
+import './../../css/dashboard.css';
+import ClassOwn from './ClassOwn';
+import ClassJoined from './ClassJoined';
+import None from '../None/None';
 
 function Dashboard(props) {
     const { classOwn, classList } = props;
@@ -21,19 +21,18 @@ function Dashboard(props) {
         });
     }
     return (
-        
         <section className="dashboard">
             <div className="allclass">
                 {classOwnRender} {classListRender}
                 {classOwnRender.length || classListRender.length ? (
-                    ""
+                    ''
                 ) : (
                     <div
                         style={{
-                            display: "flex",
-                            width: "100%",
-                            flexDirection: "column",
-                            alignItems: "center",
+                            display: 'flex',
+                            width: '100%',
+                            flexDirection: 'column',
+                            alignItems: 'center',
                         }}
                     >
                         <p className="noclass">Bạn chưa có lớp học nào</p>

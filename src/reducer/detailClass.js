@@ -1,14 +1,15 @@
-import * as Types from "../constant/Types";
+import * as Types from '../constant/Types';
 
 const initialState = {};
 
 const myReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case Types.DETAIL_CLASS: {
             // console.log(action);
-            return action.detail
+            return action.detail;
         }
-        default: return state
+        default:
+            return state;
     }
-}
+};
 export default myReducer;

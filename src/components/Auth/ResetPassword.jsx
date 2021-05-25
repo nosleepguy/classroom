@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { actResetPassWordRequest } from "../../action/Action";
-import "./../../css/verifyAccount.css";
+import { connect } from 'react-redux';
+import { actResetPassWordRequest } from '../../action/Action';
+import './../../css/verifyAccount.css';
 
 function ResetPassword(props) {
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState('');
 
     const handleResetPass = (e) => {
         e.preventDefault();
@@ -15,26 +15,14 @@ function ResetPassword(props) {
     return (
         // lấy form của verify
         <div className="wrapper-verify">
-            <table
-                className="email-wrapper"
-                width="100%"
-                cellPadding="0"
-                cellSpacing="0"
-            >
+            <table className="email-wrapper" width="100%" cellPadding="0" cellSpacing="0">
                 <tr>
                     <td align="center">
-                        <table
-                            className="email-content"
-                            width="100%"
-                            cellPadding="0"
-                            cellSpacing="0"
-                        >
+                        <table className="email-content" width="100%" cellPadding="0" cellSpacing="0">
                             {/* <!-- Logo --> */}
                             <tr>
                                 <td className="email-masthead">
-                                    <a className="email-masthead_name">
-                                        CITA Classroom
-                                    </a>
+                                    <a className="email-masthead_name">CITA Classroom</a>
                                 </td>
                             </tr>
                             {/* <!-- Email Body --> */}
@@ -50,19 +38,13 @@ function ResetPassword(props) {
                                         {/* <!-- Body content --> */}
                                         <tr>
                                             <td className="content-cell">
-                                                <h1>
-                                                    Khôi phục tài khoản của bạn
-                                                </h1>
+                                                <h1>Khôi phục tài khoản của bạn</h1>
                                                 <p>
-                                                    Nhập Email đăng nhập của bạn
-                                                    rồi bấm "Khôi phục tài
-                                                    khoản" sau đó kiểm tra email
-                                                    của bạn
+                                                    Nhập Email đăng nhập của bạn rồi bấm "Khôi phục tài khoản" sau đó
+                                                    kiểm tra email của bạn
                                                 </p>
                                                 {/* <!-- Action --> */}
-                                                <form
-                                                    onSubmit={handleResetPass}
-                                                >
+                                                <form onSubmit={handleResetPass}>
                                                     <table
                                                         className="body-action"
                                                         align="center"
@@ -76,32 +58,17 @@ function ResetPassword(props) {
                                                                     <input
                                                                         type="email"
                                                                         required
-                                                                        value={
-                                                                            email
-                                                                        }
-                                                                        onChange={(
-                                                                            e
-                                                                        ) =>
-                                                                            setEmail(
-                                                                                e
-                                                                                    .target
-                                                                                    .value
-                                                                            )
-                                                                        }
+                                                                        value={email}
+                                                                        onChange={(e) => setEmail(e.target.value)}
                                                                         style={{
-                                                                            outline:
-                                                                                "none",
-                                                                            border: "none",
-                                                                            padding:
-                                                                                "20px",
-                                                                            background:
-                                                                                "#e6e6e6",
-                                                                            borderRadius:
-                                                                                "5px",
-                                                                            fontSize:
-                                                                                "18px",
-                                                                            margin: "40px 0",
-                                                                            width: "90%",
+                                                                            outline: 'none',
+                                                                            border: 'none',
+                                                                            padding: '20px',
+                                                                            background: '#e6e6e6',
+                                                                            borderRadius: '5px',
+                                                                            fontSize: '18px',
+                                                                            margin: '40px 0',
+                                                                            width: '90%',
                                                                         }}
                                                                     />
                                                                 </div>
@@ -114,19 +81,14 @@ function ResetPassword(props) {
                                                                         type="submit"
                                                                         className="button button--blue"
                                                                     >
-                                                                        Khôi
-                                                                        phục tài
-                                                                        khoản
+                                                                        Khôi phục tài khoản
                                                                     </button>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                     <Link to="/">
-                                                        <p>
-                                                            Quay lại trang đăng
-                                                            nhập
-                                                        </p>
+                                                        <p>Quay lại trang đăng nhập</p>
                                                     </Link>
                                                 </form>
                                             </td>
@@ -148,8 +110,7 @@ function ResetPassword(props) {
                                                 <p className="sub center">
                                                     CITA Classroom, Inc.
                                                     <br />
-                                                    60TH4, DHTL, 175 Tay Son,
-                                                    Dong Da, HN
+                                                    60TH4, DHTL, 175 Tay Son, Dong Da, HN
                                                 </p>
                                             </td>
                                         </tr>

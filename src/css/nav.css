@@ -124,15 +124,15 @@
 }
 ::-webkit-scrollbar {
     width: 6px;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: rgb(223, 223, 223);
-    border-radius:10px;
+    border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
     background: rgb(143, 143, 143);
-    border-radius:10px;
+    border-radius: 10px;
 }
 .activetab {
     transform: translate(-100%, 0);
@@ -140,7 +140,7 @@
 .border-bottom {
     border-bottom: 1px solid #e0e0e0;
 }
-.tab .contain{
+.tab .contain {
     padding-bottom: 10px;
 }
 .contain .item {
@@ -163,7 +163,7 @@
     font-weight: bold;
 }
 
-.tab .contain .item .iconlogout{
+.tab .contain .item .iconlogout {
     width: 35px;
     margin-right: 17px;
 }
@@ -191,7 +191,7 @@
 
     /* border: 1px solid #000; */
 }
-.text{
+.text {
     width: 80%;
 }
 .represent div {

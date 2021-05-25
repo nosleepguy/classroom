@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import "./../css/setting.css";
-import { actUpdateProfileRequest } from "./../action/Action";
-import refreshToken from "./../utils/checkToken";
-
+import './../css/setting.css';
+import { actUpdateProfileRequest } from './../action/Action';
+import refreshToken from './../utils/checkToken';
 
 function Setting(props) {
-    
     const { userProfile, onUpdateUserProfile } = props;
 
     // console.log(userProfile);
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [sex, setSex] = useState(1);
     const [age, setAge] = useState(20);
 
     useEffect(() => {
         // console.log(userProfile);
-        
+
         if (userProfile) {
             setName(userProfile.username);
             setEmail(userProfile.email);
@@ -31,19 +29,19 @@ function Setting(props) {
         // console.dir(e.target.value);
         let target = e.target;
         switch (target.name) {
-            case "user-name": {
+            case 'user-name': {
                 setName(target.value);
                 break;
             }
-            case "user-email": {
+            case 'user-email': {
                 setEmail(target.value);
                 break;
             }
-            case "user-sex": {
+            case 'user-sex': {
                 setSex(target.value);
                 break;
             }
-            case "user-age": {
+            case 'user-age': {
                 setAge(target.value);
                 break;
             }
@@ -56,7 +54,7 @@ function Setting(props) {
     const onChangeInfo = () => {
         const dataUpdate = {
             username: name,
-            avatar: "abc",
+            avatar: 'abc',
             sex: sex,
             age: age,
         };
@@ -87,28 +85,18 @@ function Setting(props) {
                         className="input"
                         value={email}
                         // required
-                        style={{ color: "#acacac" }}
+                        style={{ color: '#acacac' }}
                         onChange={onHandleInput}
                         disabled={true}
                     />
                 </div>
                 <div className="wrapper-input">
                     <p>Ảnh đại diện:</p>
-                    <input
-                        type="file"
-                        name="user-avatar"
-                        className="input"
-                        onChange={onHandleInput}
-                    />
+                    <input type="file" name="user-avatar" className="input" onChange={onHandleInput} />
                 </div>
                 <div className="wrapper-input">
                     <p>Giới tính:</p>
-                    <select
-                        className="input"
-                        name="user-sex"
-                        value={sex}
-                        onChange={onHandleInput}
-                    >
+                    <select className="input" name="user-sex" value={sex} onChange={onHandleInput}>
                         <option name="Nam" value="0">
                             Nam
                         </option>
@@ -119,13 +107,7 @@ function Setting(props) {
                 </div>
                 <div className="wrapper-input age">
                     <p>Tuổi:</p>
-                    <input
-                        type="number"
-                        name="user-age"
-                        className="input"
-                        value={age}
-                        onChange={onHandleInput}
-                    />
+                    <input type="number" name="user-age" className="input" value={age} onChange={onHandleInput} />
                 </div>
             </div>
             <button type="button" className="button-setting" onClick={onChangeInfo}>

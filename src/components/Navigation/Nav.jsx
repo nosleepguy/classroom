@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
-import "./../../css/nav.css";
-import logoutIcon from "./../../assets/icons/logout.svg";
-import { logout, detailClass } from "../../action/Action";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { NavLink, Link } from 'react-router-dom';
+import './../../css/nav.css';
+import logoutIcon from './../../assets/icons/logout.svg';
+import { logout, detailClass } from '../../action/Action';
 
 function Nav(props) {
     // console.log(props);
 
-    const {
-        showTabp,
-        classOwn,
-        classList,
-        showOptions,
-        logout,
-        sendDetailClass,
-        detailClass,
-        userProfile,
-    } = props;
+    const { showTabp, classOwn, classList, showOptions, logout, sendDetailClass, detailClass, userProfile } = props;
 
     //class name ở nav
-    const [classNamee, setClassNamee] = useState("" || "CITA Classroom");
+    const [classNamee, setClassNamee] = useState('' || 'CITA Classroom');
 
     //show tab bên trái
     const [showTab, setShowTab] = useState(false);
@@ -58,7 +49,7 @@ function Nav(props) {
         classOwnRender = classOwn.map((item) => {
             return (
                 <NavLink
-                    to={"/class/" + item.id}
+                    to={'/class/' + item.id}
                     key={item.id}
                     onClick={() => {
                         sendDetailClass(item), setBorder([true, false]);
@@ -81,7 +72,7 @@ function Nav(props) {
         classListRender = classList.map((item) => {
             return (
                 <NavLink
-                    to={"/class/" + item.id}
+                    to={'/class/' + item.id}
                     key={item.id}
                     onClick={() => {
                         sendDetailClass(item);
@@ -102,42 +93,23 @@ function Nav(props) {
     }
 
     return (
-        <section
-            className="header"
-            style={showOptions ? { padding: "0" } : { height: "65px" }}
-        >
+        <section className="header" style={showOptions ? { padding: '0' } : { height: '65px' }}>
             <nav className="nav">
                 <div className="action">
                     <div className="class-name">
-                        <span
-                            className={
-                                !showTab ? "fas fa-chevron-left" : "fas fa-bars"
-                            }
-                            onClick={onShowTab}
-                        />
+                        <span className={!showTab ? 'fas fa-chevron-left' : 'fas fa-bars'} onClick={onShowTab} />
                         <div className="detail">
                             <p className="name">{classNamee}</p>
                         </div>
                     </div>
                     <div className="join-avatar">
                         <div
-                            className={
-                                showPlusOption
-                                    ? "join fas fa-plus hover active"
-                                    : "join fas fa-plus hover"
-                            }
+                            className={showPlusOption ? 'join fas fa-plus hover active' : 'join fas fa-plus hover'}
                             onClick={onShowPlusHandle}
                         >
-                            <ul
-                                className="ul-join"
-                                style={
-                                    showPlusOption ? { display: "block" } : {}
-                                }
-                            >
+                            <ul className="ul-join" style={showPlusOption ? { display: 'block' } : {}}>
                                 <NavLink to="/joinclass">
-                                    <li className="li-join hover">
-                                        Tham gia lớp học
-                                    </li>
+                                    <li className="li-join hover">Tham gia lớp học</li>
                                 </NavLink>
                                 <NavLink to="/createclass">
                                     <li className="li-join hover" data="aaa">
@@ -150,25 +122,24 @@ function Nav(props) {
                         {/* //tooltip */}
                         <div className="avatar tooltip">
                             <span className="tooltiptext">
-
-                                {userProfile.username} <br/>
+                                {userProfile.username} <br />
                                 {userProfile.email}
-                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
             </nav>
-            <div className={showOptions ? "option" : "hide"}>
+            <div className={showOptions ? 'option' : 'hide'}>
                 <div className="option-item hover" onClick={() => onFocus(0)}>
                     <Link to={`/class/${detailClass.id}`}>
                         <p className="content">Bảng tin</p>
-                        <p className={border[0] ? "border" : ""}></p>
+                        <p className={border[0] ? 'border' : ''}></p>
                     </Link>
                 </div>
                 <div className="option-item hover" onClick={() => onFocus(1)}>
                     <Link to={`/class/${detailClass.id}/memberlist`}>
                         <p className="content">Mọi người</p>
-                        <p className={border[1] ? "border" : ""}></p>
+                        <p className={border[1] ? 'border' : ''}></p>
                     </Link>
                 </div>
             </div>
@@ -176,14 +147,12 @@ function Nav(props) {
             {/* //tab */}
 
             {/* <!-- tab bên trái --> */}
-            <section className={showTab ? "tab activetab" : "tab"}>
+            <section className={showTab ? 'tab activetab' : 'tab'}>
                 <div className="contain border-bottom user">
                     <div className="item hover">
                         <span className="avatar"></span>
                         <div className="infor-user">
-                            <div className="username">
-                                {userProfile.username}
-                            </div>
+                            <div className="username">{userProfile.username}</div>
                             <span className="text">{userProfile.email}</span>
                         </div>
                     </div>
@@ -202,11 +171,11 @@ function Nav(props) {
                 <div className="contain border-bottom">
                     <p
                         style={{
-                            padding: "10px 20px",
-                            fontSize: "14px",
-                            fontWeight: "600",
-                            color: "rgb(97, 97, 97)",
-                            cursor: "default",
+                            padding: '10px 20px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            color: 'rgb(97, 97, 97)',
+                            cursor: 'default',
                         }}
                     >
                         Giảng dạy
@@ -220,11 +189,11 @@ function Nav(props) {
                 <div className="contain border-bottom">
                     <p
                         style={{
-                            padding: "10px 20px",
-                            fontSize: "14px",
-                            fontWeight: "600",
-                            color: "rgb(97, 97, 97)",
-                            cursor: "default",
+                            padding: '10px 20px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            color: 'rgb(97, 97, 97)',
+                            cursor: 'default',
                         }}
                     >
                         Đã đăng ký
@@ -239,18 +208,14 @@ function Nav(props) {
                         <span className="icon fas fa-cloud-download-alt"></span>
                         <span className="text">Lớp học đã lưu trữ</span>
                     </div>
-                    <Link to={"/setting"}>
+                    <Link to={'/setting'}>
                         <div className="item hover">
                             <span className="icon fas fa-cog"></span>
                             <span className="text">Cài đặt</span>
                         </div>
                     </Link>
                     <div className="item hover" onClick={Logout}>
-                        <img
-                            src={logoutIcon}
-                            alt=""
-                            className="icon iconlogout"
-                        />
+                        <img src={logoutIcon} alt="" className="icon iconlogout" />
                         <span className="text logout">Đăng xuất</span>
                     </div>
                 </div>

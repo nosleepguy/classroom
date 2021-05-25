@@ -1,48 +1,47 @@
 :root {
-  --color-border: #e0e0e0;
-  --color-text: rgb(60, 64, 67);
-  --size-icon: 20px;
-  --color-icon: #5f6368;
+    --color-border: #e0e0e0;
+    --color-text: rgb(60, 64, 67);
+    --size-icon: 20px;
+    --color-icon: #5f6368;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Nunito Sans", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .App {
-  text-align: left;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    text-align: left;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-a{
-  text-decoration: none;
-  color: var(--color-text);
+a {
+    text-decoration: none;
+    color: var(--color-text);
 }
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 button {
-  font-size: calc(10px + 2vmin);
+    font-size: calc(10px + 2vmin);
 }
 
 /* reuse */
@@ -50,86 +49,85 @@ button {
 /* class dùng khi hover */
 
 .hover:hover {
-  color: rgb(51, 51, 51);
-  background-color: rgba(248, 248, 248, 0.842);
+    color: rgb(51, 51, 51);
+    background-color: rgba(248, 248, 248, 0.842);
 }
 
 /* class dùng khi active */
 .active:hover {
-  color: rgb(51, 51, 51);
-  background-color: rgb(227, 238, 252);
+    color: rgb(51, 51, 51);
+    background-color: rgb(227, 238, 252);
 }
 
-.avatar{
-  min-height: 40px;
-  min-width: 40px;
-  max-height: 40px;
-  max-width: 40px;
-  background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 40px;
+.avatar {
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    background: url('https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
 }
-.avatar-user{
-  min-height: 40px;
-  min-width: 40px;
-  max-height: 40px;
-  max-width: 40px;
-  background: url("https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 40px;
+.avatar-user {
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    background: url('https://ict-imgs.vgcloud.vn/2020/09/01/19/huong-dan-tao-facebook-avatar.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
 }
 /* ------------- */
 
 .tooltip {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: fit-content;
-  background-color: #74b9ff;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 10px;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 120%;
-  left: -100%;
-  margin-left: -60px;
+    visibility: hidden;
+    width: fit-content;
+    background-color: #74b9ff;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 120%;
+    left: -100%;
+    margin-left: -60px;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 .tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  bottom: 100%;  /* At the top of the tooltip */
-  left: 80%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #74b9ff transparent;
+    content: ' ';
+    position: absolute;
+    bottom: 100%; /* At the top of the tooltip */
+    left: 80%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #74b9ff transparent;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
-

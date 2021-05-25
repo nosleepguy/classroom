@@ -12,7 +12,7 @@
 .classname {
     width: 100%;
     margin: 0 auto;
-    background: url("https://www.gstatic.com/classroom/themes/img_read.jpg");
+    background: url('https://www.gstatic.com/classroom/themes/img_read.jpg');
     height: 250px;
     border-radius: 10px;
     padding: 20px;
@@ -59,7 +59,7 @@
 }
 .copy .tooltiptext::after {
     left: 20% !important;
-    border-color: transparent transparent #74b9ff transparent!important;
+    border-color: transparent transparent #74b9ff transparent !important;
 }
 /* tái sử dụng */
 

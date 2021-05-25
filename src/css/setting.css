@@ -1,4 +1,4 @@
-.wraper-setting{
+.wraper-setting {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -32,7 +32,6 @@
     width: 40%;
     font-size: 16px;
     color: var(--color-text);
-
 }
 .setting .input {
     width: 70%;

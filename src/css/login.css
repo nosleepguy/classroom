@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 .wrapper-login {
     position: relative;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -20,7 +20,7 @@
     overflow: hidden;
 }
 .form-structor::after {
-    content: "";
+    content: '';
     opacity: 0.8;
     position: absolute;
     top: 0;
@@ -30,7 +30,7 @@
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: 500px;
-    background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf884ad570b50659c5fa2dc2cfb20ecf&auto=format&fit=crop&w=1000&q=100");
+    background-image: url('https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf884ad570b50659c5fa2dc2cfb20ecf&auto=format&fit=crop&w=1000&q=100');
 }
 .form-structor .signup {
     position: absolute;
@@ -130,7 +130,7 @@
     -webkit-transition: all 0.3s ease;
 }
 .form-structor .login::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     top: -20px;
@@ -239,7 +239,7 @@
     -webkit-transition: all 0.3s ease;
 }
 /* login fail */
-.wrapper-modal{
+.wrapper-modal {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -247,25 +247,24 @@
     background-color: rgba(0, 0, 0, 0.527);
     z-index: 100;
     display: flex;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 }
-.wrapper-modal .box{
+.wrapper-modal .box {
     max-width: 500px;
     background: #fff;
     padding: 40px;
     margin: 20px;
-    border-radius:10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-
 }
-.box .content{
+.box .content {
     padding: 20px;
     font-size: 20px;
     text-align: center;
 }
-.box button{
+.box button {
     outline: none;
     border: none;
     padding: 20px 10px;
@@ -273,9 +272,9 @@
     border-radius: 5px;
     margin-top: 30px;
 }
-.box button:active{
+.box button:active {
     background: rgb(179, 179, 179);
 }
-.modal-hide{
+.modal-hide {
     visibility: hidden;
 }

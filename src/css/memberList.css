@@ -1,17 +1,17 @@
-.memberlist{
+.memberlist {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 70%;
     margin: 0 auto;
 }
-.memberlist .teacher{
+.memberlist .teacher {
     width: 100%;
     margin-bottom: 30px;
 }
 
- /* dùng chung */
- .role{
+/* dùng chung */
+.role {
     display: flex;
     border-bottom: 1px solid #d8d8d8;
     justify-content: space-between;
@@ -19,11 +19,11 @@
     margin-bottom: 10px;
 }
 
-.role p:nth-child(1){
+.role p:nth-child(1) {
     font-size: 30px;
     padding: 10px 0;
 }
-.line{
+.line {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -31,13 +31,13 @@
     padding: 30px;
     position: relative;
 }
-.line:hover{
+.line:hover {
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
 }
 /* --------- */
 
-.line .name{
+.line .name {
     padding-left: 30px;
     font-size: 16px;
     font-weight: 600;

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 // import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { actVerifyEmailRequest } from "../../action/Action";
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { actVerifyEmailRequest } from '../../action/Action';
 
-import "./../../css/verifyAccount.css";
+import './../../css/verifyAccount.css';
 
 function VerifyAccount(props) {
     const token = props.location.search.slice(7);
@@ -15,26 +15,14 @@ function VerifyAccount(props) {
     };
     return (
         <div className="wrapper-verify">
-            <table
-                className="email-wrapper"
-                width="100%"
-                cellPadding="0"
-                cellSpacing="0"
-            >
+            <table className="email-wrapper" width="100%" cellPadding="0" cellSpacing="0">
                 <tr>
                     <td align="center">
-                        <table
-                            className="email-content"
-                            width="100%"
-                            cellPadding="0"
-                            cellSpacing="0"
-                        >
+                        <table className="email-content" width="100%" cellPadding="0" cellSpacing="0">
                             {/* <!-- Logo --> */}
                             <tr>
                                 <td className="email-masthead">
-                                    <a className="email-masthead_name">
-                                        CITA Classroom
-                                    </a>
+                                    <a className="email-masthead_name">CITA Classroom</a>
                                 </td>
                             </tr>
                             {/* <!-- Email Body --> */}
@@ -50,14 +38,10 @@ function VerifyAccount(props) {
                                         {/* <!-- Body content --> */}
                                         <tr>
                                             <td className="content-cell">
-                                                <h1>
-                                                    Verify your email address
-                                                </h1>
+                                                <h1>Verify your email address</h1>
                                                 <p>
-                                                    Thanks for signing up for
-                                                    CITA Classroom! We're
-                                                    excited to have you as an
-                                                    early user.
+                                                    Thanks for signing up for CITA Classroom! We're excited to have you
+                                                    as an early user.
                                                 </p>
                                                 {/* <!-- Action --> */}
                                                 <table
@@ -72,9 +56,7 @@ function VerifyAccount(props) {
                                                             <div>
                                                                 <button
                                                                     className="button button--blue"
-                                                                    onClick={
-                                                                        onVarifyEmail
-                                                                    }
+                                                                    onClick={onVarifyEmail}
                                                                 >
                                                                     Verify Email
                                                                 </button>
@@ -109,8 +91,7 @@ function VerifyAccount(props) {
                                                 <p className="sub center">
                                                     CITA Classroom, Inc.
                                                     <br />
-                                                    60TH4, DHTL, 175 Tay Son,
-                                                    Dong Da, HN
+                                                    60TH4, DHTL, 175 Tay Son, Dong Da, HN
                                                 </p>
                                             </td>
                                         </tr>
