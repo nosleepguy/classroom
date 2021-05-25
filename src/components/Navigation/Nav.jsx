@@ -6,7 +6,6 @@ import logoutIcon from './../../assets/icons/logout.svg';
 import { logout, detailClass } from '../../action/Action';
 
 function Nav(props) {
-    // console.log(props);
 
     const { showTabp, classOwn, classList, showOptions, logout, sendDetailClass, detailClass, userProfile } = props;
 
@@ -20,7 +19,7 @@ function Nav(props) {
     const [showPlusOption, setShowPlusOption] = useState(false);
 
     //hiện border ở dưới các option thanh nav
-    const [border, setBorder] = useState([true, false]);
+    const [border, setBorder] = useState([true, false, false]);
     const onFocus = (value) => {
         let aw = [...border];
         aw.map((item, index) => (aw[index] = false));
@@ -150,9 +149,15 @@ function Nav(props) {
                     </Link>
                 </div>
                 <div className="option-item hover" onClick={() => onFocus(1)}>
+                    <Link to={`/class/${detailClass.id}/document`}>
+                        <p className="content">Tài Liệu</p>
+                        <p className={border[1] ? 'border' : ''}></p>
+                    </Link>
+                </div>
+                <div className="option-item hover" onClick={() => onFocus(2)}>
                     <Link to={`/class/${detailClass.id}/memberlist`}>
                         <p className="content">Mọi người</p>
-                        <p className={border[1] ? 'border' : ''}></p>
+                        <p className={border[2] ? 'border' : ''}></p>
                     </Link>
                 </div>
             </div>

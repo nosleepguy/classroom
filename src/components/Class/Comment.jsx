@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { connect } from "react-redux";
 // import PropTypes from "prop-types";
-import refreshToken from './../../utils/checkToken';
-import { actDeleteCommentRequest } from '../../action/Action';
+import refreshToken from "./../../utils/checkToken";
+import { actDeleteCommentRequest } from "../../action/Action";
 function Comment(props) {
     const { userProfile, onDeleteComment, comment } = props;
 
@@ -17,31 +17,45 @@ function Comment(props) {
         <div className="user-comment">
             <div
                 className="avatar-user"
-                style={
-                    userProfile.avatar
-                        ? {
-                              background: `url(${userProfile.avatar})`,
-                              backgroundSize: 'cover',
-                              backgroundPosition: 'center',
-                          }
-                        : {}
-                }
+                style={{
+                    background: `url(${comment.ownerAvatar})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
             ></div>
             <div className="detail-comment">
                 <div className="detail-user-comment">
-                    <span className="name-user">{comment.ownerName ? comment.ownerName : userProfile.username}</span>
+                    <span className="name-user">
+                        {comment.ownerName
+                            ? comment.ownerName
+                            : userProfile.username}
+                    </span>
                     <span className="date">
                         {day} thg {month}
                     </span>
                 </div>
                 <div className="comment-content">{comment.content}</div>
                 <div
-                    className={userProfile?.id == comment?.ownerId ? 'action' : 'action hide'}
+                    className={
+                        userProfile?.id == comment?.ownerId
+                            ? "action"
+                            : "action hide"
+                    }
                     onClick={() => setShowActDelComment(!showActDelComment)}
                 >
                     <span className="fas fa-ellipsis-v hover"></span>
-                    <div className={showActDelComment ? 'delete hover' : 'delete hide'}>
-                        <p onClick={() => refreshToken([onDeleteComment(comment.id)])}>Xóa</p>
+                    <div
+                        className={
+                            showActDelComment ? "delete hover" : "delete hide"
+                        }
+                    >
+                        <p
+                            onClick={() =>
+                                refreshToken([onDeleteComment(comment.id)])
+                            }
+                        >
+                            Xóa
+                        </p>
                     </div>
                 </div>
             </div>

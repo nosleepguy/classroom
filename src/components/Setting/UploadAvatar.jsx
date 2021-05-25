@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import 'antd/dist/antd.css';
-import { Upload, message } from 'antd';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+
+import "antd/dist/antd.css";
+import { Upload, message } from "antd";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 
 function getBase64(img, callback) {
     const reader = new FileReader();
-    reader.addEventListener('load', () => callback(reader.result));
+    reader.addEventListener("load", () => callback(reader.result));
     reader.readAsDataURL(img);
 }
 
 function beforeUpload(file) {
-    const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
     if (!isJpgOrPng) {
-        message.error('You can only upload JPG/PNG file!');
+        message.error("You can only upload JPG/PNG file!");
     }
     const isLt2M = file.size / 1024 / 1024 < 2;
     if (!isLt2M) {
-        message.error('Image must smaller than 2MB!');
+        message.error("Image must smaller than 2MB!");
     }
     return isJpgOrPng && isLt2M;
 }
 
 function UploadAvatar(props) {
+    const { userProfile } = props;
+    // console.log(userProfile);
+
     const [loading, setLoading] = useState(false);
-    const [imageUrl, setImageUrl] = useState('');
+    const [imageUrl, setImageUrl] = useState("");
 
     const handleChange = (info) => {
         //   console.log(info);
@@ -35,11 +40,11 @@ function UploadAvatar(props) {
 
         //   refreshToken([this.props.onUpdataAvatar(form)])
 
-        if (info.file.status === 'uploading') {
+        if (info.file.status === "uploading") {
             setLoading(true);
             return;
         }
-        if (info.file.status === 'done') {
+        if (info.file.status === "done") {
             console.log(info.file.response.data.url);
 
             // Get this url from response in real world.
@@ -50,6 +55,9 @@ function UploadAvatar(props) {
             });
         }
     };
+    useEffect(() => {
+        userProfile.avatar ? setImageUrl(userProfile.avatar) : "";
+    }, [userProfile]);
 
     const uploadButton = (
         <div>
@@ -63,14 +71,24 @@ function UploadAvatar(props) {
             listType="picture-card"
             className="avatar-uploader"
             showUploadList={false}
-            name={'files'}
+            name={"files"}
             action="https://citaclassroom.xyz/api/upload"
             beforeUpload={beforeUpload}
             onChange={handleChange}
         >
-            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+            {imageUrl ? (
+                <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
+            ) : (
+                uploadButton
+            )}
         </Upload>
     );
 }
 
-export default UploadAvatar;
+const mapStateToProps = (state) => {
+    return {
+        userProfile: state.userProfile,
+    };
+};
+
+export default connect(mapStateToProps, null)(UploadAvatar);

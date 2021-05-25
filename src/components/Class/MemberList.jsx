@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import None2 from '../None/None2';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import None2 from "../None/None2";
 // import PropType/s from 'prop-types';
-import { actGetUserInClassRequest } from './../../action/Action';
-import './../../css/memberList.css';
+import { actGetUserInClassRequest } from "./../../action/Action";
+import "./../../css/memberList.css";
 
-import refreshToken from './../../utils/checkToken';
-import Member from './Member';
+import refreshToken from "./../../utils/checkToken";
+import Member from "./Member";
 
 function MemberList(props) {
     const idclass = props.match.params.id;
     const { getMemberList, memberListRes, detailClass, userProfile } = props;
+
+    // console.log(detailClass);
 
     const [memberList, setMemberList] = useState([]);
 
@@ -33,17 +35,14 @@ function MemberList(props) {
                 <div className="line">
                     <div
                         className="avatar"
-                        style={
-                            userProfile.avatar
-                                ? {
-                                      background: `url(${userProfile.avatar})`,
-                                      backgroundSize: 'cover',
-                                      backgroundPosition: 'center',
-                                  }
-                                : {}
-                        }
+                        style={{
+                            backgroundImage: `url(${detailClass.ownerAvatar ||userProfile.avatar})`,
+                            
+                        }}
                     ></div>
-                    <div className="name">{detailClass?.ownerName || userProfile.username}</div>
+                    <div className="name">
+                        {detailClass.ownerName || userProfile.username}
+                    </div>
                 </div>
             </div>
             <div className="students">
@@ -51,10 +50,10 @@ function MemberList(props) {
                     <p>Bạn học</p>
                     <p>{memberList?.length || 0} sinh viên</p>
                 </div>
-                {memberList?.map((member) => {
-                    return <Member key={member.id} member={member} />;
+                {memberList?.map((member, index) => {
+                    return <Member key={index} member={member} />;
                 })}
-                {memberList.length == 0 ? <None2 /> : ''}
+                {memberList.length == 0 ? <None2 /> : ""}
             </div>
         </div>
     );

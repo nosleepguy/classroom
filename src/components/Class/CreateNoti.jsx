@@ -9,7 +9,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 function CreateNoti(props) {
-    const { showCreateNoti, onShowCreateNotiEvent, actUpPost, idclass, getPost } = props;
+    const { showCreateNoti, onShowCreateNotiEvent, actUpPost, idclass } = props;
 
     // console.log(idclass);
 

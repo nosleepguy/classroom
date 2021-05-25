@@ -53,7 +53,7 @@ function ClassOwn(props) {
                 onClick={() =>
                     sendDetailClass({
                         ...item,
-                        ownerAvatar: 'abc',
+                        ownerAvatar: userProfile.avatar,
                         ownerId: userProfile.id,
                         ownerName: userProfile.username,
                     })

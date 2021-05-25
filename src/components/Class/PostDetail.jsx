@@ -7,9 +7,8 @@ import {
     actDeleteCommentRequest,
 } from "./../../action/Action";
 
-
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 // import PropTypes from "prop-types";
 import "./../../css/postdetail.css";
@@ -18,7 +17,7 @@ import Comment from "./Comment";
 function PostDetail(props) {
     const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } =
         props;
-    // console.log(userProfile, datapost);
+    // console.log(datapost);
 
     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
     const month = datapost.createdAt.slice(5, 7);
@@ -69,15 +68,11 @@ function PostDetail(props) {
                 <div className="owner-info">
                     <div
                         className="avatar"
-                        style={
-                            userProfile.avatar
-                                ? {
-                                      background: `url(${userProfile.avatar})`,
-                                      backgroundSize: "cover",
-                                      backgroundPosition: "center",
-                                  }
-                                : {}
-                        }
+                        style={{
+                            background: `url(${datapost.ownerAvatar})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                        }}
                     ></div>
                     <div className="owner">
                         <p>
@@ -130,14 +125,7 @@ function PostDetail(props) {
                 style={showFormEdit ? { display: "flex" } : { display: "none" }}
             >
                 <div className="write-noti">
-                    {/* <p>Chỉnh sửa bài viết của bạn</p> */}
                     <form>
-                        {/* <textarea
-                            cols="30"
-                            rows="10"
-                            value={valueFormEdit}
-                            onChange={(e) => setValueFormEdit(e.target.value)}
-                        ></textarea> */}
                         <CKEditor
                             editor={ClassicEditor}
                             data={valueFormEdit}

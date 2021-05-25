@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as action from '../../action/Action';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as action from "../../action/Action";
 // import PropTypes from "prop-types";
-import './../../css/login.css';
-import Loading from '../Loading/Loading';
+import "./../../css/login.css";
+import Loading from "../Loading/Loading";
 
 function Login(props) {
     const { onRegister, onLogin, dataResponse } = props;
     //show modal fail login
     const [showModal, setShowModal] = useState(false);
 
-    const [emailLogin, setEmailLogin] = useState('');
-    const [passwordLogin, setPasswordLogin] = useState('');
-    const [nameRegister, setNameRegister] = useState('');
-    const [emailRegister, setEmailRegister] = useState('');
-    const [passwordRegister, setPasswordRegister] = useState('');
+    const [emailLogin, setEmailLogin] = useState("");
+    const [passwordLogin, setPasswordLogin] = useState("");
+    const [nameRegister, setNameRegister] = useState("");
+    const [emailRegister, setEmailRegister] = useState("");
+    const [passwordRegister, setPasswordRegister] = useState("");
 
     const [loading, setLoading] = useState(false);
 
@@ -34,24 +34,24 @@ function Login(props) {
         let id = e.target.id;
 
         switch (id) {
-            case 'emailLogin': {
+            case "emailLogin": {
                 setEmailLogin(value);
                 break;
             }
-            case 'passwordLogin': {
+            case "passwordLogin": {
                 setPasswordLogin(value);
 
                 break;
             }
-            case 'nameRegister': {
+            case "nameRegister": {
                 setNameRegister(value);
                 break;
             }
-            case 'emailRegister': {
+            case "emailRegister": {
                 setEmailRegister(value);
                 break;
             }
-            case 'passwordRegister': {
+            case "passwordRegister": {
                 setPasswordRegister(value);
                 break;
             }
@@ -73,9 +73,6 @@ function Login(props) {
         };
         setLoading(true);
         onLogin(datalogin);
-        setTimeout(() =>{
-            setLoading(false);
-        }, 2000)
     };
 
     // == false để tránh lỗi khi null
@@ -83,6 +80,8 @@ function Login(props) {
         // console.log(dataResponse);
         if (dataResponse.success == false) {
             setShowModal(true);
+        } else {
+            setLoading(false);
         }
     }, [dataResponse]);
     return (
@@ -94,8 +93,18 @@ function Login(props) {
                     <form>
                         <div className="wrapper-login">
                             <div className="form-structor">
-                                <div className={toggle == false ? 'signup' : 'signup slide-up'}>
-                                    <h2 className="form-title" id="signup" onClick={onToggleRegister}>
+                                <div
+                                    className={
+                                        toggle == false
+                                            ? "signup"
+                                            : "signup slide-up"
+                                    }
+                                >
+                                    <h2
+                                        className="form-title"
+                                        id="signup"
+                                        onClick={onToggleRegister}
+                                    >
                                         <span>or</span>Sign up
                                     </h2>
                                     <div className="form-holder">
@@ -127,13 +136,25 @@ function Login(props) {
                                             onChange={onHandleInput}
                                         />
                                     </div>
-                                    <button className="submit-btn" type="button" onClick={onHandleRegister}>
+                                    <button
+                                        className="submit-btn"
+                                        type="button"
+                                        onClick={onHandleRegister}
+                                    >
                                         Sign up
                                     </button>
                                 </div>
-                                <div className={toggle ? 'login' : 'login slide-up'}>
+                                <div
+                                    className={
+                                        toggle ? "login" : "login slide-up"
+                                    }
+                                >
                                     <div className="center">
-                                        <h2 className="form-title" id="login" onClick={onToggleLogin}>
+                                        <h2
+                                            className="form-title"
+                                            id="login"
+                                            onClick={onToggleLogin}
+                                        >
                                             <span>or</span>Log in
                                         </h2>
                                         <div className="form-holder">
@@ -156,18 +177,20 @@ function Login(props) {
                                                 onChange={onHandleInput}
                                             />
                                         </div>
-                                        <Link to="/reset-password">
-                                            <a
-                                                style={{
-                                                    fontSize: '10px',
-                                                    margin: '30px 10px',
-                                                    color: '#7493A2',
-                                                }}
-                                            >
-                                                Quên mật khẩu?{' '}
-                                            </a>
+                                        <Link
+                                            to="/reset-password"
+                                            style={{
+                                                fontSize: "10px",
+                                                margin: "30px 10px",
+                                                color: "#7493A2",
+                                            }}
+                                        >
+                                            Quên mật khẩu?{" "}
                                         </Link>
-                                        <button className="submit-btn" onClick={onHandleLogin}>
+                                        <button
+                                            className="submit-btn"
+                                            onClick={onHandleLogin}
+                                        >
                                             Log in
                                         </button>
                                     </div>
@@ -175,10 +198,21 @@ function Login(props) {
                             </div>
                         </div>
                     </form>
-                    <div className={showModal ? 'wrapper-modal' : 'wrapper-modal modal-hide'}>
+                    <div
+                        className={
+                            showModal
+                                ? "wrapper-modal"
+                                : "wrapper-modal modal-hide"
+                        }
+                    >
                         <div className="box">
-                            <div className="content">{dataResponse.message}</div>
-                            <button type="button" onClick={() => setShowModal(false)}>
+                            <div className="content">
+                                {dataResponse.message}
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => setShowModal(false)}
+                            >
                                 Đóng
                             </button>
                         </div>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import './../css/setting.css';
-import { actUpdateProfileRequest } from './../action/Action';
-import refreshToken from './../utils/checkToken';
+import './../../css/setting.css';
+import { actUpdateProfileRequest } from '../../action/Action';
+import refreshToken from '../../utils/checkToken';
 import UploadAvatar from './UploadAvatar';
 
 function Setting(props) {
-    const { userProfile, onUpdateUserProfile, onUpdataAvatar } = props;
+    const { userProfile, onUpdateUserProfile } = props;
 
     // console.log(userProfile);
     const [name, setName] = useState('');
@@ -21,6 +21,7 @@ function Setting(props) {
         if (userProfile) {
             setName(userProfile.username);
             setEmail(userProfile.email);
+            setAvatar(userProfile.avatar);
             setSex(userProfile.sex || 0);
             setAge(userProfile.age || 20);
         }

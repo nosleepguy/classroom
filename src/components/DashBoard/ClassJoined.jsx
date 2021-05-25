@@ -33,8 +33,8 @@ function ClassJoined(props) {
             </div>
             <div className="avatar-teacher">
                 <img
-                    src="https://png.pngtree.com/element_our/20190530/ourlarge/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-image_1263411.jpg"
-                    alt=""
+                    src={item.ownerAvatar}
+                    alt="avatar Teacher"
                 />
             </div>
             <div className="bottom">

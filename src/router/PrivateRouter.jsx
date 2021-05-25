@@ -6,7 +6,7 @@ import DetailClass from './../components/Class/DetailClass';
 import JoinClass from './../components/Navigation/JoinClass';
 import MemberList from './../components/Class/MemberList';
 import NotFound from './../components/NotFound/NotFound';
-import Setting from '../components/Setting';
+import Setting from '../components/Setting/Setting';
 
 function RouterURL(props) {
     return (
