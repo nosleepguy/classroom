@@ -75,12 +75,11 @@ function Login(props) {
         onLogin(datalogin);
     };
 
-    // == false để tránh lỗi khi null
+    // có data phản hồi về thì tắt loading
     useEffect(() => {
-        // console.log(dataResponse);
-        if (dataResponse.success == false) {
+        console.log(dataResponse);
+        if (dataResponse) {
             setShowModal(true);
-        } else {
             setLoading(false);
         }
     }, [dataResponse]);
