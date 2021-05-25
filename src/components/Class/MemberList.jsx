@@ -31,7 +31,18 @@ function MemberList(props) {
                     <p>Giáo viên</p>
                 </div>
                 <div className="line">
-                    <div className="avatar"></div>
+                    <div
+                        className="avatar"
+                        style={
+                            userProfile.avatar
+                                ? {
+                                      background: `url(${userProfile.avatar})`,
+                                      backgroundSize: 'cover',
+                                      backgroundPosition: 'center',
+                                  }
+                                : {}
+                        }
+                    ></div>
                     <div className="name">{detailClass?.ownerName || userProfile.username}</div>
                 </div>
             </div>

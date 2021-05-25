@@ -15,7 +15,18 @@ function Comment(props) {
 
     return (
         <div className="user-comment">
-            <div className="avatar-user"></div>
+            <div
+                className="avatar-user"
+                style={
+                    userProfile.avatar
+                        ? {
+                              background: `url(${userProfile.avatar})`,
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                          }
+                        : {}
+                }
+            ></div>
             <div className="detail-comment">
                 <div className="detail-user-comment">
                     <span className="name-user">{comment.ownerName ? comment.ownerName : userProfile.username}</span>

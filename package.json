@@ -2,16 +2,12 @@
   "name": "classrooom",
   "version": "0.0.0",
   "scripts": {
-    "prettier": "prettier --write src/**/*.{js,jsx,css}",
-    "prettier:check": "prettier --list-different src/**/*.{js,jsx,css}",
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
   },
-  "pre-commit": [
-    "prettier"
-  ],
   "dependencies": {
+    "antd": "^4.16.0",
     "axios": "^0.21.1",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.0",
@@ -24,8 +20,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react-refresh": "^1.3.1",
-    "pre-commit": "^1.2.2",
-    "prettier": "^2.3.0",
     "vite": "^2.2.3"
   }
 }

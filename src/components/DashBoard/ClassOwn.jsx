@@ -73,10 +73,7 @@ function ClassOwn(props) {
                 </div>
             </div>
             <div className="avatar-teacher">
-                <img
-                    src="https://png.pngtree.com/element_our/20190530/ourlarge/pngtree-520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute-image_1263411.jpg"
-                    alt=""
-                />
+                <img src={userProfile.avatar} alt="" />
             </div>
             <div className="bottom">
                 <div className="item hover">

@@ -21,6 +21,9 @@ a {
     text-decoration: none;
     color: var(--color-text);
 }
+p {
+    margin: 0;
+}
 .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -69,6 +72,7 @@ button {
     background-position: center;
     border-radius: 40px;
 }
+
 .avatar-user {
     min-height: 40px;
     min-width: 40px;

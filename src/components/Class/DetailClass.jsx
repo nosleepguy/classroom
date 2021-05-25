@@ -13,7 +13,7 @@ import None from './../None/None';
 
 function DetailClass(props) {
     const idclass = props.match.params.id;
-    const { detailClass, postList, getPost } = props;
+    const { detailClass, postList, getPost, userProfile } = props;
 
     const [showCreateNoti, setShowCreateNoti] = useState(false);
     const [postListState, setPostListState] = useState([]);
@@ -91,7 +91,18 @@ function DetailClass(props) {
                             style={showCreateNoti ? { display: 'none' } : { display: 'flex' }}
                             onClick={onShowCreateNoti}
                         >
-                            <div className="avatar-user"></div>
+                            <div
+                                className="avatar"
+                                style={
+                                    userProfile?.avatar
+                                        ? {
+                                              background: `url(${userProfile.avatar})`,
+                                              backgroundSize: 'cover',
+                                              backgroundPosition: 'center',
+                                          }
+                                        : {}
+                                }
+                            ></div>
                             <p>Tạo thông báo mới cho lớp học của bạn</p>
                         </div>
                         {/* <div className="new-noti">
@@ -144,6 +155,7 @@ const mapStateToProps = (state) => {
     return {
         detailClass: state.detailClass,
         postList: state.postList,
+        userProfile: state.userProfile,
     };
 };
 

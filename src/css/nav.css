@@ -9,7 +9,7 @@
 
 /* nav  */
 .header {
-    height: 65px;
+    height: 67px;
     color: rgb(60, 64, 67);
     border-bottom: 1px solid #e0e0e0;
 }
@@ -39,6 +39,9 @@
 .nav .action .class-name .detail {
     margin: 20px;
 }
+/* .detail .name {
+    margin: 0;
+} */
 .detail .class {
     font-size: 13px;
     font-weight: 600;
@@ -90,7 +93,7 @@
     top: 0;
     transform: translateX(-50%);
     white-space: nowrap;
-    background: white;
+    /* background: white; */
 }
 .option .option-item .content {
     font-size: 14px;
@@ -213,7 +216,7 @@
 
 @media (max-width: 1040px) {
     .option {
-        top: 64px;
+        top: 61px;
     }
     .header {
         height: 129px;

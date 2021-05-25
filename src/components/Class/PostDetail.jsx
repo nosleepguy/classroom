@@ -62,7 +62,18 @@ function PostDetail(props) {
         <div className="new-noti">
             <div className="owner-noti">
                 <div className="owner-info">
-                    <div className="avatar"></div>
+                    <div
+                        className="avatar"
+                        style={
+                            userProfile.avatar
+                                ? {
+                                      background: `url(${userProfile.avatar})`,
+                                      backgroundSize: 'cover',
+                                      backgroundPosition: 'center',
+                                  }
+                                : {}
+                        }
+                    ></div>
                     <div className="owner">
                         <p>{datapost.ownerName ? datapost.ownerName : userProfile.username}</p>
                         <p>
@@ -125,7 +136,18 @@ function PostDetail(props) {
                 })}
             </div>
             <div className="write-comment">
-                <div className="avatar"></div>
+                <div
+                    className="avatar"
+                    style={
+                        userProfile.avatar
+                            ? {
+                                  background: `url(${userProfile.avatar})`,
+                                  backgroundSize: 'cover',
+                                  backgroundPosition: 'center',
+                              }
+                            : {}
+                    }
+                ></div>
                 <div className="type-comment">
                     <input
                         type="text"

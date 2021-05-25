@@ -120,11 +120,24 @@ function Nav(props) {
                         </div>
 
                         {/* //tooltip */}
-                        <div className="avatar tooltip">
-                            <span className="tooltiptext">
-                                {userProfile.username} <br />
-                                {userProfile.email}
-                            </span>
+                        <div className="tooltip">
+                            <div
+                                className="avatar"
+                                style={
+                                    userProfile.avatar
+                                        ? {
+                                              background: `url(${userProfile.avatar})`,
+                                              backgroundSize: 'cover',
+                                              backgroundPosition: 'center',
+                                          }
+                                        : {}
+                                }
+                            >
+                                <span className="tooltiptext">
+                                    {userProfile.username} <br />
+                                    {userProfile.email}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,7 +163,18 @@ function Nav(props) {
             <section className={showTab ? 'tab activetab' : 'tab'}>
                 <div className="contain border-bottom user">
                     <div className="item hover">
-                        <span className="avatar"></span>
+                        <span
+                            className="avatar"
+                            style={
+                                userProfile.avatar
+                                    ? {
+                                          background: `url(${userProfile.avatar})`,
+                                          backgroundSize: 'cover',
+                                          backgroundPosition: 'center',
+                                      }
+                                    : {}
+                            }
+                        ></span>
                         <div className="infor-user">
                             <div className="username">{userProfile.username}</div>
                             <span className="text">{userProfile.email}</span>

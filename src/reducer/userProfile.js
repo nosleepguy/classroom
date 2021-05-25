@@ -24,8 +24,8 @@ const myReducer = (state = initialState, action) => {
                 });
                 const userProfile = action.response.data.data;
                 state = { ...userProfile };
+                console.log(state);
             }
-
             return state;
         }
         default:
