@@ -4,6 +4,10 @@ import './../../css/createnoti.css';
 import { actUpPostRequest } from './../../action/Action';
 import refreshToken from './../../utils/checkToken';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
 function CreateNoti(props) {
     const { showCreateNoti, onShowCreateNotiEvent, actUpPost, idclass, getPost } = props;
 
@@ -26,9 +30,30 @@ function CreateNoti(props) {
     };
     return (
         <div className="write-noti" style={showCreateNoti ? { display: 'block' } : { display: 'none' }}>
-            <p>Tạo thông báo mới cho lớp học của bạn</p>
+            {/* <p>Tạo thông báo mới cho lớp học của bạn</p> */}
             <form onSubmit={onHandleForm}>
-                <textarea cols="30" rows="10" value={post} onChange={(e) => setPost(e.target.value)}></textarea>
+                {/* <textarea cols="30" rows="10" value={post} onChange={(e) => setPost(e.target.value)}></textarea> */}
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={post}
+                    onReady={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        // console.log( 'Editor is ready to use!', editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        setPost(data);
+                        // console.log(data);
+                        
+                        // console.log( { event, editor, data } );
+                    } }
+                    onBlur={ ( event, editor ) => {
+                        // console.log( 'Blur.', editor );
+                    } }
+                    onFocus={ ( event, editor ) => {
+                        // console.log( 'Focus.', editor );
+                    } }
+                />
                 <div className="btn">
                     <button type="button" onClick={onShowCreateNotiEvent}>
                         Hủy
@@ -42,6 +67,7 @@ function CreateNoti(props) {
                     </button>
                 </div>
             </form>
+            
         </div>
     );
 }

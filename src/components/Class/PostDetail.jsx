@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import {
     actDeletePostRequest,
     actEditPostRequest,
     actCommentPostRequest,
     actDeleteCommentRequest,
-} from './../../action/Action';
+} from "./../../action/Action";
+
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 // import PropTypes from "prop-types";
-import './../../css/postdetail.css';
-import refreshToken from './../../utils/checkToken';
-import Comment from './Comment';
+import "./../../css/postdetail.css";
+import refreshToken from "./../../utils/checkToken";
+import Comment from "./Comment";
 function PostDetail(props) {
-    const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } = props;
+    const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } =
+        props;
     // console.log(userProfile, datapost);
 
     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
@@ -21,11 +26,11 @@ function PostDetail(props) {
 
     const [showAction, setShowAction] = useState(false);
 
-    const [comment, setComment] = useState('');
+    const [comment, setComment] = useState("");
 
     //show form edit
     const [showFormEdit, setShowFormEdit] = useState(false);
-    const [valueFormEdit, setValueFormEdit] = useState('');
+    const [valueFormEdit, setValueFormEdit] = useState("");
 
     useEffect(() => {
         setValueFormEdit(datapost.content);
@@ -56,7 +61,7 @@ function PostDetail(props) {
             typeComment: 1,
         };
         refreshToken([onCommentPost(dataComment)]);
-        setComment('');
+        setComment("");
     };
     return (
         <div className="new-noti">
@@ -68,41 +73,92 @@ function PostDetail(props) {
                             userProfile.avatar
                                 ? {
                                       background: `url(${userProfile.avatar})`,
-                                      backgroundSize: 'cover',
-                                      backgroundPosition: 'center',
+                                      backgroundSize: "cover",
+                                      backgroundPosition: "center",
                                   }
                                 : {}
                         }
                     ></div>
                     <div className="owner">
-                        <p>{datapost.ownerName ? datapost.ownerName : userProfile.username}</p>
+                        <p>
+                            {datapost.ownerName
+                                ? datapost.ownerName
+                                : userProfile.username}
+                        </p>
                         <p>
                             {day} thg {month}
                         </p>
                     </div>
-                    <div className={userProfile.id === datapost.ownerId ? 'action' : 'action hide'}>
-                        <span className="fas fa-ellipsis-v hover" onClick={onshowAction}></span>
-                        <div className={showAction ? 'delete-edit' : 'delete-edit hide'}>
-                            <p onClick={() => refreshToken([onDeletePost(datapost.id)])}>Xóa</p>
+                    <div
+                        className={
+                            userProfile.id === datapost.ownerId
+                                ? "action"
+                                : "action hide"
+                        }
+                    >
+                        <span
+                            className="fas fa-ellipsis-v hover"
+                            onClick={onshowAction}
+                        ></span>
+                        <div
+                            className={
+                                showAction ? "delete-edit" : "delete-edit hide"
+                            }
+                        >
+                            <p
+                                onClick={() =>
+                                    refreshToken([onDeletePost(datapost.id)])
+                                }
+                            >
+                                Xóa
+                            </p>
                             <p onClick={onShowFormEdit}>Chỉnh sửa</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="content">{datapost.content}</div>
+                <div className="content">
+                    <div
+                        dangerouslySetInnerHTML={{ __html: datapost.content }}
+                    />
+                </div>
             </div>
 
             {/* form edit bài đăng */}
-            <div className="form-edit" style={showFormEdit ? { display: 'flex' } : { display: 'none' }}>
+            <div
+                className="form-edit"
+                style={showFormEdit ? { display: "flex" } : { display: "none" }}
+            >
                 <div className="write-noti">
-                    <p>Chỉnh sửa bài viết của bạn</p>
+                    {/* <p>Chỉnh sửa bài viết của bạn</p> */}
                     <form>
-                        <textarea
+                        {/* <textarea
                             cols="30"
                             rows="10"
                             value={valueFormEdit}
                             onChange={(e) => setValueFormEdit(e.target.value)}
-                        ></textarea>
+                        ></textarea> */}
+                        <CKEditor
+                            editor={ClassicEditor}
+                            data={valueFormEdit}
+                            onReady={(editor) => {
+                                // You can store the "editor" and use when it is needed.
+                                // console.log( 'Editor is ready to use!', editor );
+                            }}
+                            onChange={(event, editor) => {
+                                const data = editor.getData();
+                                setValueFormEdit(data);
+                                // console.log(data);
+
+                                // console.log( { event, editor, data } );
+                            }}
+                            onBlur={(event, editor) => {
+                                // console.log( 'Blur.', editor );
+                            }}
+                            onFocus={(event, editor) => {
+                                // console.log( 'Focus.', editor );
+                            }}
+                        />
                         <div className="btn">
                             <button type="button" onClick={onShowFormEdit}>
                                 Hủy
@@ -113,8 +169,8 @@ function PostDetail(props) {
                                 style={
                                     valueFormEdit
                                         ? {
-                                              background: '#2C7EEA',
-                                              color: 'white',
+                                              background: "#2C7EEA",
+                                              color: "white",
                                           }
                                         : {}
                                 }
@@ -128,8 +184,8 @@ function PostDetail(props) {
 
             <div className="comment">
                 <div className="count-comment">
-                    <span className="fas fa-user-friends"></span>&ensp; {datapost?.comments?.length} nhận xét về bài
-                    viết
+                    <span className="fas fa-user-friends"></span>&ensp;{" "}
+                    {datapost?.comments?.length} nhận xét về bài viết
                 </div>
                 {datapost.comments?.map((comment) => {
                     return <Comment key={comment.id} comment={comment} />;
@@ -142,8 +198,8 @@ function PostDetail(props) {
                         userProfile.avatar
                             ? {
                                   background: `url(${userProfile.avatar})`,
-                                  backgroundSize: 'cover',
-                                  backgroundPosition: 'center',
+                                  backgroundSize: "cover",
+                                  backgroundPosition: "center",
                               }
                             : {}
                     }
@@ -155,7 +211,10 @@ function PostDetail(props) {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
-                    <i className="far fa-paper-plane send-comment" onClick={onHandlePostComment}></i>
+                    <i
+                        className="far fa-paper-plane send-comment"
+                        onClick={onHandlePostComment}
+                    ></i>
                 </div>
             </div>
         </div>

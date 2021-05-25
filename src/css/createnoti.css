@@ -4,18 +4,23 @@
     box-shadow: 0 1px 5px rgb(201, 201, 201);
     padding: 20px 25px;
 }
-.write-noti p {
+/* .write-noti p {
     font-size: 12px;
     background-color: #f1f3f4;
     padding: 20px;
     border-radius: 10px 10px 0 0;
-}
+} */
 .write-noti form {
     display: flex;
     flex-direction: column;
     background: #fff;
+    
 }
-.write-noti form textarea {
+.ck-editor__editable_inline{
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+/* .write-noti form textarea {
     background-color: #f1f3f4;
     outline: none;
     border: none;
@@ -26,6 +31,19 @@
     font-size: 16px;
     margin-bottom: 20px;
     border-radius: 0 0 10px 10px;
+} */
+.ck {
+    outline: none!important;
+    border: none!important;
+    border-radius: 10px!important;
+    background-color: #fff;
+}
+.ck-content{
+    background-color: rgb(236, 236, 236)!important;
+    margin: 20px 0;
+}
+.ck-focused{
+    box-shadow: none!important;
 }
 .btn {
     display: flex;

@@ -73,6 +73,9 @@ function Login(props) {
         };
         setLoading(true);
         onLogin(datalogin);
+        setTimeout(() =>{
+            setLoading(false);
+        }, 2000)
     };
 
     // == false để tránh lỗi khi null

@@ -119,7 +119,7 @@
 }
 
 /* ------------------------------- */
-.form-edit {
+.edit-nameclass .form-edit {
     background: rgba(0, 0, 0, 0.3);
     width: calc(100vw - 6px);
     height: 100vh;
@@ -131,7 +131,7 @@
     align-items: center;
     justify-content: center;
 }
-.form-edit .write-noti {
+.edit-nameclass .form-edit .write-noti {
     width: minmax(300px, 70%);
     width: 70%;
     /* border-radius: 10px; */
@@ -139,17 +139,17 @@
     padding: 20px 25px;
     background: #fff;
 }
-.form-edit .write-noti p {
+.edit-nameclass .form-edit .write-noti p {
     font-size: 12px;
     color: black;
     /* padding: 20px; */
 }
-.form-edit .write-noti form {
+.edit-nameclass .form-edit .write-noti form {
     display: flex;
     flex-direction: column;
     background: #fff;
 }
-.form-edit .write-noti form input {
+.edit-nameclass .form-edit .write-noti form input {
     background-color: #f1f3f4;
     outline: none;
     border: none;
@@ -159,13 +159,14 @@
     font-size: 20px;
     margin-bottom: 20px;
     border-radius: 0 0 10px 10px;
+    color:rgb(51, 51, 51)
 }
-.form-edit .btn {
+.edit-nameclass .form-edit .btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.form-edit .write-noti form button {
+.edit-nameclass .form-edit .write-noti form button {
     outline: none;
     border: none;
     font-size: 16px;
@@ -174,13 +175,14 @@
     padding: 10px;
     transition: all 0.3s;
 }
-.form-edit .write-noti form button:nth-child(1) {
+.edit-nameclass .form-edit .write-noti form button:nth-child(1) {
     background-color: transparent;
+    color:rgb(51, 51, 51)
 }
-.form-edit .write-noti form button:nth-child(1):hover {
+.edit-nameclass .form-edit .write-noti form button:nth-child(1):hover {
     background-color: #e0e0e0;
 }
-.form-edit .write-noti form button:nth-child(2) {
+.edit-nameclass .form-edit .write-noti form button:nth-child(2) {
     padding: 10px 20px;
     margin: 0 10px;
     outline: none;

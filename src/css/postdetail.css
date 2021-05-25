@@ -68,6 +68,10 @@
     color: var(--color-text);
     letter-spacing: 0.4px;
 }
+.owner-noti .content .table tr, tr td{
+    padding: 5px;
+    border: 1px solid var(--color-border);
+}
 .comment {
     width: 100%;
     padding: 20px;
@@ -192,7 +196,8 @@
     flex-direction: column;
     background: #fff;
 }
-.form-edit .write-noti form textarea {
+
+/* .form-edit .write-noti form textarea {
     background-color: #f1f3f4;
     outline: none;
     border: none;
@@ -203,7 +208,7 @@
     font-size: 16px;
     margin-bottom: 20px;
     border-radius: 0 0 10px 10px;
-}
+} */
 .form-edit .btn {
     display: flex;
     justify-content: flex-end;
