@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import None2 from "../None/None2";
 // import PropType/s from 'prop-types';
 import { actGetUserInClassRequest } from "./../../action/Action";
 import "./../../css/memberList.css";
@@ -9,8 +10,7 @@ import Member from "./Member";
 
 function MemberList(props) {
     const idclass = props.match.params.id;
-
-    const { getMemberList, memberListRes, detailClass } = props;
+    const { getMemberList, memberListRes, detailClass, userProfile } = props;
 
     const [memberList, setMemberList] = useState([]);
 
@@ -33,7 +33,7 @@ function MemberList(props) {
                 <div className="line">
                     <div className="avatar"></div>
                     <div className="name">
-                        {detailClass?.ownerName || "OwnerClass"}
+                        {detailClass?.ownerName || userProfile.username}
                     </div>
                 </div>
             </div>
@@ -41,10 +41,12 @@ function MemberList(props) {
                 <div className="role">
                     <p>Bạn học</p>
                     <p>{memberList?.length || 0} sinh viên</p>
+                    
                 </div>
                 {memberList?.map((member) => {
                     return <Member key={member.id} member={member} />;
                 })}
+                {memberList.length == 0 ? <None2/> : ""}
             </div>
         </div>
     );
@@ -58,6 +60,7 @@ const mapStateToProps = (state) => {
     return {
         memberListRes: state.memberList,
         detailClass: state.detailClass,
+        userProfile: state.userProfile,
     };
 };
 const mapDispatchToProps = (dispatch, props) => {

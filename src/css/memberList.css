@@ -13,7 +13,7 @@
  /* dùng chung */
  .role{
     display: flex;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #d8d8d8;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;

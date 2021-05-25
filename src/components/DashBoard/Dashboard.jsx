@@ -21,10 +21,11 @@ function Dashboard(props) {
         });
     }
     return (
+        
         <section className="dashboard">
             <div className="allclass">
                 {classOwnRender} {classListRender}
-                {(classOwnRender.length || classListRender.length) ? (
+                {classOwnRender.length || classListRender.length ? (
                     ""
                 ) : (
                     <div
@@ -33,7 +34,6 @@ function Dashboard(props) {
                             width: "100%",
                             flexDirection: "column",
                             alignItems: "center",
-                            
                         }}
                     >
                         <p className="noclass">Bạn chưa có lớp học nào</p>
