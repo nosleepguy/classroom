@@ -1,4 +1,5 @@
 import * as Types from '../constant/Types';
+import swal from 'sweetalert';
 
 const initialState = [];
 
@@ -35,6 +36,15 @@ const myReducer = (state = initialState, action) => {
                 let index = findIndex(newState, idpost);
                 newState.splice(index, 1);
                 state = newState;
+            } else {
+                swal({
+                    title: 'Oops!',
+                    text: `Đã xảy ra lỗi! ${action.response.data.message}`,
+                    icon: 'error',
+                    buttons: {
+                        cancel: true,
+                    },
+                });
             }
             return state;
         }
