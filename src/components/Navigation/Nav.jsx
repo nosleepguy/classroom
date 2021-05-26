@@ -51,7 +51,7 @@ function Nav(props) {
                     to={'/class/' + item.id}
                     key={item.id}
                     onClick={() => {
-                        sendDetailClass(item), setBorder([true, false]);
+                        sendDetailClass(item), setBorder([true, false, false]);
                     }}
                 >
                     <div className="item hover class-active">
@@ -74,7 +74,7 @@ function Nav(props) {
                     to={'/class/' + item.id}
                     key={item.id}
                     onClick={() => {
-                        sendDetailClass(item);
+                        sendDetailClass(item), setBorder([true, false, false]);
                     }}
                 >
                     <div className="item hover class-active">

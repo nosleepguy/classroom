@@ -6,6 +6,7 @@ import { actDeleteUserInClassRequest } from "./../../action/Action";
 
 function Member(props) {
     const { member, detailClass, userProfile, deleteMember } = props;
+    // console.log(detailClass.ownerId);
 
     const [showActDelMember, setShowActDelMember] = useState(false);
     // console.log(detailClass, userProfile);
@@ -23,7 +24,7 @@ function Member(props) {
             </div>
             <div
                 className={
-                    detailClass.ownerId == userProfile.id
+                    (detailClass.ownerId == userProfile.id ||detailClass.ownerId == undefined)
                         ? "action"
                         : "action hide"
                 }
