@@ -69,7 +69,7 @@ function PostDetail(props) {
                     <div
                         className="avatar"
                         style={{
-                            background: `url(${datapost.ownerAvatar})`,
+                            background: `url(${datapost.ownerAvatar || userProfile.avatar})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                         }}

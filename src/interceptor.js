@@ -10,7 +10,7 @@ axiosInstance.interceptors.response.use(
                 return;
             }
             return axios.post(
-                ${ config.API_DOMAIN } / api / refresh - token,
+                `${config.API_DOMAIN }/api/refreshtoken`,
                 {
                     refreshToken,
                 },
@@ -20,7 +20,7 @@ axiosInstance.interceptors.response.use(
                         const result = res.data;
                         const data = result.data;
                         AuthenticationUtils.saveAuthenticationData({ token: data.token, refreshToken })
-                        originalConfig.headers.Authorization = ${ data.token };
+                        originalConfig.headers.Authorization = `${ data.token }`;
                         return axios(originalConfig);
                     } else {
                         AuthenticationUtils.removeAuthenticationData();

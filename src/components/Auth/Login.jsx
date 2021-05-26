@@ -77,7 +77,7 @@ function Login(props) {
 
     // có data phản hồi về thì tắt loading
     useEffect(() => {
-        console.log(dataResponse);
+        // console.log(dataResponse);
         if (dataResponse) {
             setLoading(false);
         }

@@ -150,7 +150,7 @@ function Nav(props) {
                 </div>
                 <div className="option-item hover" onClick={() => onFocus(1)}>
                     <Link to={`/class/${detailClass.id}/document`}>
-                        <p className="content">Tài Liệu</p>
+                        <p className="content">Tài liệu</p>
                         <p className={border[1] ? 'border' : ''}></p>
                     </Link>
                 </div>

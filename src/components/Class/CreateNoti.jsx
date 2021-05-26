@@ -30,9 +30,7 @@ function CreateNoti(props) {
     };
     return (
         <div className="write-noti" style={showCreateNoti ? { display: 'block' } : { display: 'none' }}>
-            {/* <p>Tạo thông báo mới cho lớp học của bạn</p> */}
             <form onSubmit={onHandleForm}>
-                {/* <textarea cols="30" rows="10" value={post} onChange={(e) => setPost(e.target.value)}></textarea> */}
                 <CKEditor
                     editor={ ClassicEditor }
                     data={post}

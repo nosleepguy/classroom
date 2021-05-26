@@ -26,14 +26,13 @@ function ClassJoined(props) {
                 <div className="hover action-class " onClick={onShowAction}>
                     <span className="fas fa-ellipsis-v "></span>
                     <div className={showAction ? 'action' : 'action hidden'}>
-                        {/* <p>Hủy lớp</p> */}
                         <p onClick={() => refreshToken([onLeaveClass(item.id)])}>Dời lớp</p>
                     </div>
                 </div>
             </div>
             <div className="avatar-teacher">
                 <img
-                    src={item.ownerAvatar}
+                    src={item.ownerAvatar || `https://lh3.googleusercontent.com/-PjAlHtvA03w/AAAAAAAAAAI/AAAAAAAAEAs/lmRFcFH3umo/photo.jpg`}
                     alt="avatar Teacher"
                 />
             </div>

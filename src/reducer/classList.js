@@ -15,7 +15,7 @@ const myReducer = (state = initialState, action) => {
             return state;
         }
         case Types.JOIN_CLASS: {
-            // console.log(action);
+            console.log(action);
 
             if (!action.response.data.success) {
                 swal({
@@ -28,18 +28,18 @@ const myReducer = (state = initialState, action) => {
                 });
             } else {
                 const newState = JSON.parse(JSON.stringify(state));
-                const data = action.response.data.data.classInDb;
+                const data = action.response.data.data.detailClass;
                 // const classId = data.id;
-                const newClass = { ...data, className: data.name };
-                newState.push(newClass);
+                // const newClass = { ...data};
+                newState.push(data);
                 state = newState;
-                console.log(state);
+                // console.log(state);
             }
             return state;
         }
         case Types.LEAVE_CLASS: {
             // console.log(action);
-            const id = action.response.response.idclass;
+            const id = action.response.idclass;
             const newState = JSON.parse(JSON.stringify(state));
             const index = findIndex(newState, id);
             newState.splice(index, 1);

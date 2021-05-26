@@ -20,8 +20,7 @@ const refreshToken = (cb) => {
     const isExp = checkToken();
     // console.log(isExp);
     if (isExp) {
-        let REFRESH_AUTH_TOKEN = localStorage.getItem('rtk');
-        //
+        const REFRESH_AUTH_TOKEN = localStorage.getItem('rtk');
         axios
             .post(`${config}user/refresh_token`, {
                 refreshToken: REFRESH_AUTH_TOKEN,

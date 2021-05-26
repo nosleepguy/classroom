@@ -18,7 +18,7 @@ function Comment(props) {
             <div
                 className="avatar-user"
                 style={{
-                    background: `url(${comment.ownerAvatar})`,
+                    background: `url(${comment.ownerAvatar || userProfile.avatar})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
