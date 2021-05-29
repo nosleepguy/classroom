@@ -12,7 +12,7 @@ const myReducer = (state = initialState, action) => {
             return state;
         }
         case Types.UPDATE_PROFILE: {
-            console.log(action.response.data);
+            // console.log(action.response.data);
             if (action.response.data.success) {
                 swal({
                     title: 'Nice!',
