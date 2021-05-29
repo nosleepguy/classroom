@@ -80,7 +80,7 @@ function ClassOwn(props) {
                     <i className="fas fa-tasks home-work"></i>
                 </div>
                 <div className="item hover">
-                    <i className="far fa-file-alt document"></i>
+                    <i className="far fa-file-alt"></i>
                 </div>
             </div>
 

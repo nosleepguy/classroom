@@ -51,8 +51,8 @@ function VerifyAccount(props) {
                                                     cellPadding="0"
                                                     cellSpacing="0"
                                                 >
-                                                    <tr>
-                                                        <td align="center">
+                                                    <tr className="tr">
+                                                        <td align="center" className="td">
                                                             <div>
                                                                 <button
                                                                     className="button button--blue"

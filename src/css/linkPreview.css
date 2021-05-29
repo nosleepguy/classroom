@@ -1,0 +1,26 @@
+.link-in-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+.wrapper-link {
+    width: 44%;
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    padding: 20px 0;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 20px 0;
+    margin-right: 20px;
+    flex-grow: 1;
+}
+.img-link {
+    width: 50px;
+    margin: 0 20px;
+}
+.description-link {
+    font-weight: bold;
+    font-size: 15px;
+}

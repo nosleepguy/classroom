@@ -17,7 +17,7 @@ import Comment from "./Comment";
 function PostDetail(props) {
     const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } =
         props;
-    // console.log(datapost);
+    // console.log(datapost, userProfile);
 
     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
     const month = datapost.createdAt.slice(5, 7);
@@ -69,7 +69,9 @@ function PostDetail(props) {
                     <div
                         className="avatar"
                         style={{
-                            background: `url(${datapost.ownerAvatar || userProfile.avatar})`,
+                            background: `url(${
+                                datapost.ownerAvatar || userProfile.avatar
+                            })`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                         }}

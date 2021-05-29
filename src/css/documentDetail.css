@@ -1,0 +1,26 @@
+.head-document-wrapper{
+    padding: 0!important;
+    margin: 30px;
+}
+.head-document{
+    background: rgb(226, 226, 226);
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+.document-content{
+    width: 100%;
+    display: flex;
+    /* border: 1px solid var(--color-border); */
+    flex-direction: column;
+}
+.document-info{
+    margin-bottom: 10px;
+}
+.owner-document{
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+}
+.document-header{
+    border-bottom: 1px solid var(--color-border);
+}

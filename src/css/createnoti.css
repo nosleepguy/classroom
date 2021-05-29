@@ -14,9 +14,8 @@
     display: flex;
     flex-direction: column;
     background: #fff;
-    
 }
-.ck-editor__editable_inline{
+.ck-editor__editable_inline {
     max-height: 50vh;
     overflow-y: scroll;
 }
@@ -33,24 +32,24 @@
     border-radius: 0 0 10px 10px;
 } */
 .ck {
-    outline: none!important;
-    border: none!important;
-    border-radius: 10px!important;
+    outline: none !important;
+    border: none !important;
+    border-radius: 10px !important;
     background-color: #fff;
 }
-.ck-content{
-    background-color: rgb(236, 236, 236)!important;
+.ck-content {
+    background-color: rgb(236, 236, 236) !important;
     margin: 20px 0;
 }
-.ck-focused{
-    box-shadow: none!important;
+.ck-focused {
+    box-shadow: none !important;
 }
 .btn {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-.write-noti form button {
+.write-noti form .btn-create-noti {
     outline: none;
     border: none;
     font-size: 16px;
@@ -59,13 +58,13 @@
     padding: 10px;
     transition: all 0.3s;
 }
-.write-noti form button:nth-child(1) {
+.write-noti form .btn-create-noti:nth-child(1) {
     background-color: transparent;
 }
-.write-noti form button:nth-child(1):hover {
+.write-noti form .btn-create-noti:nth-child(1):hover {
     background-color: #e0e0e0;
 }
-.write-noti form button:nth-child(2) {
+.write-noti form .btn-create-noti:nth-child(2) {
     padding: 10px 20px;
     margin: 0 10px;
     outline: none;

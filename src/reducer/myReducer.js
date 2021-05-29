@@ -6,6 +6,7 @@ import detailClass from './detailClass';
 import postList from './postList';
 import userProfile from './userProfile';
 import memberList from './memberList';
+import documentList from './documentList';
 export default combineReducers({
     authenapp,
     classOwn,
@@ -14,4 +15,5 @@ export default combineReducers({
     postList,
     userProfile,
     memberList,
+    documentList,
 });

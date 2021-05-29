@@ -20,8 +20,8 @@ export const UP_POST = 'UP_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const EDIT_POST = 'EDIT_POST';
 
-// export const CREATE_DOCUMENT = "CREATE_DOCUMENT"
-// export const GET_DOCUMENT = "GET_DOCUMENT"
+export const CREATE_DOCUMENT = "CREATE_DOCUMENT"
+export const GET_DOCUMENT = "GET_DOCUMENT"
 
 export const COMMENT_POST = 'COMMENT_POST';
 export const DELETE_COMMENT = 'DELETE_COMMENT';

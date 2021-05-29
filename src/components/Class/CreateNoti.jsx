@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import './../../css/createnoti.css';
-import { actUpPostRequest } from './../../action/Action';
-import refreshToken from './../../utils/checkToken';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import "./../../css/createnoti.css";
+import { actUpPostRequest } from "./../../action/Action";
+import refreshToken from "./../../utils/checkToken";
 
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 function CreateNoti(props) {
     const { showCreateNoti, onShowCreateNotiEvent, actUpPost, idclass } = props;
 
     // console.log(idclass);
 
-    const [post, setPost] = useState('');
+    const [post, setPost] = useState("");
     const onHandleForm = (e) => {
         e.preventDefault();
     };
@@ -26,46 +25,57 @@ function CreateNoti(props) {
         };
         refreshToken([actUpPost(postdata)]);
         onShowCreateNotiEvent();
-        setPost('');
+        setPost("");
     };
     return (
-        <div className="write-noti" style={showCreateNoti ? { display: 'block' } : { display: 'none' }}>
+        <div
+            className="write-noti"
+            style={showCreateNoti ? { display: "block" } : { display: "none" }}
+        >
             <form onSubmit={onHandleForm}>
                 <CKEditor
-                    editor={ ClassicEditor }
+                    editor={ClassicEditor}
                     data={post}
-                    onReady={ editor => {
+                    onReady={(editor) => {
                         // You can store the "editor" and use when it is needed.
                         // console.log( 'Editor is ready to use!', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
+                    }}
+                    onChange={(event, editor) => {
                         const data = editor.getData();
                         setPost(data);
                         // console.log(data);
-                        
+
                         // console.log( { event, editor, data } );
-                    } }
-                    onBlur={ ( event, editor ) => {
+                    }}
+                    onBlur={(event, editor) => {
                         // console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
+                    }}
+                    onFocus={(event, editor) => {
                         // console.log( 'Focus.', editor );
-                    } }
+                    }}
                 />
                 <div className="btn">
-                    <button type="button" onClick={onShowCreateNotiEvent}>
+                    <button
+                        type="button"
+                        className="btn-create-noti"
+                        onClick={onShowCreateNotiEvent}
+                    >
                         Hủy
                     </button>
                     <button
                         type="button"
+                        className="btn-create-noti"
                         onClick={onUpPost}
-                        style={post ? { background: '#2C7EEA', color: 'white' } : {}}
+                        style={
+                            post
+                                ? { background: "#2C7EEA", color: "white" }
+                                : {}
+                        }
                     >
                         Đăng
                     </button>
                 </div>
             </form>
-            
         </div>
     );
 }

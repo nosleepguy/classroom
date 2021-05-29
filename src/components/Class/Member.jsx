@@ -24,7 +24,8 @@ function Member(props) {
             </div>
             <div
                 className={
-                    (detailClass.ownerId == userProfile.id ||detailClass.ownerId == undefined)
+                    detailClass.ownerId == userProfile.id ||
+                    detailClass.ownerId == undefined
                         ? "action"
                         : "action hide"
                 }

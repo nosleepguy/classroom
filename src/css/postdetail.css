@@ -68,8 +68,8 @@
     color: var(--color-text);
     letter-spacing: 0.4px;
 }
-.owner-noti .content .table tr, tr td{
-    padding: 5px;
+.new-noti .owner-noti .content .table tr td {
+    padding: 5px 10px;
     border: 1px solid var(--color-border);
 }
 .comment {
@@ -135,6 +135,7 @@
     padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 .type-comment {
     position: relative;

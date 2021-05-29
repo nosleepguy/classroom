@@ -36,8 +36,10 @@ function MemberList(props) {
                     <div
                         className="avatar"
                         style={{
-                            backgroundImage: `url(${detailClass.ownerAvatar ||userProfile.avatar})`,
-                            
+                            backgroundImage: `url(${
+                                detailClass.ownerAvatar ||
+                                `https://lh3.googleusercontent.com/-PjAlHtvA03w/AAAAAAAAAAI/AAAAAAAAEAs/lmRFcFH3umo/photo.jpg`
+                            })`,
                         }}
                     ></div>
                     <div className="name">

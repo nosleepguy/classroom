@@ -237,6 +237,40 @@ export const editPost = (response) => {
         response,
     };
 };
+// -----------------------GetDocument------------------------------------------
+
+export const actGetDocumentRequest = (idclass) => {
+    return (dispatch) => {
+        return axios.get(`user/class/${idclass}/document`).then((response) => {
+            // console.log(response);
+            dispatch(getDocument(response));
+        });
+    };
+};
+export const getDocument = (response) => {
+    return {
+        type: Types.GET_DOCUMENT,
+        response,
+    };
+};
+// -----------------------CreateDocument------------------------------------------
+
+export const actCreateDocumentRequest = (datadocument) => {
+    return (dispatch) => {
+        return axios.post(`user/document`,datadocument).then((response) => {
+            // console.log(response);
+            dispatch(createDocument(response));
+        });
+    };
+};
+export const createDocument = (response) => {
+    return {
+        type: Types.CREATE_DOCUMENT,
+        response,
+    };
+};
+
+
 
 // ----------------------GetProfile-------------------------------------------
 

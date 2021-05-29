@@ -1,235 +1,144 @@
-// import React, { useState, useEffect } from "react";
-// import { connect } from "react-redux";
-// import {
-//     actDeletePostRequest,
-//     actEditPostRequest,
-//     actCommentPostRequest,
-//     actDeleteCommentRequest,
-// } from "./../../action/Action";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import {
+    actCreateDocumentRequest,
+    actGetDocumentRequest,
+} from "../../action/Action";
+import "./../../css/document.css";
 
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import UploadFile from "./UploadFile";
+import DocumentDetail from "./DocumentDetail";
+import refreshToken from "../../utils/checkToken";
+import None from "../None/None";
 
-// // import PropTypes from "prop-types";
-// import "./../../css/postdetail.css";
-// import refreshToken from "./../../utils/checkToken";
-// import Comment from "./Comment";
-// function PostDetail(props) {
-//     const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } =
-//         props;
-//     // console.log(datapost);
+function Document(props) {
+    const idclass = props.match.params.id;
 
-//     // console.log(datapost.createdAt.slice(5,7), datapost.createdAt.slice(8,10));
-//     const month = datapost.createdAt.slice(5, 7);
-//     const day = datapost.createdAt.slice(8, 10);
+    const {
+        userProfile,
+        detailClass,
+        actCreateDocument,
+        documentList,
+        actGetDocument,
+    } = props;
+    // console.log(documentList);
+    const [documentListState, setDocumentListState] = useState([]);
+    const [contentpost, setContentPost] = useState("");
+    const [linkDocumentState, setLinkDocumentState] = useState([]);
+    const [showCreateNoti, setShowCreateNoti] = useState(false);
 
-//     const [showAction, setShowAction] = useState(false);
+    //k cho reload form
+    const onSubmit = (e) => {
+        e.preventDefault();
+    };
 
-//     const [comment, setComment] = useState("");
+    // set link vào state
+    const linkDocumentUploaded = (arrLink) => {
+        // console.log(arrLink);
+        const newarrLink = JSON.parse(JSON.stringify(linkDocumentState));
 
-//     //show form edit
-//     const [showFormEdit, setShowFormEdit] = useState(false);
-//     const [valueFormEdit, setValueFormEdit] = useState("");
+        arrLink?.map((file) => {
+            newarrLink.push(file.response.data.url[0]);
+        });
+        setLinkDocumentState([...newarrLink]);
+    };
+    // nhấn đăng document
+    const onhandleCreateDocument = () => {
+        if (linkDocumentState) {
+            const datasend = {
+                name: contentpost,
+                classId: +idclass,
+                documentLinks: linkDocumentState?.map((link) => {
+                    return { name: "Document", link: link };
+                }),
+            };
+            // console.log(datasend);
 
-//     useEffect(() => {
-//         setValueFormEdit(datapost.content);
-//     }, [datapost]);
+            refreshToken([actCreateDocument(datasend)]);
+            setContentPost("");
+            setLinkDocumentState([]);
+        }
+    };
 
-//     const onshowAction = () => {
-//         setShowAction(!showAction);
-//     };
+    useEffect(() => {
+        actGetDocument(+idclass);
+    }, []);
 
-//     const onShowFormEdit = () => {
-//         setShowFormEdit(!showFormEdit);
-//         setShowAction(false);
-//     };
+    useEffect(() => {
+        setDocumentListState([...documentList]);
+    }, [documentList]);
+    return (
+        <div className="document">
+            <div
+                className={
+                    userProfile.id === detailClass.ownerId
+                        ? "write-noti"
+                        : "write-noti hide"
+                }
+            >
+                <p>Tải lên tài liệu cho lớp của bạn</p>
+                <form onSubmit={onSubmit}>
+                    <input
+                        type="text"
+                        className="input-document"
+                        value={contentpost}
+                        onChange={(e) => setContentPost(e.target.value)}
+                    />
+                    <UploadFile setLink={linkDocumentUploaded} />
+                    <div className="btn">
+                        <button type="button" className="btn-form">
+                            Hủy
+                        </button>
+                        <button
+                            type="submit"
+                            className="btn-form"
+                            style={
+                                contentpost
+                                    ? {
+                                          background: "#2C7EEA",
+                                          color: "white",
+                                      }
+                                    : {}
+                            }
+                            disabled={
+                                (linkDocumentState.length = 0 ? true : false)
+                            }
+                            onClick={onhandleCreateDocument}
+                        >
+                            Đăng
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {documentListState?.length === 0 ? (
+                <None />
+            ) : (
+                documentListState?.map((item) => (
+                    <DocumentDetail key={item.id} datadocument={item} />
+                ))
+            )}
+            {/* {documentListState?.map((item) => (
+                <DocumentDetail key={item.id} datadocument={item} />
+            ))} */}
+        </div>
+    );
+}
 
-//     const onHandleEditPost = () => {
-//         const dataEdit = {
-//             id: datapost.id,
-//             content: { content: valueFormEdit },
-//         };
-//         refreshToken([onEditPost(dataEdit)]);
-//         setShowFormEdit(!showFormEdit);
-//     };
-
-//     const onHandlePostComment = () => {
-//         const dataComment = {
-//             topicId: datapost.id,
-//             content: comment,
-//             typeComment: 1,
-//         };
-//         refreshToken([onCommentPost(dataComment)]);
-//         setComment("");
-//     };
-//     return (
-//         <div className="new-noti">
-//             <div className="owner-noti">
-//                 <div className="owner-info">
-//                     <div
-//                         className="avatar"
-//                         style={{
-//                             background: `url(${datapost.ownerAvatar || userProfile.avatar})`,
-//                             backgroundSize: "cover",
-//                             backgroundPosition: "center",
-//                         }}
-//                     ></div>
-//                     <div className="owner">
-//                         <p>
-//                             {datapost.ownerName
-//                                 ? datapost.ownerName
-//                                 : userProfile.username}
-//                         </p>
-//                         <p>
-//                             {day} thg {month}
-//                         </p>
-//                     </div>
-//                     <div
-//                         className={
-//                             userProfile.id === datapost.ownerId
-//                                 ? "action"
-//                                 : "action hide"
-//                         }
-//                     >
-//                         <span
-//                             className="fas fa-ellipsis-v hover"
-//                             onClick={onshowAction}
-//                         ></span>
-//                         <div
-//                             className={
-//                                 showAction ? "delete-edit" : "delete-edit hide"
-//                             }
-//                         >
-//                             <p
-//                                 onClick={() =>
-//                                     refreshToken([onDeletePost(datapost.id)])
-//                                 }
-//                             >
-//                                 Xóa
-//                             </p>
-//                             <p onClick={onShowFormEdit}>Chỉnh sửa</p>
-//                         </div>
-//                     </div>
-//                 </div>
-
-//                 <div className="content">
-//                     <div
-//                         dangerouslySetInnerHTML={{ __html: datapost.content }}
-//                     />
-//                 </div>
-//             </div>
-
-//             {/* form edit bài đăng */}
-//             <div
-//                 className="form-edit"
-//                 style={showFormEdit ? { display: "flex" } : { display: "none" }}
-//             >
-//                 <div className="write-noti">
-//                     <form>
-//                         <CKEditor
-//                             editor={ClassicEditor}
-//                             data={valueFormEdit}
-//                             onReady={(editor) => {
-//                                 // You can store the "editor" and use when it is needed.
-//                                 // console.log( 'Editor is ready to use!', editor );
-//                             }}
-//                             onChange={(event, editor) => {
-//                                 const data = editor.getData();
-//                                 setValueFormEdit(data);
-//                                 // console.log(data);
-
-//                                 // console.log( { event, editor, data } );
-//                             }}
-//                             onBlur={(event, editor) => {
-//                                 // console.log( 'Blur.', editor );
-//                             }}
-//                             onFocus={(event, editor) => {
-//                                 // console.log( 'Focus.', editor );
-//                             }}
-//                         />
-//                         <div className="btn">
-//                             <button type="button" onClick={onShowFormEdit}>
-//                                 Hủy
-//                             </button>
-//                             <button
-//                                 type="button"
-//                                 onClick={onHandleEditPost}
-//                                 style={
-//                                     valueFormEdit
-//                                         ? {
-//                                               background: "#2C7EEA",
-//                                               color: "white",
-//                                           }
-//                                         : {}
-//                                 }
-//                             >
-//                                 Cập nhật
-//                             </button>
-//                         </div>
-//                     </form>
-//                 </div>
-//             </div>
-
-//             <div className="comment">
-//                 <div className="count-comment">
-//                     <span className="fas fa-user-friends"></span>&ensp;{" "}
-//                     {datapost?.comments?.length} nhận xét về bài viết
-//                 </div>
-//                 {datapost.comments?.map((comment) => {
-//                     return <Comment key={comment.id} comment={comment} />;
-//                 })}
-//             </div>
-//             <div className="write-comment">
-//                 <div
-//                     className="avatar"
-//                     style={
-//                         userProfile.avatar
-//                             ? {
-//                                   background: `url(${userProfile.avatar})`,
-//                                   backgroundSize: "cover",
-//                                   backgroundPosition: "center",
-//                               }
-//                             : {}
-//                     }
-//                 ></div>
-//                 <div className="type-comment">
-//                     <input
-//                         type="text"
-//                         className="input-comment"
-//                         value={comment}
-//                         onChange={(e) => setComment(e.target.value)}
-//                     />
-//                     <i
-//                         className="far fa-paper-plane send-comment"
-//                         onClick={onHandlePostComment}
-//                     ></i>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
-
-// // postDetail.propTypes = {};
-// const mapStateToProps = (state) => {
-//     return {
-//         userProfile: state.userProfile,
-//     };
-// };
-// const mapDispatchToProps = (dispatch, props) => {
-//     return {
-//         onDeletePost: (idpost) => {
-//             dispatch(actDeletePostRequest(idpost));
-//         },
-//         onEditPost: (dataEdit) => {
-//             dispatch(actEditPostRequest(dataEdit));
-//         },
-//         onCommentPost: (dataComment) => {
-//             dispatch(actCommentPostRequest(dataComment));
-//         },
-//         onDeleteComment: (idcomment) => {
-//             dispatch(actDeleteCommentRequest(idcomment));
-//         },
-//     };
-// };
-// export default connect(mapStateToProps, mapDispatchToProps)(Document);
-
+const mapStateToProps = (state) => {
+    return {
+        userProfile: state.userProfile,
+        detailClass: state.detailClass,
+        documentList: state.documentList,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actCreateDocument: (datadocument) => {
+            dispatch(actCreateDocumentRequest(datadocument));
+        },
+        actGetDocument: (idclass) => {
+            dispatch(actGetDocumentRequest(idclass));
+        },
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Document);
