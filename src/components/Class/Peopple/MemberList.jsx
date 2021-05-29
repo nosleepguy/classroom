@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import None2 from "../../None/None2";
 // import PropType/s from 'prop-types';
 import { actGetUserInClassRequest } from "../../../action/Action";
-import "./../../css/memberList.css";
+import "./../../../css/memberList.css";
 
 import refreshToken from "../../../utils/checkToken";
 import Member from "./Member";

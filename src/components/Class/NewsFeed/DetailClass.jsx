@@ -4,7 +4,7 @@ import { actGetPostRequest } from "../../../action/Action";
 // import PropTypes from "prop-types";
 import swal from "sweetalert";
 
-import "./../../css/detailclass.css";
+import "./../../../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 import PostDetail from "./PostDetail";
 

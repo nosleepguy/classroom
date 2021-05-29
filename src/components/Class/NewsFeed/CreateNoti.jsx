@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import "./../../css/createnoti.css";
+import "./../../../css/createnoti.css";
 import { actUpPostRequest } from "../../../action/Action";
 import refreshToken from "../../../utils/checkToken";
 

@@ -2,14 +2,14 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import CreateClass from './../components/Navigation/CreateClass';
 import Dashboard from './../components/DashBoard/Dashboard';
-import DetailClass from './../components/Class/DetailClass';
 import JoinClass from './../components/Navigation/JoinClass';
-import MemberList from './../components/Class/MemberList';
 import NotFound from './../components/NotFound/NotFound';
 import Setting from '../components/Setting/Setting';
-import Document from '../components/Class/Document';
+import DetailClass from '../components/Class/NewsFeed/DetailClass';
+import MemberList from '../components/Class/Peopple/MemberList';
+import Document from '../components/Class/Document/Document';
 
-function RouterURL(props) {
+function RouterURL() {
     return (
         <Switch>
             <Route exact path="/" component={Dashboard} />

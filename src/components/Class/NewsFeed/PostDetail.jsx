@@ -11,7 +11,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 // import PropTypes from "prop-types";
-import "./../../css/postdetail.css";
+import "./../../../css/postdetail.css";
 import refreshToken from "../../../utils/checkToken";
 import Comment from "../Comment";
 function PostDetail(props) {

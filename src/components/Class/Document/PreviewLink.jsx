@@ -1,10 +1,10 @@
 import React from "react";
-import "./../../css/linkPreview.css";
-import Txt from "./../../assets/icons_file/Txt.svg";
-import Excel from "./../../assets/icons_file/Excel.svg";
-import Pdf from "./../../assets/icons_file/Pdf.svg";
-import Powerpoint from "./../../assets/icons_file/Powerpoint.svg";
-import Word from "./../../assets/icons_file/Word.svg";
+import "./../../../css/linkPreview.css";
+import Txt from "./../../../assets/icons_file/Txt.svg";
+import Excel from "./../../../assets/icons_file/Excel.svg";
+import Pdf from "./../../../assets/icons_file/Pdf.svg";
+import Powerpoint from "./../../../assets/icons_file/Powerpoint.svg";
+import Word from "./../../../assets/icons_file/Word.svg";
 import { Fragment } from "react";
 function PreviewLink(props) {
     const { links } = props;

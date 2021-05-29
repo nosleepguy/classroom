@@ -4,7 +4,7 @@ import {
     actCreateDocumentRequest,
     actGetDocumentRequest,
 } from "../../../action/Action";
-import "./../../css/document.css";
+import "./../../../css/document.css";
 
 import UploadFile from "../UploadFile";
 import DocumentDetail from "./DocumentDetail";
