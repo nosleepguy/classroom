@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import {
     actCreateDocumentRequest,
     actGetDocumentRequest,
-} from "../../action/Action";
+} from "../../../action/Action";
 import "./../../css/document.css";
 
-import UploadFile from "./UploadFile";
+import UploadFile from "../UploadFile";
 import DocumentDetail from "./DocumentDetail";
-import refreshToken from "../../utils/checkToken";
-import None from "../None/None";
+import refreshToken from "../../../utils/checkToken";
+import None from "../../None/None";
 
 function Document(props) {
     const idclass = props.match.params.id;

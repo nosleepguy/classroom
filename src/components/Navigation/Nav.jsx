@@ -37,7 +37,13 @@ function Nav(props) {
 
     useEffect(() => {
         setShowTab(showTabp);
+        // console.log(window.location.pathname.includes('/document'));
     });
+    useEffect(() => {
+        if (window.location.pathname.includes("/document")) {
+            setBorder([false, true, false]);
+        }
+    }, [window.location.pathname]);
 
     const onShowTab = () => {
         setShowTab(!showTab);

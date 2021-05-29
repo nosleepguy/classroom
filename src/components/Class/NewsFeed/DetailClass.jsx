@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { actGetPostRequest } from "../../action/Action";
+import { actGetPostRequest } from "../../../action/Action";
 // import PropTypes from "prop-types";
 import swal from "sweetalert";
 
@@ -8,8 +8,8 @@ import "./../../css/detailclass.css";
 import CreateNoti from "./CreateNoti";
 import PostDetail from "./PostDetail";
 
-import refreshToken from "./../../utils/checkToken";
-import None from "./../None/None";
+import refreshToken from "../../../utils/checkToken";
+import None from "../../None/None";
 
 function DetailClass(props) {
     const idclass = props.match.params.id;
