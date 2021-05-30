@@ -11,9 +11,9 @@ import DocumentDetail from "./DocumentDetail";
 import refreshToken from "../../../utils/checkToken";
 import None from "../../None/None";
 
+import swal from "sweetalert";
 function Document(props) {
     const idclass = props.match.params.id;
-
     const {
         userProfile,
         detailClass,
@@ -22,6 +22,7 @@ function Document(props) {
         actGetDocument,
     } = props;
     // console.log(documentList);
+
     const [documentListState, setDocumentListState] = useState([]);
     const [contentpost, setContentPost] = useState("");
     const [linkDocumentState, setLinkDocumentState] = useState([]);
@@ -34,29 +35,37 @@ function Document(props) {
 
     // set link vào state
     const linkDocumentUploaded = (arrLink) => {
-        // console.log(arrLink);
         const newarrLink = JSON.parse(JSON.stringify(linkDocumentState));
 
         arrLink?.map((file) => {
             newarrLink.push(file.response.data.url[0]);
+            setLinkDocumentState(newarrLink);
         });
-        setLinkDocumentState([...newarrLink]);
     };
     // nhấn đăng document
     const onhandleCreateDocument = () => {
-        if (linkDocumentState) {
+        if (linkDocumentState?.length > 0) {
             const datasend = {
                 name: contentpost,
                 classId: +idclass,
                 documentLinks: linkDocumentState?.map((link) => {
-                    return { name: "Document", link: link };
+                    return { name: "Document", link };
                 }),
             };
             // console.log(datasend);
-
             refreshToken([actCreateDocument(datasend)]);
             setContentPost("");
             setLinkDocumentState([]);
+        } else {
+            window.swal = swal;
+            swal({
+                title: "Oops!",
+                text: "Bạn chưa tải tài liệu nào lên",
+                icon: "error",
+                buttons: {
+                    cancel: true,
+                },
+            });
         }
     };
 
@@ -67,6 +76,7 @@ function Document(props) {
     useEffect(() => {
         setDocumentListState([...documentList]);
     }, [documentList]);
+
     return (
         <div className="document">
             <div
@@ -100,9 +110,9 @@ function Document(props) {
                                       }
                                     : {}
                             }
-                            disabled={
-                                (linkDocumentState.length = 0 ? true : false)
-                            }
+                            // disabled={
+                            //     (linkDocumentState?.length == 0 ? true : false)
+                            // }
                             onClick={onhandleCreateDocument}
                         >
                             Đăng
