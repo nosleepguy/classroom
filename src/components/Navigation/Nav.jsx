@@ -274,10 +274,10 @@ function Nav(props) {
                 </div>
 
                 <div className="contain">
-                    <div className="item hover">
+                    {/* <div className="item hover">
                         <span className="icon fas fa-cloud-download-alt"></span>
                         <span className="text">Lớp học đã lưu trữ</span>
-                    </div>
+                    </div> */}
                     <Link to={"/setting"}>
                         <div className="item hover">
                             <span className="icon fas fa-cog"></span>
