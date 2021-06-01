@@ -10,8 +10,8 @@ const findIndex = function (arr, id) {
 const myReducer = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_DOCUMENT: {
-            // console.log(action.response.data);
             const arrDocument = action.response.data.data;
+            // console.log(action);
             state = arrDocument;
             return state;
         }
@@ -20,8 +20,10 @@ const myReducer = (state = initialState, action) => {
             const createDocument = {
                 ...action.response.data.data.document,
                 docname: action.response.data.data.document.name,
-                documentLinks: [...action.response.data.data.documentLinks]
+                documentLinks: [...action.response.data.data.documentLinks],
+                comments:[]
             }
+            // console.log(createDocument);
             const newState = JSON.parse(JSON.stringify(state));
             newState.unshift(createDocument);
             state = newState;
@@ -55,7 +57,7 @@ const myReducer = (state = initialState, action) => {
             return state;
         }
         case Types.COMMENT_DOCUMENT: {
-            // console.log(action.response);
+            console.log(action.response.data.success);
             // console.log(state);
             if(action.response.data.success){
                 const newState = JSON.parse(JSON.stringify(state));
@@ -64,7 +66,8 @@ const myReducer = (state = initialState, action) => {
 
                 const index = findIndex(newState, idcomment);
                 // console.log(index);
-                newState[index].comments.push(comment);
+                newState[index]?.comments?.push(comment);
+                
                 state = newState;
             }
             return state;
