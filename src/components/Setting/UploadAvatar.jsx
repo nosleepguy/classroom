@@ -31,15 +31,7 @@ function UploadAvatar(props) {
     const [imageUrl, setImageUrl] = useState("");
 
     const handleChange = (info) => {
-        //   console.log(info);
-        //   console.log(info.file);
-
-        //   const form = new FormData();
-
-        //   form.append('files', info.file.originFileObj)
-
-        //   refreshToken([this.props.onUpdataAvatar(form)])
-
+       
         if (info.file.status === "uploading") {
             setLoading(true);
             return;

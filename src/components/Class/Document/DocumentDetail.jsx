@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import {
     actDeleteDocumentRequest,
     actUpdateDocumentRequest,
+    actCommentDocumentRequest
 } from "../../../action/Action";
 
 import "./../../../css/documentDetail.css";
 import PreviewLink from "./PreviewLink";
 import refreshToken from "./../../../utils/checkToken";
-import { actCommentDocumentRequest } from './../../../action/Action';
 import Comment from './../Comment';
 
 function DocumentDetail(props) {

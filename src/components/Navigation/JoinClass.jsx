@@ -9,7 +9,6 @@ import refreshToken from '../../utils/checkToken';
 function JoinClass(props) {
     const [classCode, setClassCode] = useState('');
 
-    // console.log(props.history);
     const onGoBack = (e) => {
         e.preventDefault();
         props.history.push('/');

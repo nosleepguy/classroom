@@ -115,7 +115,6 @@ function Setting(props) {
                 <div className="wrapper-input">
                     <p>Ảnh đại diện:</p>
                     <UploadAvatar setLinkAvatar={setLinkAvatar} />
-                    {/* <input type="file" name="user-avatar" className="input" onChange={onHandleInput} /> */}
                 </div>
             </div>
             <button type="button" className="button-setting" onClick={onChangeInfo}>

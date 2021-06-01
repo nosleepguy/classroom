@@ -26,7 +26,6 @@ function Document(props) {
     const [documentListState, setDocumentListState] = useState([]);
     const [contentpost, setContentPost] = useState("");
     const [linkDocumentState, setLinkDocumentState] = useState([]);
-    const [showCreateNoti, setShowCreateNoti] = useState(false);
 
     //k cho reload form
     const onSubmit = (e) => {
@@ -96,9 +95,9 @@ function Document(props) {
                     />
                     <UploadFile setLink={linkDocumentUploaded} />
                     <div className="btn">
-                        <button type="button" className="btn-form">
+                        {/* <button type="button" className="btn-form">
                             Hủy
-                        </button>
+                        </button> */}
                         <button
                             type="submit"
                             className="btn-form"

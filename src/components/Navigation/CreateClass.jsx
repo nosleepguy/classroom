@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import * as action from '../../action/Action';
 
 // import PropTypes from 'prop-types'
 import './../../css/createclass.css';
 import refreshToken from '../../utils/checkToken';
+import { actCreateClassRequest } from '../../action/Action';
 
 function CreateClass(props) {
     const [className, setClassName] = useState('');
@@ -56,7 +56,7 @@ function CreateClass(props) {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onCreateClass: (classname) => {
-            dispatch(action.actCreateClassRequest(classname));
+            dispatch(actCreateClassRequest(classname));
         },
     };
 };
