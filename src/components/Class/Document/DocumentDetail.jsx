@@ -1,22 +1,65 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import {
+    actDeleteDocumentRequest,
+    actUpdateDocumentRequest,
+} from "../../../action/Action";
 
 import "./../../../css/documentDetail.css";
 import PreviewLink from "./PreviewLink";
+import refreshToken from "./../../../utils/checkToken";
+import { actCommentDocumentRequest } from './../../../action/Action';
+import Comment from './../Comment';
 
 function DocumentDetail(props) {
-    const { datadocument, userProfile, detailclass } = props;
-    // console.log(userProfile, detailclass);
+    const {
+        datadocument,
+        userProfile,
+        detailclass,
+        onDeleteDocument,
+        onEditDocument,
+        onCommentDocument
+    } = props;
+    // console.log(datadocument);
 
     const month = datadocument.createdAt.slice(5, 7);
     const day = datadocument.createdAt.slice(8, 10);
 
     const [comment, setComment] = useState("");
     const [showAction, setShowAction] = useState(false);
+    const [showFormEdit, setShowFormEdit] = useState(false);
+    const [valueFormEdit, setValueFormEdit] = useState("");
 
     const onshowAction = () => {
         setShowAction(!showAction);
     };
+    const onShowFormEdit = () => {
+        setShowFormEdit(!showFormEdit);
+        setShowAction(false);
+    };
+    const onHandleEditPost = () => {
+        refreshToken([
+            onEditDocument({
+                id: datadocument.id,
+                docname: valueFormEdit,
+            }),
+        ]);
+        setShowFormEdit(false);
+    };
+    const onHandleDocumentComment = () => {
+        refreshToken([onCommentDocument({
+            topicId: datadocument.id,
+            typeComment: 2,
+            content: comment
+        })]);
+        setComment("");
+
+    }
+
+    useEffect(() => {
+        setValueFormEdit(datadocument.docname);
+    }, [datadocument]);
+
     return (
         <div className="new-noti">
             <div className="owner-noti">
@@ -53,17 +96,15 @@ function DocumentDetail(props) {
                             }
                         >
                             <p
-                            // onClick={() =>
-                            //     refreshToken([onDeletePost(datapost.id)])
-                            // }
+                                onClick={() =>
+                                    refreshToken([
+                                        onDeleteDocument(datadocument.id),
+                                    ])
+                                }
                             >
                                 Xóa
                             </p>
-                            <p
-                            // onClick={onShowFormEdit}
-                            >
-                                Chỉnh sửa
-                            </p>
+                            <p onClick={onShowFormEdit}>Chỉnh sửa</p>
                         </div>
                     </div>
                 </div>
@@ -74,71 +115,77 @@ function DocumentDetail(props) {
             </div>
 
             {/* form edit bài đăng */}
-            {/* <div
+            <div
                 className="form-edit"
-                // style={showFormEdit ? { display: "flex" } : { display: "none" }}
+                style={showFormEdit ? { display: "flex" } : { display: "none" }}
             >
                 <div className="write-noti">
                     <form>
-                        <div className="inputedit"></div>
+                        <div className="inputedit">
+                            <input
+                                type="text"
+                                value={valueFormEdit}
+                                onChange={(e) =>
+                                    setValueFormEdit(e.target.value)
+                                }
+                            />
+                        </div>
                         <div className="btn">
-                            <button type="button" 
-                            // onClick={onShowFormEdit}
-                            >
+                            <button type="button" onClick={onShowFormEdit}>
                                 Hủy
                             </button>
                             <button
                                 type="button"
-                                // onClick={onHandleEditPost}
-                                // style={
-                                //     valueFormEdit
-                                //         ? {
-                                //               background: "#2C7EEA",
-                                //               color: "white",
-                                //           }
-                                //         : {}
-                                // }
+                                onClick={onHandleEditPost}
+                                style={
+                                    valueFormEdit
+                                        ? {
+                                              background: "#2C7EEA",
+                                              color: "white",
+                                          }
+                                        : {}
+                                }
                             >
                                 Cập nhật
                             </button>
                         </div>
                     </form>
                 </div>
-            </div> */}
+            </div>
 
             <div className="comment">
                 <div className="count-comment">
                     <span className="fas fa-user-friends"></span>&ensp;{" "}
-                    {/* {datapost?.comments?.length} */}
-                    nhận xét về tài liệu
+                    {datadocument?.comments?.length} nhận xét về tài liệu
                 </div>
-                {/* {datapost.comments?.map((comment) => {
+                {datadocument.comments?.map((comment) => {
+
                     return <Comment key={comment.id} comment={comment} />;
-                })} */}
+                })}
             </div>
             <div className="write-comment">
                 <div
                     className="avatar"
-                    // style={
-                    //     userProfile.avatar
-                    //         ? {
-                    //               background: `url(${userProfile.avatar})`,
-                    //               backgroundSize: "cover",
-                    //               backgroundPosition: "center",
-                    //           }
-                    //         : {}
-                    // }
+                    style={
+                        userProfile.avatar
+                            ? {
+                                  background: `url(${userProfile.avatar})`,
+                                  backgroundSize: "cover",
+                                  backgroundPosition: "center",
+                              }
+                            : {}
+                    }
                 ></div>
                 <div className="type-comment">
                     <input
                         type="text"
                         className="input-comment"
-                        // value={comment}
-                        // onChange={(e) => setComment(e.target.value)}
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
                     />
                     <i
                         className="far fa-paper-plane send-comment"
-                        // onClick={onHandlePostComment}
+                        onClick={onHandleDocumentComment}
                     ></i>
                 </div>
             </div>
@@ -154,4 +201,18 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, null)(DocumentDetail);
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onDeleteDocument: (iddocument) => {
+            dispatch(actDeleteDocumentRequest(iddocument));
+        },
+        onEditDocument: (data) => {
+            dispatch(actUpdateDocumentRequest(data));
+        },
+        onCommentDocument: (comment) => {
+            dispatch(actCommentDocumentRequest(comment))
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DocumentDetail);
