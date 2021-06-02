@@ -26,7 +26,9 @@ const refreshToken = (cb) => {
                 refreshToken: REFRESH_AUTH_TOKEN,
             })
             .then((response) => {
-                // console.log(response);
+                if(response.data.errorCode === 403){
+                    localStorage.clear();
+                }
                 localStorage.setItem('tk', response.data.data.token);
                 localStorage.setItem('rtk', response.data.data.refreshToken);
                 cb.map((item) => item && item());
