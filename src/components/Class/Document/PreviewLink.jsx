@@ -36,7 +36,7 @@ function PreviewLink(props) {
                         srcimg = Pdf;
                         break;
                     }
-                    case ".pttx": {
+                    case ".pptx": {
                         srcimg = Powerpoint;
                         break;
                     }

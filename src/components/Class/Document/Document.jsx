@@ -34,7 +34,7 @@ function Document(props) {
 
     // set link vào state
     const linkDocumentUploaded = (arrLink) => {
-        const newarrLink = JSON.parse(JSON.stringify(linkDocumentState));
+        const newarrLink = []
 
         arrLink?.map((file) => {
             newarrLink.push(file.response.data.url[0]);
