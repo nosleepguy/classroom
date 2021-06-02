@@ -33,7 +33,7 @@ const refreshToken = (cb) => {
                 localStorage.setItem('rtk', response.data.data.refreshToken);
                 cb.map((item) => item && item());
             })
-            .catch((error) => console.log(error.response));
+            .catch((error) =>  localStorage.clear());
     } else {
         cb.map((item) => item && item());
     }
