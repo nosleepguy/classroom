@@ -24,3 +24,11 @@
 .document-header{
     border-bottom: 1px solid var(--color-border);
 }
+.input-edit-document{
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(241, 241, 241);
+    border-radius:10px;
+    width:100%;
+}

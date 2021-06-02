@@ -55,7 +55,9 @@ function DocumentDetail(props) {
         setComment("");
 
     }
-
+    const onhandleSubmit = (event) => {
+        event.preventDefault();
+    }
     useEffect(() => {
         setValueFormEdit(datadocument.docname);
     }, [datadocument]);
@@ -120,9 +122,10 @@ function DocumentDetail(props) {
                 style={showFormEdit ? { display: "flex" } : { display: "none" }}
             >
                 <div className="write-noti">
-                    <form>
+                    <form onSubmit={onhandleSubmit}>
                         <div className="inputedit">
                             <input
+                            className="input-edit-document"
                                 type="text"
                                 value={valueFormEdit}
                                 onChange={(e) =>
