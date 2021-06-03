@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {
-    actDeletePostRequest,
-    actEditPostRequest,
-    actCommentPostRequest,
-    actDeleteCommentRequest,
-} from "../../../action/Action";
-
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-// import PropTypes from "prop-types";
 import "./../../../css/postdetail.css";
 import refreshToken from "../../../utils/checkToken";
 import Comment from "../Comment";
+import {
+    actCommentPostRequest,
+    actDeletePostRequest,
+    actEditPostRequest,
+} from "../../../action/Post";
+import { actDeleteCommentRequest } from "../../../action/DeleteComment";
 function PostDetail(props) {
     const { datapost, onDeletePost, onEditPost, onCommentPost, userProfile } =
         props;

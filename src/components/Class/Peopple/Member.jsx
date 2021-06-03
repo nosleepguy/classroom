@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { actDeleteUserInClassRequest } from "../../../action/Class";
 import refreshToken from "../../../utils/checkToken";
-// import PropTypes from "prop-types";
-import { actDeleteUserInClassRequest } from "../../../action/Action";
 
 function Member(props) {
     const { member, detailClass, userProfile, deleteMember } = props;

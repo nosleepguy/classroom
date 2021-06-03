@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import './../../css/setting.css';
-import { actUpdateProfileRequest } from '../../action/Action';
 import refreshToken from '../../utils/checkToken';
 import UploadAvatar from './UploadAvatar';
+import { actUpdateProfileRequest } from '../../action/Profile';
 
 function Setting(props) {
     const { userProfile, onUpdateUserProfile } = props;

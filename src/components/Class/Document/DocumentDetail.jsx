@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {
-    actDeleteDocumentRequest,
-    actUpdateDocumentRequest,
-    actCommentDocumentRequest
-} from "../../../action/Action";
-
 import "./../../../css/documentDetail.css";
 import PreviewLink from "./PreviewLink";
 import refreshToken from "./../../../utils/checkToken";
 import Comment from './../Comment';
+import { actCommentDocumentRequest, actDeleteDocumentRequest } from "../../../action/Document";
 
 function DocumentDetail(props) {
     const {

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { actGetPostRequest } from "../../../action/Action";
-// import PropTypes from "prop-types";
 import swal from "sweetalert";
 
 import "./../../../css/detailclass.css";
@@ -10,6 +8,7 @@ import PostDetail from "./PostDetail";
 
 import refreshToken from "../../../utils/checkToken";
 import None from "../../None/None";
+import { actGetPostRequest } from "../../../action/Post";
 
 function DetailClass(props) {
     const idclass = props.match.params.id;

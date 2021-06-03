@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./../../css/dashboard.css";
-import { actLeaveClassRequest, detailClass } from "./../../action/Action";
 import refreshToken from "./../../utils/checkToken";
+import { actLeaveClassRequest, detailClass } from "../../action/Class";
 function ClassJoined(props) {
     const { item, onLeaveClass, sendDetailClass } = props;
     // console.log(item);

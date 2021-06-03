@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {
-    actCreateDocumentRequest,
-    actGetDocumentRequest,
-} from "../../../action/Action";
 import "./../../../css/document.css";
 
 import UploadFile from "../UploadFile";
@@ -12,6 +8,7 @@ import refreshToken from "../../../utils/checkToken";
 import None from "../../None/None";
 
 import swal from "sweetalert";
+import { actCreateDocumentRequest, actGetDocumentRequest } from "../../../action/Document";
 function Document(props) {
     const idclass = props.match.params.id;
     const {

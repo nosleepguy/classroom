@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { actVerifyPassWordRequest } from '../../action/Action';
 import { Link } from 'react-router-dom';
+import { actVerifyPassWordRequest } from '../../action/Auth';
 
 // import PropTypes from 'prop-types'
 import './../../css/verifyAccount.css';

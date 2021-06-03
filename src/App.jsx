@@ -3,18 +3,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import { createBrowserHistory } from "history";
 
-// import * as actions from './action/Action';
 import PublicRouter from "./router/PublicRouter";
 import PrivateRouter from "./router/PrivateRouter";
 import Nav from "./components/Navigation/Nav";
 
 import refreshToken from "./utils/checkToken";
 import "./App.css";
-import {
-    actgetListClassRequest,
-    actgetOwnClassRequest,
-    actGetProfileRequest,
-} from "./action/Action";
+import { actgetListClassRequest, actgetOwnClassRequest } from "./action/Class";
+import { actGetProfileRequest } from "./action/Profile";
 
 const history = createBrowserHistory();
 

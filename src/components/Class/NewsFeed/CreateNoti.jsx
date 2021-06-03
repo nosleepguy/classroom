@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./../../../css/createnoti.css";
-import { actUpPostRequest } from "../../../action/Action";
 import refreshToken from "../../../utils/checkToken";
 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { actUpPostRequest } from "../../../action/Post";
 
 function CreateNoti(props) {
     const { showCreateNoti, onShowCreateNotiEvent, actUpPost, idclass } = props;

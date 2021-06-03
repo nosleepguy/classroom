@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import "./../../css/nav.css";
 import logoutIcon from "./../../assets/icons/logout.svg";
-import { logout, detailClass } from "../../action/Action";
+import { logout } from "../../action/Auth";
+import { detailClass } from "../../action/Class";
 
 function Nav(props) {
     const {

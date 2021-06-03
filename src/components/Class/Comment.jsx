@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-// import PropTypes from "prop-types";
+import { actDeleteCommentRequest } from "../../action/DeleteComment";
 import refreshToken from "./../../utils/checkToken";
-import { actDeleteCommentRequest } from "../../action/Action";
 function Comment(props) {
     const { userProfile, onDeleteComment, comment } = props;
 
@@ -63,9 +62,7 @@ function Comment(props) {
     );
 }
 
-// Comment.propTypes = {};
 
-// postDetail.propTypes = {};
 const mapStateToProps = (state) => {
     return {
         userProfile: state.userProfile,

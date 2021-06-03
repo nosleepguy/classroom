@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Prompt } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types'
 import './../../css/joinclass.css';
-import { actJoinClassRequest } from '../../action/Action';
 import refreshToken from '../../utils/checkToken';
+import { actJoinClassRequest } from '../../action/Class';
 
 function JoinClass(props) {
     const [classCode, setClassCode] = useState('');

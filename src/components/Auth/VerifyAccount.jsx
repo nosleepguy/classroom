@@ -2,9 +2,9 @@ import React from 'react';
 // import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { actVerifyEmailRequest } from '../../action/Action';
 
 import './../../css/verifyAccount.css';
+import { actVerifyEmailRequest } from '../../action/Auth';
 
 function VerifyAccount(props) {
     const token = props.location.search.slice(7);

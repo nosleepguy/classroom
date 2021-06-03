@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import PropTypes from "prop-types";
 import { connect } from 'react-redux';
-import { actResetPassWordRequest } from '../../action/Action';
 import './../../css/verifyAccount.css';
+import { actResetPassWordRequest } from '../../action/Auth';
 
 function ResetPassword(props) {
     const [email, setEmail] = useState('');

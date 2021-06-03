@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./../../css/dashboard.css";
+import refreshToken from "./../../utils/checkToken";
+
+import "./../../css/classOwn.css";
 import {
     actDeleteClassRequest,
     actUpdateClassNameRequest,
     detailClass,
-} from "./../../action/Action";
-
-import refreshToken from "./../../utils/checkToken";
-
-import "./../../css/classOwn.css";
+} from "../../action/Class";
 function ClassOwn(props) {
     const { item, onDeleteClass, onUpdateClass, sendDetailClass, userProfile } =
         props;

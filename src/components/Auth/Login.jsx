@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import * as action from "../../action/Action";
-// import PropTypes from "prop-types";
 import "./../../css/login.css";
 import Loading from "../Loading/Loading";
+import { actLoginRequest, actRegisterRequest } from "../../action/Auth";
 
 function Login(props) {
     const { onRegister, onLogin, dataResponse } = props;
@@ -236,10 +235,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         onRegister: (dataregister) => {
-            dispatch(action.actRegisterRequest(dataregister));
+            dispatch(actRegisterRequest(dataregister));
         },
         onLogin: (datalogin) => {
-            dispatch(action.actLoginRequest(datalogin));
+            dispatch(actLoginRequest(datalogin));
         },
     };
 };
